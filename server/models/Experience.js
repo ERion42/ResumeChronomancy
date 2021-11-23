@@ -17,7 +17,7 @@ const experienceSchema = new Schema({
     end_date: {
         type: Date,
         required: false,
-        max: Data.now
+        max: Date.now
     },
     location: {
         type: String,
