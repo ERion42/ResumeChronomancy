@@ -17,7 +17,7 @@ const educationSchema = new Schema({
 		type: String,
 		required: true,
 		trim: true,
-	}
+	},
 
 	gpa: {
 		type: Number,
