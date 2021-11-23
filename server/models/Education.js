@@ -39,3 +39,7 @@ const educationSchema = new Schema({
 		}
 	]
 })
+
+const Education = model('Education', educationSchema);
+
+module.exports = Education;
