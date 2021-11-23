@@ -16,6 +16,9 @@
     "mongoose": "^5.9.9",
     "graphql": "^15.5.1"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
