@@ -6,7 +6,7 @@
 		"gpa": 3.2,
 		"graduationDate": "2010-6-2",
 		"certifications": [
-			"PMI Agile Certified Practitioner",
+			"PMI Agile Certified Practitioner"
 		]
 	},
 
@@ -47,5 +47,5 @@
 			"",
 			""
 		]
-	},
+	}
 ]
