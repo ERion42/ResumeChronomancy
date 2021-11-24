@@ -49,6 +49,26 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addSkill: async (parent, {profileId, skill}) => {
+            return Profile.findOneAndUpdate(
+                {_id: profileId},
+                {
+                    $addToSet: {skills: skill},
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            );
+        },
+        removeSkill: async (parent, {profileId, skill}) => {
+            return Profile.findOneAndUpdate(
+                {_id: profileId},
+                {$pull: {skills: skill}},
+                {new: true}
+            )
         }
     }
 };
