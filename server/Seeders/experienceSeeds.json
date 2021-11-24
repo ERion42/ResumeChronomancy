@@ -1,0 +1,73 @@
+[
+	{
+		"organization": "Random Software Company Inc",
+		"position": "Jr. Developer",
+		"start_date": "",
+		"end_date": "",
+		"location": "Atlanta, Ga.",
+		"description": ""
+	},
+
+	{
+		"organization": "Web Solutions Limited",
+		"position": "Mid Level Developer",
+		"start_date": "",
+		"end_date": "",
+		"location": "NY City",
+		"description": ""
+	},
+
+	{
+		"organization": "Compucorp MSP",
+		"position": "Help-desk support",
+		"start_date": "",
+		"end_date": "",
+		"location": "Houston Texas",
+		"description": "Assisted clients over the phone with various IT problems."
+	},
+
+	{
+		"organization": "Global IT Management Services INC.",
+		"position": "Field Technician",
+		"start_date": "",
+		"end_date": "",
+		"location": "Portland, Or.",
+		"description": "On site IT support for corporate clients"
+	},
+
+	{
+		"organization": "Father Johnny's Pizza",
+		"position": "Delivery Driver",
+		"start_date": "",
+		"end_date": "",
+		"location": "Athens, Ga.",
+		"description": "Pizza Deliver, Making Pizza, Don't Crash"
+	},
+
+	{
+		"organization": "GloboBank",
+		"position": "Bank Person",
+		"start_date": "",
+		"end_date": "",
+		"location": "Oregon",
+		"description": "Doing bank stuff"
+	},
+
+	{
+		"organization": "National Biology Lab",
+		"position": "Lab technician",
+		"start_date": "",
+		"end_date": "",
+		"location": "Charlotte, North Carolina",
+		"description": "Testing biological samples"
+	},
+
+	{
+		"organization": "Souther Health Center",
+		"position": "Lab Manager",
+		"start_date": "",
+		"end_date": "",
+		"location": "Any City, USA",
+		"description": "Telling other people what to do"
+	}
+]
