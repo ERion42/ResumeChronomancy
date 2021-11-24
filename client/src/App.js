@@ -13,7 +13,8 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Front End
 import NavBar from './components/navBar/index';
-import siteContainer from "./components/container";
+import Page from './components/page/index';
+import LandingPage from "./pages/landingPage/index";
 
 // Required for GraphQL
 const httpLink = createHttpLink({
@@ -42,15 +43,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <NavBar />
-          <Switch>
-            <Route>
+        <NavBar />
+        {/* Sidebar doesn't work */}
+        {/* <SideBar /> */}
+        
+        {/* Page needs formatting */}
+        {/* <Page /> */}
 
-            </Route>
-          </Switch>
+        {/* Landing Page */}
+        <LandingPage />
 
-        </>
       </Router>
     </ApolloProvider>
   );
