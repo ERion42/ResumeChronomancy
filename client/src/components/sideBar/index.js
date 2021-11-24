@@ -1,8 +1,9 @@
+// Bootstrap sidebars do not play nice with react... sidelining this for right now
 import React from 'react';
 
 function SideBar() {
     return (
-        <p></p>
+        <h1>not working</h1>
     );
 }
 
