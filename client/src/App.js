@@ -10,8 +10,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Front End
+import NavBar from './components/navBar/index';
 import siteContainer from "./components/container";
 
 // Required for GraphQL
@@ -40,12 +41,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <header className="App-header">
-          <h1>Resume Chronomancer</h1>
-          <p>Coming Soon</p>
-        </header>
-      </div>
+      <Router>
+        <>
+          <NavBar />
+          <Switch>
+            <Route>
+
+            </Route>
+          </Switch>
+
+        </>
+      </Router>
     </ApolloProvider>
   );
 }
