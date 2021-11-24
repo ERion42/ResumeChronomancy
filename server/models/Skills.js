@@ -4,18 +4,22 @@ const skillsSchema = new Schema({
     technical_skills: {
         type: String,
         required: true,
+        trim: true
     },
-    language: {
+    languages: {
         type: String,
-        required: true,
+        required: false,
+        trim: true
     },
     soft_skills: {
         type: String,
         required: false,
+        trim: true
     },
     interests: {
         type: Date,
         required: false,
+        trim: true
     },
 });
 

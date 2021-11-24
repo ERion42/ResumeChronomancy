@@ -1,9 +1,9 @@
 const db = require('../config/connection');
 const { Education, Experience, Profile, Skills} = require('../models');
-const educationSeeds = require('../educationSeeds.js');
-const experienceSeeds = require('../experienceSeeds.js');
-const profileSeeds = require('../profileSeeds.js');
-const skillSeeds = require('../skillSeeds.js');
+const educationSeeds = require('../educationSeeds.json');
+const experienceSeeds = require('../experienceSeeds.json');
+const profileSeeds = require('../profileSeeds.json');
+const skillSeeds = require('../skillSeeds.json');
 
 db.once('open', async () => {
 	try {
