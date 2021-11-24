@@ -1,5 +1,8 @@
+// Required for React
 import React from 'react';
+// Styling if necessary
 import './App.css';
+// Back End
 import {
   ApolloClient, 
   InMemoryCache,
@@ -8,11 +11,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// Front End
+import siteContainer from "./components/container";
 
+// Required for GraphQL
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
 
+// Not sure what this is
 const authLink = setContext ((_, { headers }) => {
   const token = localStorage.getItem('id-token');
   return {
@@ -23,28 +30,20 @@ const authLink = setContext ((_, { headers }) => {
   };
 });
 
+// Initialize Apollo?
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
-
+// Taking this out for a moment- Apollo might need to be re-added
 function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
         <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Resume Chronomancer</h1>
+          <p>Coming Soon</p>
         </header>
       </div>
     </ApolloProvider>
