@@ -37,19 +37,17 @@ const client = new ApolloClient({
 });
 
 // Taking this out for a moment- Apollo might need to be re-added
-// function App() {
-//   return (
-//     <ApolloProvider client={client}>
-//       <div className="App">
-//         <header className="App-header">
-//           <h1>Resume Chronomancer</h1>
-//           <p>Coming Soon</p>
-//         </header>
-//       </div>
-//     </ApolloProvider>
-//   );
-// }
-
-const App = () => <siteContainer />;
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <div className="App">
+        <header className="App-header">
+          <h1>Resume Chronomancer</h1>
+          <p>Coming Soon</p>
+        </header>
+      </div>
+    </ApolloProvider>
+  );
+}
 
 export default App;
