@@ -31,7 +31,7 @@ profileSchema.pre('save', async function (next) {
 });
 
 profileSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
 const Profile = model('Profile', profileSchema);
