@@ -1,29 +1,59 @@
 [
 	{
-		"technical_skills": "Java, Python, JavaScript, Algorithms",
-		"languages": "English, Mandarin Chinese,",
-		"soft_skills": "Communication, Problem-solving, Time-management, Teamwork",
-		"interests": "Gaming, Mountain Biking"
+		"technical_skills": [
+			"Java", "Python", "JavaScript", "Algorithms"
+		],
+		"languages": [
+			"English", "Mandarin Chinese,"
+		],
+		"soft_skills": [
+			"Communication", "Problem-solving", "Time-management", "Teamwork"
+		],
+		"interests": [
+			"Gaming", "Mountain Biking"
+		],
+		"owner": ""
 	},
 
 	{
-		"technical_skills": "Networking, Cloud Services, SQL, Information Security best practices",
-		"languages": "English, Hindi",
-		"soft_skills": "Excellent interpersonal communication, excellent technical communication, Able to effectively educate users without using jargon",
-		"interests": "Hiking, Fishing, Boating"
+		"technical_skills": [
+			"Networking", "Cloud Services", "SQL", "Information Security best practices"
+		],
+		"languages": [
+			"English, Hindi"
+		],
+		"soft_skills": [
+			"Excellent interpersonal communication", "Excellent technical communication", "Able to effectively educate users without using jargon"
+		],
+		"interests": ["Hiking", "Fishing", "Boating"
+		],
+		"owner": ""
 	},
 
 	{
-		"technical_skills": "R, Statistical Analysis, MatLab, FMRI, Data Transcription, APA formatting",
-		"languages": "English, Spanish",
-		"soft_skills": "Problem-solving, Critical-Thinking, Technical Writing",
-		"interests": "Sleeping, Eating, Science"
+		"technical_skills": [
+			"R, Statistical Analysis, MatLab, FMRI, Data Transcription, APA formatting"
+		],
+		"languages": [
+			"English", "Spanish"
+		],
+		"soft_skills": ["Problem-solving", "Critical-Thinking", "Technical Writing"
+		],
+		"interests": [
+			"Sleeping", "Eating", "Science"
+		],
+		"owner": ""
 	},
 
 	{
-		"technical_skills": "Safe practices while working with biological samples, Cell/Tissue culture, Pipetting, Chemical Analysis, Mass Spectrometry, Experimental Design and Analysis",
-		"languages": "",
-		"soft_skills": "Problem Solving, Analysis, Technical Communication, Multitasking",
-		"interests": "Foodie, Exotic Beer, Nature"
+		"technical_skills": [
+			"Safe practices while working with biological samples", "Cell/Tissue culture", "Pipetting", "Chemical Analysis", "Mass Spectrometry", "Experimental Design and Analysis"
+		],
+		"languages": [""],
+		"soft_skills": [
+			"Problem Solving", "Analysis", "Technical Communication", "Multitasking"
+		],
+		"interests": ["Foodie", "Exotic Beer", "Nature"],
+		"owner": ""
 	}
 ]

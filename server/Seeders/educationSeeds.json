@@ -7,7 +7,8 @@
 		"graduationDate": "2010-6-2",
 		"certifications": [
 			"PMI Agile Certified Practitioner"
-		]
+		],
+		"owner": ""
 	},
 
 	{
@@ -20,7 +21,8 @@
 			"CompTIA A+",
 			"ComTIA Net+",
 			"CompTIA Sec+"
-		]
+		],
+		"owner": ""
 	},
 
 	{
@@ -33,7 +35,8 @@
 			"",
 			"",
 			""
-		]
+		],
+		"owner": ""
 	},
 
 	{
@@ -46,6 +49,7 @@
 			"Bacteriology. Issues of Safe Work with PBA III-IV pathogenicity groups",
 			"Certified Sterilization Technician",
 			"Level 4 HNC Certificate in Applied Sciences (Biology)"
-		]
+		],
+		"owner": ""
 	}
 ]

@@ -5,7 +5,8 @@
 		"start_date": "2010-8-5",
 		"end_date": "2013-9-15",
 		"location": "Atlanta, Ga.",
-		"description": ""
+		"description": "",
+		"owner": ""
 	},
 
 	{
@@ -14,7 +15,8 @@
 		"start_date": "2013-10-12",
 		"end_date": "2020-3-20",
 		"location": "NY City",
-		"description": ""
+		"description": "",
+		"owner": ""
 	},
 
 	{
@@ -23,7 +25,8 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Houston Texas",
-		"description": "Assisted clients over the phone with various IT problems."
+		"description": "Assisted clients over the phone with various IT problems.",
+		"owner": ""
 	},
 
 	{
@@ -32,7 +35,8 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Portland, Or.",
-		"description": "On site IT support for corporate clients"
+		"description": "On site IT support for corporate clients",
+		"owner": ""
 	},
 
 	{
@@ -41,7 +45,8 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Athens, Ga.",
-		"description": "Pizza Deliver, Making Pizza, Don't Crash"
+		"description": "Pizza Deliver, Making Pizza, Don't Crash",
+		"owner": ""
 	},
 
 	{
@@ -50,7 +55,8 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Oregon",
-		"description": "Doing bank stuff"
+		"description": "Doing bank stuff",
+		"owner": ""
 	},
 
 	{
@@ -59,7 +65,8 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Charlotte, North Carolina",
-		"description": "Testing biological samples"
+		"description": "Testing biological samples",
+		"owner": ""
 	},
 
 	{
@@ -68,6 +75,7 @@
 		"start_date": "",
 		"end_date": "",
 		"location": "Any City, USA",
-		"description": "Telling other people what to do"
+		"description": "Telling other people what to do",
+		"owner": ""
 	}
 ]

@@ -1,0 +1,33 @@
+[
+	{
+		"firstName": "Rob",
+		"lastName": "Baratheon",
+		"phoneNumber": "245-548-9945",
+		"email": "bobbyb494@yahoo.com",
+		"owner": ""
+	},
+
+	{
+		"firstName": "Danny",
+		"lastName": "Targaryen",
+		"phoneNumber": "225-684-6822",
+		"email": "khaleesiD@google.com",
+		"owner": ""
+	},
+
+	{
+		"firstName": "Brandon",
+		"lastName": "Stark",
+		"phoneNumber": "",
+		"email": "broken1@aol.com",
+		"owner": ""
+	},
+
+	{
+		"firstName": "Ramsey",
+		"lastName": "Bolton",
+		"phoneNumber": "6666666666",
+		"email": "bastardson@hotmail.com",
+		"owner": ""
+	}
+]

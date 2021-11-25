@@ -12,7 +12,7 @@ db.once('open', async () => {
 		await Experience.deleteMany({});
 		await Profile.deleteMany({});
 		await Skills.deleteMany({});
-		await userInfo.deleteMany({});
+		await UserInfo.deleteMany({});
 
 		await Education.create(educationSeeds);
 		await Experience.create(experienceSeeds);
