@@ -20,7 +20,7 @@ function Login() {
         } else {
             setShowAlert(false);
         }
-    }, []);
+    }, [error]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
