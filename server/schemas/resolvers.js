@@ -33,7 +33,7 @@ const resolvers = {
                 throw new AuthenticationError('No profile with this username found');
             }
 
-            const correctPassword = await Profile.isCorrectPassword(password);
+            const correctPassword = await profile.isCorrectPassword(password);
 
             if (!correctPassword) {
                 throw new AuthenticationError('Incorrect Password');
