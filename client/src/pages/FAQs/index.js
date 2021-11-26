@@ -36,7 +36,10 @@ function FAQs() {
         }))
     }
     return (
-        <div class="container">
+        <div style= {{
+            position: 'absolute', top: '25%',  
+        }}
+            class="container">
             <h1 class="title">Frequently Asked Questions:</h1>
             <div class='faqs'>
                 {faqs.map((faq, i)=> (
