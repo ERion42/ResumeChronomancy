@@ -18,6 +18,7 @@ import LandingPage from "./pages/landingPage/index";
 import LoginPage from "./pages/login/index";
 import SignUp from './pages/signUp/index';
 import About from './pages/about/index';
+import FAQ from './pages/FAQs/index';
 
 // Required for GraphQL
 const httpLink = createHttpLink({
@@ -54,7 +55,7 @@ function App() {
         "contain" the other components */}
         {/* <Page /> */}
 
-        {/* Landing Page */}
+        {/* Landing Page - Primary Page*/}
         <LandingPage />
 
         {/* Login Page */}
@@ -65,6 +66,9 @@ function App() {
 
         {/* About Page */}
         {/* <About /> */}
+
+        {/* Frequently Asked Questions Page */}
+        {/* <FAQ /> */}
 
       </Router>
     </ApolloProvider>
