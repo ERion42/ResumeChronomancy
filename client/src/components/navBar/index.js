@@ -16,16 +16,24 @@ function NavBar({ currentPage, handlePageChange }) {
                         <a 
                         href="#home" 
                         onClick={() => handlePageChange('Home')}
-                        className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>Home</a></li>
+                        className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>Home
+                        </a>
+                    </li>
                     <li><a href="#dashboard" className="nav-link px-2 text-white">Dashboard</a></li>
                     <li>
                         <a 
                         href="#faqs" 
-                        className={currentPage === 'FAQs' ? 'nav-link active' : 'nav-link'}>FAQS</a></li>
+                        onClick={() => handlePageChange('FAQ')}
+                        className={currentPage === 'FAQ' ? 'nav-link active' : 'nav-link'}>FAQs
+                        </a>
+                    </li>
                     <li>
                         <a 
                         href="#about" 
-                        className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}>About</a></li>
+                        onClick={() => handlePageChange('About')}
+                        className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}>About
+                        </a>
+                    </li>
                 </ul>
 
                 <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

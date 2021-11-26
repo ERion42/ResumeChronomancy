@@ -38,12 +38,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// Taking this out for a moment- Apollo might need to be re-added
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <NavBar /> */}
         <SiteContainer />
       </Router>
     </ApolloProvider>

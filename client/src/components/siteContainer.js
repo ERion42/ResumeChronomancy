@@ -13,9 +13,6 @@ export default function SiteContainer() {
 
     // Check to see the value of 'currentPage', then returns component to render
     const renderPage = () => {
-        if (currentPage === 'LandingPage') {
-            return <LandingPage />;
-        }
         if (currentPage === 'Login') {
             return <Login />;
         }
@@ -28,6 +25,7 @@ export default function SiteContainer() {
         if (currentPage === 'FAQ') {
             return <FAQ />;
         }
+        return <LandingPage />;
     };
 
     const handlePageChange = (page) => setCurrentPage(page);
@@ -35,7 +33,9 @@ export default function SiteContainer() {
     return (
         <main>
             <NavBar currentPage={currentPage} handlePageChange={handlePageChange} />
-            {renderPage()}
+            <div className="container">
+                {renderPage()}
+            </div>
         </main>
     )
 
