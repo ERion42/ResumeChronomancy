@@ -40,10 +40,29 @@ function NavBar({ currentPage, handlePageChange }) {
                 
                 </form>
 
+                {/* This button is to be hidden if the user is signed in */}
                 <div className="text-end">
-                <button type="button" className="btn btn-outline-light me-2">Login</button>
-                <button type="button" className="btn btn-warning">Sign-up</button>
+                <button type="button" 
+                    onClick={() => handlePageChange('Login')} 
+                    className="btn btn-primary me-2">
+                        Login
+                </button>
+
+                {/* This button is to be hidden if the user is signed in */}
+                <button type="button" 
+                    onClick={() => handlePageChange('SignUpForm')}
+                    className="btn btn-warning me-2">
+                        Sign-up
+                    </button>
                 </div>
+
+                {/* This button is to be hidden if the user is not signed in */}
+                <button type="button"
+                    onClick={() => handlePageChange('')}
+                    className="btn btn-success me-2">
+                        Logout
+                    </button>
+
             </div>
             </div>
         </header>        
