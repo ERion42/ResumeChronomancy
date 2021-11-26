@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
+import LoginPage from "./pages/login/index";
 
 // Required for GraphQL
 const httpLink = createHttpLink({
@@ -52,6 +53,10 @@ function App() {
 
         {/* Landing Page */}
         <LandingPage />
+
+        {/* Login Page */}
+        {/* <LoginPage /> */}
+
 
       </Router>
     </ApolloProvider>
