@@ -16,7 +16,8 @@ import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
 import LoginPage from "./pages/login/index";
-import SignUp from './pages/signUp';
+import SignUp from './pages/signUp/index';
+import About from './pages/about/index';
 
 // Required for GraphQL
 const httpLink = createHttpLink({
@@ -49,7 +50,8 @@ function App() {
         {/* Sidebar doesn't work */}
         {/* <SideBar /> */}
         
-        {/* Page needs formatting */}
+        {/* Page needs formatting - not used at the moment, though we might want to use it to
+        "contain" the other components */}
         {/* <Page /> */}
 
         {/* Landing Page */}
@@ -60,6 +62,9 @@ function App() {
 
         {/* Sign Up Page */}
         {/* <SignUp /> */}
+
+        {/* About Page */}
+        {/* <About /> */}
 
       </Router>
     </ApolloProvider>
