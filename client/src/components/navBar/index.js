@@ -2,31 +2,67 @@ import React from 'react';
 import Logo from '../img/logo.png'
 
 
-function NavBar() {
+function NavBar({ currentPage, handlePageChange }) {
     return (
         <header className="p-3 bg-dark text-white">
             <div className="container">
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                {/* Logo needs sizing work, too big right now */}
                 <img src= {Logo} alt="logo"></img>
                 </a>
 
                 <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" className="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">Dashboard</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">FAQS</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">About</a></li>
+                    <li>
+                        <a 
+                        href="#home" 
+                        onClick={() => handlePageChange('Home')}
+                        className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>Home
+                        </a>
+                    </li>
+                    <li><a href="#dashboard" className="nav-link px-2 text-white">Dashboard</a></li>
+                    <li>
+                        <a 
+                        href="#faqs" 
+                        onClick={() => handlePageChange('FAQ')}
+                        className={currentPage === 'FAQ' ? 'nav-link active' : 'nav-link'}>FAQs
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                        href="#about" 
+                        onClick={() => handlePageChange('About')}
+                        className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}>About
+                        </a>
+                    </li>
                 </ul>
 
                 <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 
                 </form>
 
+                {/* This button is to be hidden if the user is signed in */}
                 <div className="text-end">
-                <button type="button" className="btn btn-outline-light me-2">Login</button>
-                <button type="button" className="btn btn-warning">Sign-up</button>
+                <button type="button" 
+                    onClick={() => handlePageChange('Login')} 
+                    className="btn btn-primary me-2">
+                        Login
+                </button>
+
+                {/* This button is to be hidden if the user is signed in */}
+                <button type="button" 
+                    onClick={() => handlePageChange('SignUpForm')}
+                    className="btn btn-warning me-2">
+                        Sign-up
+                    </button>
                 </div>
+
+                {/* This button is to be hidden if the user is not signed in */}
+                <button type="button"
+                    onClick={() => handlePageChange('')}
+                    className="btn btn-success me-2">
+                        Logout
+                    </button>
+
             </div>
             </div>
         </header>        

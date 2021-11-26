@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ERion42/ResumeChronomancy#readme",
   "dependencies": {
     "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
     "react-bootstrap": "^2.0.2"
   }
 }
