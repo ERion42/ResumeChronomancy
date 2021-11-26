@@ -23,3 +23,18 @@ export const LOGIN_USER = gql`
         }
     }
 `;
+
+export const ADD_EDUCATION = gql`
+    mutation addEducation($profileId: String!) {
+        addEducation(profileId: $profileId) {
+            token
+            educations {
+                school
+                degree
+                major
+                graduationDate
+                certifications
+            }
+        }
+    }
+`;
