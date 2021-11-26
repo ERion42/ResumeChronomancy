@@ -16,6 +16,7 @@ import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
 import LoginPage from "./pages/login/index";
+import SignUp from './pages/signUp';
 
 // Required for GraphQL
 const httpLink = createHttpLink({
@@ -57,6 +58,8 @@ function App() {
         {/* Login Page */}
         {/* <LoginPage /> */}
 
+        {/* Sign Up Page */}
+        {/* <SignUp /> */}
 
       </Router>
     </ApolloProvider>
