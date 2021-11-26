@@ -53,7 +53,9 @@ function Login() {
     };
 
     return (
-        <>
+        <div class="container" style= {{
+            position: 'absolute', top: '30%', 
+        }}>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                     Something went wrong with your login credentials!
@@ -70,7 +72,7 @@ function Login() {
                 </Form.Group>
                 <Button disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>Submit</Button>
             </Form>
-        </>
+        </div>
     );
 }
 
