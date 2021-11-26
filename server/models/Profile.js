@@ -19,6 +19,9 @@ const profileSchema = new Schema({
     required: true,
     minlength: 8,
   },
+  skills: [Skills.schema],
+  experiences: [Experience.schema],
+  educations: [Education.schema]
 });
 
 profileSchema.pre('save', async function (next) {

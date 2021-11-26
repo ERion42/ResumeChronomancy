@@ -11,7 +11,7 @@ const typeDefs = gql`
     }
 
     type Skill {
-        _id: ID
+        skillId: ID
         technicalSkills: [String]!
         language: [String]!
         softSkills: [String]
@@ -19,11 +19,22 @@ const typeDefs = gql`
     }
 
     type Education {
+        educationId: ID
         school: String
         degree: String
         major: String
         graduationDate: Float
         certifications: [String]
+    }
+
+    type Experience {
+        experienceId: ID
+        organization: String
+        position: String
+        startDate: Float
+        endDate: Float
+        location: String
+        description: String
     }
 
     type Auth {
@@ -35,20 +46,41 @@ const typeDefs = gql`
         profiles: [Profile]!
         profile(profileId: ID!): Profile
         me: Profile
-        skills: [Skill]!
+        skills: [Skill]
+        education: [Education]
+        experiences: [Experience]
     }
 
     input SkillInput {
         technicalSkills: String
         language: String
+        softSkills: String
+        interests: String
+    }
+
+    input EducationInput {
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
+    }
+
+    input ExperienceInput {
+        organization: String
+        position: String
+        startDate: Float
+        endDate: Float
+        location: String
+        description: String
     }
 
     type Mutation {
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
-        addSkill(profileId: ID, skill: SkillInput!): Profile
-        removeSkill(profileId: ID!, skill: String!): Profile
+        addSkill(skillData: SkillInput!): Skill
+        removeSkill(skillId: ID!): Skill
     }
 `;
 
