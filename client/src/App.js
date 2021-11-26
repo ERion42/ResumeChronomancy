@@ -15,12 +15,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
+import Login from "./pages/login/index";
+import SignUpForm from './pages/signUp/index';
+import About from './pages/about/index';
+import FAQ from './pages/FAQs/index';
 
 // Required for GraphQL
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
-
+ 
 // Not sure what this is
 const authLink = setContext ((_, { headers }) => {
   const token = localStorage.getItem('id-token');
@@ -47,11 +51,24 @@ function App() {
         {/* Sidebar doesn't work */}
         {/* <SideBar /> */}
         
-        {/* Page needs formatting */}
+        {/* Page needs formatting - not used at the moment, though we might want to use it to
+        "contain" the other components */}
         {/* <Page /> */}
 
-        {/* Landing Page */}
-        <LandingPage />
+        {/* Landing Page - Primary Page*/}
+        {/* <LandingPage /> */}
+
+        {/* Login Page */}
+        <Login />
+
+        {/* Sign Up Page */}
+        <SignUpForm />
+
+        {/* About Page */}
+        <About />
+
+        {/* Frequently Asked Questions Page */}
+        <FAQ />
 
       </Router>
     </ApolloProvider>
