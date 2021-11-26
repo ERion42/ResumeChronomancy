@@ -1,11 +1,11 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Skills } = require('../models');
+const { Profile, Skills, Education, Experience } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         profiles: async () => {
-            const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'education', model: Education }, { path: 'experiences', model: Experience }]);
+            const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
             return users;
         },
         profile: async (parent, { profileId }, context) => {
@@ -34,7 +34,7 @@ const resolvers = {
         education: async () => {
             return await Education.find();
         },
-        experience: async () => {
+        experiences: async () => {
             return await Experience.find();
         }
     },
@@ -76,7 +76,7 @@ const resolvers = {
             if (context.profile) {
                 const updatedProfile = await Profile.findByIdAndUpdate(
                     { _id: context.profile._id },
-                    { $push: { skills: skillsData } },
+                    { $push: { skills: skillData } },
                     { new: true }
                 );
 
@@ -84,6 +84,33 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addEducation: async () => {
+            if (context.user) {
+                const updatedUser = await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { educations: educationData } },
+                    { new: true }
+                );
+
+                return updatedUser
+            }
+
+            throw new AuthenticationError('You need to be logged in!')
+        },
+
+        addExperience: async () => {
+            if (context.user) {
+                const updatedUser = await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { experience: experienceData } },
+                    { new: true }
+                );
+
+                return updatedUser
+            }
+            throw new AuthenticationError('You need to be logged in!')
         }
     }
 };
