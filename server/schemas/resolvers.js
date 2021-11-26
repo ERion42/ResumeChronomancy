@@ -1,30 +1,41 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Skills } = require('../models');
+const { Profile, Skills, Education, Experience } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         profiles: async () => {
-            try {
-                const users = await Profile.find();
-                users.populate('skills')
-                return users
-            } catch (error) {
-                console.error(error)
-            }
-            return Profile.find();
+            const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
+            return users;
         },
-        profile: async (parent, { profileId }) => {
-            return Profile.findOne({ _id: profileId });
+        profile: async (parent, { profileId }, context) => {
+            if (context.profile) {
+                const profile = await Profile.findById(context.profile._id).populate(
+                    [
+                        { path: 'skills', model: Skills }, 
+                        { path: 'educations', model: Education }, 
+                        { path: 'experiences', model: Experience }
+                    ]
+                );
+
+                return profile
+            }
+            throw new AuthenticationError('You need to be logged in.')
         },
         me: async (parent, args, context) => {
             if (context.user) {
-                return Profile.findOne({ _id: context.user._id });
+                return await Profile.findOne({ _id: context.user._id });
             }
             throw new AuthenticationError('You need to be logged in!');
         },
         skills: async () => {
-            return Skills.find();
+            return await Skills.find();
+        },
+        education: async () => {
+            return await Education.find();
+        },
+        experiences: async () => {
+            return await Experience.find();
         }
     },
     
@@ -59,6 +70,47 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addSkill: async (parent, { skillData }, context) => {
+            if (context.profile) {
+                const updatedProfile = await Profile.findByIdAndUpdate(
+                    { _id: context.profile._id },
+                    { $push: { skills: skillData } },
+                    { new: true }
+                );
+
+                return updatedProfile;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addEducation: async () => {
+            if (context.user) {
+                const updatedUser = await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { educations: educationData } },
+                    { new: true }
+                );
+
+                return updatedUser
+            }
+
+            throw new AuthenticationError('You need to be logged in!')
+        },
+
+        addExperience: async () => {
+            if (context.user) {
+                const updatedUser = await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { experience: experienceData } },
+                    { new: true }
+                );
+
+                return updatedUser
+            }
+            throw new AuthenticationError('You need to be logged in!')
         }
     }
 };

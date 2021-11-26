@@ -6,24 +6,36 @@ const typeDefs = gql`
         username: String 
         email: String
         password: String
-        skills: [Skill]!
+        skills: [Skills]
         educations: Education
+        experiences: Experience
     }
 
-    type Skill {
-        _id: ID
-        technicalSkills: [String]!
-        language: [String]!
+    type Skills {
+        skillId: ID
+        technicalSkills: [String]
+        language: [String]
         softSkills: [String]
         interests: [String]
     }
 
     type Education {
+        educationId: ID
         school: String
         degree: String
         major: String
         graduationDate: Float
         certifications: [String]
+    }
+
+    type Experience {
+        experienceId: ID
+        organization: String
+        position: String
+        startDate: Float
+        endDate: Float
+        location: String
+        description: String
     }
 
     type Auth {
@@ -35,20 +47,43 @@ const typeDefs = gql`
         profiles: [Profile]!
         profile(profileId: ID!): Profile
         me: Profile
-        skills: [Skill]!
+        skills: [Skills]
+        education: [Education]
+        experiences: [Experience]
     }
 
-    input SkillInput {
+    input SkillsInput {
         technicalSkills: String
         language: String
+        softSkills: String
+        interests: String
+    }
+
+    input EducationInput {
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
+    }
+
+    input ExperienceInput {
+        organization: String
+        position: String
+        startDate: Float
+        endDate: Float
+        location: String
+        description: String
     }
 
     type Mutation {
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
-        addSkill(profileId: ID, skill: SkillInput!): Profile
-        removeSkill(profileId: ID!, skill: String!): Profile
+        addSkill(skillData: SkillsInput!): Skills
+        removeSkill(skillId: ID!): Skills
+        addEducation(educationData: EducationInput!): Education
+        addExperience(experienceData: ExperienceInput!): Experience
     }
 `;
 
