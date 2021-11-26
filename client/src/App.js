@@ -16,7 +16,7 @@ import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
 import Login from "./pages/login/index";
-import SignUpForm from './pages/signUp/index';
+import SignUpForm from './pages/signup/index'
 import About from './pages/about/index';
 import FAQ from './pages/FAQs/index';
 

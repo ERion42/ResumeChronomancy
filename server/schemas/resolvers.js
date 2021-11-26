@@ -1,10 +1,17 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
+const { Profile, Skills } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         profiles: async () => {
+            try {
+                const users = await Profile.find();
+                users.populate('skills')
+                return users
+            } catch (error) {
+                console.error(error)
+            }
             return Profile.find();
         },
         profile: async (parent, { profileId }) => {
@@ -16,6 +23,9 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        skills: async () => {
+            return Skills.find();
+        }
     },
     
     Mutation: {
@@ -49,26 +59,6 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
-        },
-
-        addSkill: async (parent, {profileId, skill}) => {
-            return Profile.findOneAndUpdate(
-                {_id: profileId},
-                {
-                    $addToSet: {skills: skill},
-                },
-                {
-                    new: true,
-                    runValidators: true,
-                }
-            );
-        },
-        removeSkill: async (parent, {profileId, skill}) => {
-            return Profile.findOneAndUpdate(
-                {_id: profileId},
-                {$pull: {skills: skill}},
-                {new: true}
-            )
         }
     }
 };
