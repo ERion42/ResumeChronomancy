@@ -19,6 +19,18 @@ const profileSchema = new Schema({
     required: true,
     minlength: 8,
   },
+  educations: [{
+    type: Schema.Types.ObjectId,
+    ref: "Education"
+  }],
+  experience: [{
+    type: Schema.Types.ObjectId,
+    ref: "Experience"
+  }],
+  skills: [{
+    type: Schema.Types.ObjectId,
+    ref: "Skills"
+  }]
 });
 
 profileSchema.pre('save', async function (next) {

@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const skillsSchema = new Schema({
-    technical_skills: {
+    technicalSkills: {
         type: String,
         required: true,
     },
@@ -9,7 +9,7 @@ const skillsSchema = new Schema({
         type: String,
         required: true,
     },
-    soft_skills: {
+    softSkills: {
         type: String,
         required: false,
     },
