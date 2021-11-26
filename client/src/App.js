@@ -59,16 +59,16 @@ function App() {
         <LandingPage />
 
         {/* Login Page */}
-        {/* <LoginPage /> */}
+        <LoginPage />
 
         {/* Sign Up Page */}
-        {/* <SignUp /> */}
+        <SignUp />
 
         {/* About Page */}
-        {/* <About /> */}
+        <About />
 
         {/* Frequently Asked Questions Page */}
-        {/* <FAQ /> */}
+        <FAQ />
 
       </Router>
     </ApolloProvider>

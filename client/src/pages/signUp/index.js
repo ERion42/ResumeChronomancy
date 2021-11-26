@@ -2,14 +2,15 @@ import React from 'react';
 
 function SignUp() {
     return (
-        <main>
+        <section class="container">
+            {/* Not entirely sure what values we need, we could have more here though */}
             <form class="row g-3">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
+                    <label for="inputEmail4" class="form-label">Username</label>
                     <input type="email" class="form-control" id="inputEmail" />
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Password</label>
+                    <label for="inputPassword4" class="form-label">Email Address</label>
                     <input type="password" class="form-control" id="inputPassword" />
                 </div>
                 <div class="col-12">
@@ -18,7 +19,7 @@ function SignUp() {
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit" data-nlok-ref-guid="f0d97f2e-dbff-4111-a8ff-d83c69c739b4">Sign Me Up!</button>
             </form>        
-        </main>
+        </section>
     );
 }
 

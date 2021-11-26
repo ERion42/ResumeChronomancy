@@ -27,8 +27,6 @@ function Login() {
                     <button class="w-100 btn btn-lg btn-primary" type="submit" data-nlok-ref-guid="f0d97f2e-dbff-4111-a8ff-d83c69c739b4">Sign in</button>
                 </form>
             </div>
-
-
         </main>
 
         
