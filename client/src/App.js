@@ -15,8 +15,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/navBar/index';
 import Page from './components/page/index';
 import LandingPage from "./pages/landingPage/index";
-import LoginPage from "./pages/login/index";
-import SignUp from './pages/signUp/index';
+import Login from "./pages/login/index";
+import SignUpForm from './pages/signUp/index';
 import About from './pages/about/index';
 import FAQ from './pages/FAQs/index';
 
@@ -24,7 +24,7 @@ import FAQ from './pages/FAQs/index';
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
-
+ 
 // Not sure what this is
 const authLink = setContext ((_, { headers }) => {
   const token = localStorage.getItem('id-token');
@@ -56,13 +56,13 @@ function App() {
         {/* <Page /> */}
 
         {/* Landing Page - Primary Page*/}
-        <LandingPage />
+        {/* <LandingPage /> */}
 
         {/* Login Page */}
-        <LoginPage />
+        <Login />
 
         {/* Sign Up Page */}
-        <SignUp />
+        <SignUpForm />
 
         {/* About Page */}
         <About />
