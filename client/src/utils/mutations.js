@@ -24,8 +24,22 @@ export const LOGIN_USER = gql`
     }
 `;
 
+export const ADD_SKILL = gql`
+    mutation addSkill($profileId: ID!) {
+        addSkill(profileId: $profileId) {
+            token
+            skills {
+                technicalSkills
+                language
+                softSkills
+                interests
+            }
+        }
+    }
+`
+
 export const ADD_EDUCATION = gql`
-    mutation addEducation($profileId: String!) {
+    mutation addEducation($profileId: ID!) {
         addEducation(profileId: $profileId) {
             token
             educations {
@@ -38,3 +52,19 @@ export const ADD_EDUCATION = gql`
         }
     }
 `;
+
+export const ADD_EXPERIENCE = gql`
+    mutation addExperience($profileId: ID!) {
+        addExperience(profileId: $profileId) {
+            token
+            experiences {
+                organization
+                position
+                startDate
+                endDate
+                location
+                description
+            }
+        }
+    }
+`
