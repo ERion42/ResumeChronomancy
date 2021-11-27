@@ -37,7 +37,12 @@ const educationSchema = new Schema({
 			required: false,
 			trim: true,
 		}
-	]
+	],
+	
+	owner: {
+        type: Schema.Types.ObjectId,
+        ref: "Profile"
+    }
 })
 
 const Education = model('Education', educationSchema);
