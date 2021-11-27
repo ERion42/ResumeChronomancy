@@ -19,7 +19,7 @@ function NavBar({ currentPage, handlePageChange }) {
                         className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>Home
                         </a>
                     </li>
-                    <li><a href="#dashboard" className="nav-link px-2 text-white">Dashboard</a></li>
+                    <li><a href="#dashboard" onClick={() => handlePageChange('Dashboard')} className="nav-link px-2 text-white">Dashboard</a></li>
                     <li>
                         <a 
                         href="#faqs" 

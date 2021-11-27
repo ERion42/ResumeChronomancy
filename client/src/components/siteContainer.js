@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import NavBar from './navBar/index';
 import LandingPage from "../pages/landingPage/index";
 import Login from "../pages/login/index";
-import SignUpForm from '../pages/signUp/index';
+import SignUpForm from '../pages/signup/index';
 import About from '../pages/about/index';
 import FAQ from '../pages/FAQs/index';
+import EducationForm from '../components/forms/EducationForm'
 
 
 export default function SiteContainer() {
@@ -24,6 +25,9 @@ export default function SiteContainer() {
         }
         if (currentPage === 'FAQ') {
             return <FAQ />;
+        }
+        if (currentPage === 'Dashboard') {
+            return <EducationForm />
         }
         return <LandingPage />;
     };

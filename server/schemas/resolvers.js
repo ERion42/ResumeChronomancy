@@ -1,8 +1,11 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Profile, Skills, Education, Experience } = require('../models');
 const { signToken } = require('../utils/auth');
+const { DateResolver } = require('graphql-scalars')
+
 
 const resolvers = {
+    Date: DateResolver,
     Query: {
         profiles: async () => {
             const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
@@ -86,11 +89,12 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addEducation: async () => {
-            if (context.user) {
+        addEducation: async (parent, args, context) => {
+            console.log(context)
+            if (context.profile) {
                 const updatedUser = await Profile.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { educations: educationData } },
+                    { _id: context.profile._id },
+                    { $push: { educations: args } },
                     { new: true }
                 );
 
@@ -101,9 +105,9 @@ const resolvers = {
         },
 
         addExperience: async () => {
-            if (context.user) {
+            if (context.profile) {
                 const updatedUser = await Profile.findOneAndUpdate(
-                    { _id: context.user._id },
+                    { _id: context.profile._id },
                     { $push: { experience: experienceData } },
                     { new: true }
                 );
