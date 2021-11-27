@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const { Skills } = require('./Skills');
 const { Education } = require('./Education');
 const { Experience } = require('./Experience');
+const {UserInfo} = require('./UserInfo');
 
 const profileSchema = new Schema({
   username: {
@@ -24,7 +25,9 @@ const profileSchema = new Schema({
   },
   skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
   experiences: [{ type: Schema.Types.ObjectId, ref: 'Experience' }],
-  educations: [{ type: Schema.Types.ObjectId, ref: 'Education' }]
+  educations: [{ type: Schema.Types.ObjectId, ref: 'Education' }],
+  userInfos: [{ type: Schema.Types.ObjectId, ref: 'UserInfo'}]
+
 });
 
 profileSchema.pre('save', async function (next) {
