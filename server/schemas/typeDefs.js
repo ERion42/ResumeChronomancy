@@ -1,10 +1,12 @@
 const { gql } = require('apollo-server-express');
-
-const typeDefs = gql`
+const { typeDefs: scalarTypeDefs } = require('graphql-scalars');
+const typeDefs = [
+    ...scalarTypeDefs,
+    gql`
     type Profile {
-        _id: ID
+        _id: ID!
         username: String 
-        email: String
+        email: EmailAddress
         password: String
         skills: [Skills]
         educations: Education
@@ -12,7 +14,7 @@ const typeDefs = gql`
     }
 
     type Skills {
-        skillId: ID
+        skillId: ID!
         technicalSkills: [String]
         language: [String]
         softSkills: [String]
@@ -20,20 +22,19 @@ const typeDefs = gql`
     }
 
     type Education {
-        educationId: ID
+        educationId: ID!
         school: String
         degree: String
         major: String
-        graduationDate: Float
-        certifications: [String]
+        graduationDate: Date
     }
 
     type Experience {
-        experienceId: ID
+        experienceId: ID!
         organization: String
         position: String
-        startDate: Float
-        endDate: Float
+        startDate: Date
+        endDate: Date
         location: String
         description: String
     }
@@ -63,15 +64,14 @@ const typeDefs = gql`
         school: String
         degree: String
         major: String
-        graduationDate: Float
-        certifications: [String]
+        graduationDate: Date
     }
 
     input ExperienceInput {
         organization: String
         position: String
-        startDate: Float
-        endDate: Float
+        startDate: Date
+        endDate: Date
         location: String
         description: String
     }
@@ -85,6 +85,6 @@ const typeDefs = gql`
         addEducation(educationData: EducationInput!): Education
         addExperience(experienceData: ExperienceInput!): Experience
     }
-`;
+`];
 
 module.exports = typeDefs;

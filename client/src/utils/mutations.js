@@ -39,22 +39,22 @@ export const ADD_SKILL = gql`
 `
 
 export const ADD_EDUCATION = gql`
-    mutation addEducation($profileId: ID!) {
-        addEducation(profileId: $profileId) {
-            token
+    mutation addEducation($educationData: EducationInput!) {
+        addEducation(educationData: $educationData) {
+            _id
+            username
             educations {
                 school
                 degree
                 major
                 graduationDate
-                certifications
             }
         }
     }
 `;
 
 export const ADD_EXPERIENCE = gql`
-    mutation addExperience($profileId: ID!) {
+    mutation addExperience($experienceData: ExperienceInput!) {
         addExperience(profileId: $profileId) {
             token
             experiences {
