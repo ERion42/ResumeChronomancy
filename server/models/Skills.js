@@ -1,22 +1,22 @@
 const { Schema, model } = require("mongoose");
 
 const skillsSchema = new Schema({
-    technicalSkills: [{
+    technicalSkills: {
         type: String,
         required: true,
-    }],
-    languages: [{
+    },
+    languages: {
         type: String,
         required: false,
-    }],
-    softSkills: [{
+    },
+    softSkills: {
         type: String,
         required: false,
-    }],
-    interests: [{
+    },
+    interests: {
         type: String,
         required: false,
-    }],
+    },
     owner: {
         type: Schema.Types.ObjectId,
         ref: "Profile"
