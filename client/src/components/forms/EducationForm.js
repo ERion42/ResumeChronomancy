@@ -30,25 +30,28 @@ const EducationForm = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-        if(!token) {
-            return false;
-        }
+        
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
 
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        console.log(token)
+        console.log(token)
+        
+        if(!token) {
+            return false;
+        }
+        console.log(token)
         try {
-            const data = await addEducation({
+            const { data } = await addEducation({
                 variables: { ...userFormData },
             });
 
             console.log(data);
-
+            console.log(token)
         } catch (e) {
             console.error(e);
         }
@@ -66,73 +69,70 @@ const EducationForm = () => {
 
     return (
         <>
-            {Auth.loggedIn() ? (
-                <Form noValidate validated={validated} onSubmit={handleFormSubmit} >
-                    <Alert
-                        dismissible
-                        onClose={() => setShowAlert(false)}
-                        show={showAlert}
-                        variant="danger"
-                    ></Alert>
-                    <Form.Group>
-                        <Form.Label htmlFor="school">School</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="school" onChange={handleInputChange} value={userFormData.school} required />
-                        <Form.Control.Feedback type="invalid">
-                            School is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+    
+            <Form noValidate validated={validated} onSubmit={handleFormSubmit} >
+                <Alert
+                    dismissible
+                    onClose={() => setShowAlert(false)}
+                    show={showAlert}
+                    variant="danger"
+                ></Alert>
+                <Form.Group>
+                    <Form.Label htmlFor="school">School</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="school" onChange={handleInputChange} value={userFormData.school} required />
+                    <Form.Control.Feedback type="invalid">
+                        School is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label htmlFor="degree">degree</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="degree" onChange={handleInputChange} value={userFormData.degree} required />
-                        <Form.Control.Feedback type="invalid">
-                            Degree is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="degree">degree</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="degree" onChange={handleInputChange} value={userFormData.degree} required />
+                    <Form.Control.Feedback type="invalid">
+                        Degree is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label htmlFor="major">major</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="major" onChange={handleInputChange} value={userFormData.major} required />
-                        <Form.Control.Feedback type="invalid">
-                            major is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="major">major</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="major" onChange={handleInputChange} value={userFormData.major} required />
+                    <Form.Control.Feedback type="invalid">
+                        major is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label htmlFor="gpa">gpa</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="gpa" onChange={handleInputChange} value={userFormData.gpa} required />
-                        <Form.Control.Feedback type="invalid">
-                            gpa is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="gpa">gpa</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="gpa" onChange={handleInputChange} value={userFormData.gpa} required />
+                    <Form.Control.Feedback type="invalid">
+                        gpa is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label htmlFor="graduationDate">graduationDate</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="graduationDate" onChange={handleInputChange} value={userFormData.graduationDate} required />
-                        <Form.Control.Feedback type="invalid">
-                            graduationDate is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="graduationDate">graduationDate</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="graduationDate" onChange={handleInputChange} value={userFormData.graduationDate} required />
+                    <Form.Control.Feedback type="invalid">
+                        graduationDate is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label htmlFor="certifications">certifications</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="certifications" onChange={handleInputChange} value={userFormData.certifications} required />
-                        <Form.Control.Feedback type="invalid">
-                            certifications is required!
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="certifications">certifications</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="certifications" onChange={handleInputChange} value={userFormData.certifications} required />
+                    <Form.Control.Feedback type="invalid">
+                        certifications is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                    <Button 
-                        disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
-                        type="submit"
-                        variant="success"
-                    >Submit</Button>
+                <Button 
+                    disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
+                    type="submit"
+                    variant="success"
+                >Submit</Button>
 
-                </Form>
-            ) : (
-                <p>Please Log in</p>
-            )
-}
+            </Form>
+
             
         </>
     )
