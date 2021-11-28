@@ -7,7 +7,7 @@ import { ADD_EDUCATION } from '../../utils/mutations';
 // import Auth from '../utils/auth';
 
 const EducationForm = () => {
-    const [userFormData, setUserFormData] = useState({ school: '', degree: '', major: '', graduationDate: '' });
+    const [userFormData, setUserFormData] = useState({ school: '', degree: '', major: '', gpa: '', graduationDate: '', certifications: '' });
 
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
@@ -37,7 +37,7 @@ const EducationForm = () => {
         }
 
         try {
-            const { data } = await addEducation({
+            const data = await addEducation({
                 variables: { ...userFormData },
             });
 
@@ -51,8 +51,10 @@ const EducationForm = () => {
         setUserFormData({
             school: '', 
             degree: '', 
-            major: '', 
-            graduationDate: ''
+            major: '',
+            gpa: '', 
+            graduationDate: '',
+            certifications: ''
         });
     };
 
@@ -90,12 +92,29 @@ const EducationForm = () => {
                 </Form.Group>
 
                 <Form.Group>
+                    <Form.Label htmlFor="gpa">gpa</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="gpa" onChange={handleInputChange} value={userFormData.gpa} required />
+                    <Form.Control.Feedback type="invalid">
+                        gpa is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group>
                     <Form.Label htmlFor="graduationDate">graduationDate</Form.Label>
                     <Form.Control type="text" placeholder="Your Alma Mater" name="graduationDate" onChange={handleInputChange} value={userFormData.graduationDate} required />
                     <Form.Control.Feedback type="invalid">
                         graduationDate is required!
                     </Form.Control.Feedback>
                 </Form.Group>
+
+                <Form.Group>
+                    <Form.Label htmlFor="certifications">certifications</Form.Label>
+                    <Form.Control type="text" placeholder="Your Alma Mater" name="certifications" onChange={handleInputChange} value={userFormData.certifications} required />
+                    <Form.Control.Feedback type="invalid">
+                        certifications is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
+
                 <Button 
                     disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
                     type="submit"

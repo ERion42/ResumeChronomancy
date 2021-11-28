@@ -41,16 +41,14 @@ export const ADD_SKILL = gql`
 `
 
 export const ADD_EDUCATION = gql`
-    mutation addEducation($school: String!, $degree: String!, $major: String!, $gpa: Float, $graduationDate: Float, $certifications: String) {
+    mutation addEducation($school: String!, $degree: String!, $major: String!, $gpa: Float, $graduationDate: String, $certifications: String) {
         addEducation(school: $school, degree: $degree, major: $major, gpa: $gpa, graduationDate: $graduationDate, certifications: $certifications) {
-            educations {
-                school
-                degree
-                major
-                gpa
-                graduationDate
-                certifications
-            }
+            school
+            degree
+            major
+            gpa
+            graduationDate
+            certifications
         }
     }
 `;

@@ -8,8 +8,8 @@ const typeDefs = gql`
         email: String
         password: String
         skills: [Skills]
-        educations: Education
-        experiences: Experience
+        educations: [Education]
+        experiences: [Experience]
     }
 
     type Skills {
@@ -35,7 +35,8 @@ const typeDefs = gql`
         school: String
         degree: String
         major: String
-        graduationDate: Float
+        gpa: Float
+        graduationDate: String
         certifications: [String]
     }
 
@@ -73,7 +74,7 @@ const typeDefs = gql`
         school: String
         degree: String
         major: String
-        graduationDate: Float
+        graduationDate: String
         certifications: [String]
     }
 
@@ -84,7 +85,7 @@ const typeDefs = gql`
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
         addExperience(experienceData: ExperienceInput!): Experience
-        addEducation(school: String!, degree: String!, major: String!, gpa: Float, graduationDate: Float, certifications: String): Education
+        addEducation(school: String!, degree: String!, major: String!, gpa: Float, graduationDate: String, certifications: String): Education
     }
 `;
 
