@@ -67,7 +67,7 @@ function Login() {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label htmlFor='username'>Password</Form.Label>
-                    <Form.Control type='text' placeholder='Password' name='password' onChange={handleInputChange} value={userFormData.password} required />
+                    <Form.Control type='password' placeholder='Password' name='password' onChange={handleInputChange} value={userFormData.password} required />
                     <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                 </Form.Group>
                 <Button disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>Submit</Button>
