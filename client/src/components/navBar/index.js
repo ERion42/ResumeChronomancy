@@ -13,7 +13,34 @@ function NavBar({ currentPage, handlePageChange }) {
                     <img src= {Logo} alt="logo"></img>
     
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#dashboard" className="nav-link px-2 text-white">Dashboard</a></li>
+                        <li>
+                            <a 
+                            href="#dashboard" 
+                            onClick={() => handlePageChange('Dashboard')}
+                            className={currentPage === 'Dashboard' ? 'nav-link active' : 'nav-link'}>Dashboard Home
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                            href="#skills" 
+                            onClick={() => handlePageChange('Skills')}
+                            className={currentPage === 'Skills' ? 'nav-link active' : 'nav-link'}>Skills
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                            href="#education" 
+                            onClick={() => handlePageChange('Education')}
+                            className={currentPage === 'Education' ? 'nav-link active' : 'nav-link'}>Education
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                            href="#experience" 
+                            onClick={() => handlePageChange('Experience')}
+                            className={currentPage === 'Experience' ? 'nav-link active' : 'nav-link'}>Experience
+                            </a>
+                        </li>                                                                        
                     </ul>
     
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
