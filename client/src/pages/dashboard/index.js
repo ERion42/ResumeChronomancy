@@ -8,9 +8,9 @@ import EducationForm from '../../components/forms/EducationForm';
 function Dashboard() {
     // nothing yet
     return (
-        <div className="container">
+        <div className="container ">
             <div class="row">
-                <div className="col-4 bg-info rounded m-1">
+                <div className="col-4 bg-info rounded m-1 pb-2">
                     <h2>Education</h2>
                     <EducationForm />
                 </div>

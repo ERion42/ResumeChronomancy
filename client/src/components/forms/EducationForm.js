@@ -83,46 +83,47 @@ const EducationForm = () => {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label htmlFor="degree">degree</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="degree" onChange={handleInputChange} value={userFormData.degree} required />
+                        <Form.Label className ="padding" htmlFor="degree">Degree</Form.Label>
+                        <Form.Control type="text" placeholder="Your Degree" name="degree" onChange={handleInputChange} value={userFormData.degree} required />
                         <Form.Control.Feedback type="invalid">
                             Degree is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label htmlFor="major">major</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="major" onChange={handleInputChange} value={userFormData.major} required />
+                        <Form.Label className ="padding" htmlFor="major">Major</Form.Label>
+                        <Form.Control type="text" placeholder="Your Major" name="major" onChange={handleInputChange} value={userFormData.major} required />
                         <Form.Control.Feedback type="invalid">
                             major is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label htmlFor="gpa">gpa</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="gpa" onChange={handleInputChange} value={userFormData.gpa} required />
+                        <Form.Label className ="padding" htmlFor="gpa">GPA</Form.Label>
+                        <Form.Control type="text" placeholder="Your Gpa" name="gpa" onChange={handleInputChange} value={userFormData.gpa} required />
                         <Form.Control.Feedback type="invalid">
                             gpa is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label htmlFor="graduationDate">graduationDate</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="graduationDate" onChange={handleInputChange} value={userFormData.graduationDate} required />
+                        <Form.Label className ="padding" htmlFor="graduationDate">Graduation Date</Form.Label>
+                        <Form.Control type="text" placeholder="Your Grad Date" name="graduationDate" onChange={handleInputChange} value={userFormData.graduationDate} required />
                         <Form.Control.Feedback type="invalid">
                             graduationDate is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label htmlFor="certifications">certifications</Form.Label>
-                        <Form.Control type="text" placeholder="Your Alma Mater" name="certifications" onChange={handleInputChange} value={userFormData.certifications} required />
+                        <Form.Label className ="padding" htmlFor="certifications">Certifications</Form.Label>
+                        <Form.Control type="text" placeholder="Your Certs" name="certifications" onChange={handleInputChange} value={userFormData.certifications} required />
                         <Form.Control.Feedback type="invalid">
                             certifications is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Button 
+                        className="padding bg-dark"
                         disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
                         type="submit"
                         variant="success"
