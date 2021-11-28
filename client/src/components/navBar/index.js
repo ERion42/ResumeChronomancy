@@ -51,7 +51,7 @@ function NavBar({ currentPage, handlePageChange }) {
                             <a 
                             href="#faqs" 
                             onClick={() => handlePageChange('FAQ')}
-                            className={currentPage === 'FAQ' ? 'nav-link active' : 'nav-link'}>FAQs
+                            className={currentPage === 'FAQ' ? 'nav-link active' : 'nav-link'}>FAQ
                             </a>
                         </li>
                         <li>
