@@ -38,8 +38,8 @@ const EducationForm = () => {
 
         try {
             const { data } = await addEducation({
-                variables: { educationData: { ...userFormData } },
-        });
+                variables: { ...userFormData },
+            });
 
             console.log(data);
 

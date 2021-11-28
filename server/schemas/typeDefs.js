@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+    scalar Date
     type Profile {
         _id: ID
         username: String 
