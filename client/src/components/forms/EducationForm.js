@@ -38,20 +38,16 @@ const EducationForm = () => {
         }
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-        console.log(token)
-        console.log(token)
         
         if(!token) {
             return false;
         }
-        console.log(token)
+
         try {
             const { data } = await addEducation({
                 variables: { ...userFormData },
             });
 
-            console.log(data);
-            console.log(token)
         } catch (e) {
             console.error(e);
         }
