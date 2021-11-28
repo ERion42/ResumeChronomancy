@@ -12,30 +12,30 @@ const typeDefs = gql`
     }
 
     type Skills {
-        skillId: ID
+        _id: ID!
         technicalSkills: [String]
         language: [String]
         softSkills: [String]
         interests: [String]
     }
-
-    type Education {
-        educationId: ID
-        school: String
-        degree: String
-        major: String
-        graduationDate: Float
-        certifications: [String]
-    }
-
+    
     type Experience {
-        experienceId: ID
+        _id: ID!
         organization: String
         position: String
         startDate: Float
         endDate: Float
         location: String
         description: String
+    }
+
+    type Education {
+        _id: ID!
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
     }
 
     type Auth {
@@ -48,7 +48,7 @@ const typeDefs = gql`
         profile(profileId: ID!): Profile
         me: Profile
         skills: [Skills]
-        education: [Education]
+        educations: [Education]
         experiences: [Experience]
     }
 
@@ -57,14 +57,6 @@ const typeDefs = gql`
         language: String
         softSkills: String
         interests: String
-    }
-
-    input EducationInput {
-        school: String
-        degree: String
-        major: String
-        graduationDate: Float
-        certifications: [String]
     }
 
     input ExperienceInput {
@@ -76,14 +68,22 @@ const typeDefs = gql`
         description: String
     }
 
+    input EducationInput {
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
+    }
+
     type Mutation {
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
-        addEducation(educationData: EducationInput!): Education
         addExperience(experienceData: ExperienceInput!): Experience
+        addEducation(educationData: EducationInput!): Education
     }
 `;
 
