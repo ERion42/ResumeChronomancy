@@ -6,6 +6,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
+
 function Login() {
 
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
@@ -53,7 +54,7 @@ function Login() {
     };
 
     return (
-        <div className="container" style= {{
+        <div className="container bg-warning rounded pt-2 pb-2" style= {{
             position: 'absolute', top: '30%', 
         }}>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -70,7 +71,7 @@ function Login() {
                     <Form.Control type='password' placeholder='Password' name='password' onChange={handleInputChange} value={userFormData.password} required />
                     <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                 </Form.Group>
-                <Button disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>Submit</Button>
+                <Button  className='padding bg-dark rounded' disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>Submit</Button>
             </Form>
         </div>
     );

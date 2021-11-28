@@ -57,11 +57,11 @@ const SignUpForm = () => {
     }
 
     return (
-        <div className="container" style= {{
+        <div className="container bg-warning rounded pt-2 pb-2" style= {{
             position: 'absolute', top: '30%', 
         }}>
             {/* This is needed for the validation functionality above */}
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Form   noValidate validated={validated} onSubmit={handleFormSubmit}>
                 {/* show alert if server response is bad */}
                 <Alert
                 dismissible
@@ -105,18 +105,21 @@ const SignUpForm = () => {
                 <Form.Group>
                 <Form.Label htmlFor="password">Password</Form.Label>
                 <Form.Control
+                    
                     type="password"
                     placeholder="Your password"
                     name="password"
                     onChange={handleInputChange}
                     value={userFormData.password}
                     required
+                    
                 />
                 <Form.Control.Feedback type="invalid">
                     Password is required!
                 </Form.Control.Feedback>
                 </Form.Group>
                 <Button
+                className='padding bg-dark'
                 disabled={
                     !(
                     userFormData.username &&

@@ -17,7 +17,7 @@ function LandingPage({ currentPage }) {
                     <div className="carousel-item active">
                         <img src= {FirstPic} className="d-block w-100" alt="Rodrigo Ascencio on Scopio"/>
                         <div className="carousel-caption d-none d-md-block bg-dark">
-                            <h5>Go Fromt This...</h5>
+                            <h5>Go From This...</h5>
                             <p>Resume writing can be frustrating!</p>
                         </div>                
                     </div>
