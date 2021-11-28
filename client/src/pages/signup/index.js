@@ -57,7 +57,7 @@ const SignUpForm = () => {
     }
 
     return (
-        <div class="container" style= {{
+        <div className="container" style= {{
             position: 'absolute', top: '30%', 
         }}>
             {/* This is needed for the validation functionality above */}

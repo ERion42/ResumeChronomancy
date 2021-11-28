@@ -4,7 +4,7 @@ import BGPic from '../img/geometricBackground.jpg';
 
 function Page({ currentPage }) {
     return (
-        <main class="container">
+        <main className="container">
 
         </main>
     );
