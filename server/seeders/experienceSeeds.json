@@ -1,0 +1,73 @@
+[
+	{
+		"organization": "Random Software Company Inc",
+		"position": "Jr. Developer",
+		"start_date": "2010-8-5",
+		"end_date": "2013-9-15",
+		"location": "Atlanta, Ga.",
+		"description": ""
+	},
+
+	{
+		"organization": "Web Solutions Limited",
+		"position": "Mid Level Developer",
+		"start_date": "2013-10-12",
+		"end_date": "2020-3-20",
+		"location": "NY City",
+		"description": ""
+	},
+
+	{
+		"organization": "Compucorp MSP",
+		"position": "Help-desk support",
+		"start_date": "2012-7-18",
+		"end_date": "2015-11-6",
+		"location": "Houston Texas",
+		"description": "Assisted clients over the phone with various IT problems."
+	},
+
+	{
+		"organization": "Global IT Management Services INC.",
+		"position": "Field Technician",
+		"start_date": "2015-11-9",
+		"end_date": "2021-7-3",
+		"location": "Portland, Or.",
+		"description": "On site IT support for corporate clients"
+	},
+
+	{
+		"organization": "Father Johnny's Pizza",
+		"position": "Delivery Driver",
+		"start_date": "2017-11-8",
+		"end_date": "2018-4-6",
+		"location": "Athens, Ga.",
+		"description": "Pizza Deliver, Making Pizza, Don't Crash"
+	},
+
+	{
+		"organization": "GloboBank",
+		"position": "Bank Person",
+		"start_date": "2018-9-17",
+		"end_date": "2020-1-15",
+		"location": "Oregon",
+		"description": "Doing bank stuff"
+	},
+
+	{
+		"organization": "National Biology Lab",
+		"position": "Lab technician",
+		"start_date": "2006-6-2",
+		"end_date": "2013-4-2",
+		"location": "Charlotte, North Carolina",
+		"description": "Testing biological samples"
+	},
+
+	{
+		"organization": "Southern Health Center",
+		"position": "Lab Manager",
+		"start_date": "2013-4-3",
+		"end_date": "2021-9-3",
+		"location": "Any City, USA",
+		"description": "Telling other people what to do"
+	}
+]
