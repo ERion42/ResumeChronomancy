@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_EDUCATION } from '../utils/mutations';
+import { ADD_EDUCATION } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 
 const EducationForm = () => {
     const [userFormData, setUserFormData] = useState({ school: '', degree: '', major: '', graduationDate: '' });
@@ -38,7 +38,7 @@ const EducationForm = () => {
 
         try {
             const { data } = await addEducation({
-                variables: { ...userFormData },
+                variables: { educationData: { ...userFormData } },
         });
 
             console.log(data);

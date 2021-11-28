@@ -31,7 +31,7 @@ const resolvers = {
         skills: async () => {
             return await Skills.find();
         },
-        education: async () => {
+        educations: async () => {
             return await Education.find();
         },
         experiences: async () => {
