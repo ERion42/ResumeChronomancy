@@ -7,7 +7,7 @@ import ThirdPic from '../../components/img/businessMeeting.jpg'
 
 function LandingPage({ currentPage }) {
     return (
-        <section class="container">
+        <section className="container">
             {/* This here is the carousel- It should contain a few illustrative pictures and little text blurbs */}
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
