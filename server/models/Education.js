@@ -31,13 +31,11 @@ const educationSchema = new Schema({
 		trim: true,
 	},
 
-	certifications: [
-		{
+	certifications: {
 			type: String,
 			required: false,
 			trim: true,
-		}
-	],
+		},
 	
 	owner: {
         type: Schema.Types.ObjectId,
