@@ -25,9 +25,11 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_SKILL = gql`
-    mutation addSkill($profileId: ID!) {
-        addSkill(profileId: $profileId) {
-            token
+    mutation addSkill($skill: SkillInput!) {
+        addSkill(skill: $skill) {
+            _id
+            username
+            email
             skills {
                 technicalSkills
                 language
@@ -43,6 +45,7 @@ export const ADD_EDUCATION = gql`
         addEducation(educationData: $educationData) {
             _id
             username
+            email
             educations {
                 school
                 degree

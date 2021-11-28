@@ -1,9 +1,14 @@
 import React from 'react';
+import EducationForm from '../../components/forms/EducationForm';
 
 function Dashboard() {
     // nothing yet
     return (
-        <p>Dashboard</p>
+        <div>
+            <p>Dashboard</p>
+            <EducationForm />
+        </div>
+        
     );
 }
 

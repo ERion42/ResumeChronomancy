@@ -27,14 +27,14 @@ const resolvers = {
         },
         me: async (parent, args, context) => {
             if (context.user) {
-                return await Profile.findOne({ _id: context.user._id });
+                return await Profile.findOne({ _id: context.user._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
             }
             throw new AuthenticationError('You need to be logged in!');
         },
         skills: async () => {
             return await Skills.find();
         },
-        education: async () => {
+        educations: async () => {
             return await Education.find();
         },
         experiences: async () => {
@@ -77,10 +77,10 @@ const resolvers = {
 
         addSkill: async (parent, { skillData }, context) => {
             if (context.profile) {
-                const updatedProfile = await Profile.findByIdAndUpdate(
-                    { _id: context.profile._id },
-                    { $push: { skills: skillData } },
-                    { new: true }
+                const skill = await Skills.create(
+                    {
+                        
+                    }
                 );
 
                 return updatedProfile;
@@ -89,30 +89,49 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addEducation: async (parent, args, context) => {
-            console.log(context)
-            if (context.profile) {
-                const updatedUser = await Profile.findOneAndUpdate(
-                    { _id: context.profile._id },
-                    { $push: { educations: args } },
-                    { new: true }
+        addEducation: async (parent, { school, degree, major, gpa, graduationDate, certifications }, context) => {
+            if (context.user) {
+                const education = await Education.create(
+                    {
+                        school,
+                        degree,
+                        major,
+                        gpa,
+                        graduationDate,
+                        certifications
+                    }
                 );
 
-                return updatedUser
+                await Profile.findOneAndUpdate(
+                    { _id: context.profile._id },
+                    { $addToSet: { educations: education._id } }
+                );
+
+                return education;
             }
 
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        addExperience: async () => {
-            if (context.profile) {
-                const updatedUser = await Profile.findOneAndUpdate(
-                    { _id: context.profile._id },
-                    { $push: { experience: experienceData } },
-                    { new: true }
+        addExperience: async (parent, { organization, position, start_date, end_date, location, description }, context) => {
+            if (context.user) {
+                const experience = await Experience.create(
+                    {
+                        organization,
+                        position,
+                        start_date,
+                        end_date,
+                        location,
+                        description
+                    }
                 );
 
-                return updatedUser
+                await Profile.findOneAndUpdate(
+                    { _id: context.profile._id },
+                    { $addToSet: { experiences: experience._id } }
+                );
+
+                return experience;
             }
             throw new AuthenticationError('You need to be logged in!')
         }

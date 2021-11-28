@@ -14,7 +14,7 @@ const typeDefs = [
     }
 
     type Skills {
-        skillId: ID!
+        _id: ID!
         technicalSkills: [String]
         language: [String]
         softSkills: [String]
@@ -31,12 +31,24 @@ const typeDefs = [
 
     type Experience {
         experienceId: ID!
+    
+    type Experience {
+        _id: ID!
         organization: String
         position: String
         startDate: Date
         endDate: Date
         location: String
         description: String
+    }
+
+    type Education {
+        _id: ID!
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
     }
 
     type Auth {
@@ -49,7 +61,7 @@ const typeDefs = [
         profile(profileId: ID!): Profile
         me: Profile
         skills: [Skills]
-        education: [Education]
+        educations: [Education]
         experiences: [Experience]
     }
 
@@ -76,14 +88,22 @@ const typeDefs = [
         description: String
     }
 
+    input EducationInput {
+        school: String
+        degree: String
+        major: String
+        graduationDate: Float
+        certifications: [String]
+    }
+
     type Mutation {
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
-        addEducation(educationData: EducationInput!): Education
         addExperience(experienceData: ExperienceInput!): Experience
+        addEducation(school: String!, degree: String!, major: String!, gpa: Float, graduationDate: Float, certifications: String): Education
     }
 `];
 

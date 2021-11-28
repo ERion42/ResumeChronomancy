@@ -39,8 +39,8 @@ const EducationForm = () => {
 
         try {
             const { data } = await addEducation({
-                variables: { ...userFormData },
-            });
+                variables: { educationData: { ...userFormData } },
+        });
 
             console.log(data.variables);
 
