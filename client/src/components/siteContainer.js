@@ -8,6 +8,8 @@ import SignUpForm from '../pages/signup/index';
 import About from '../pages/about/index';
 import FAQ from '../pages/FAQs/index';
 import Dashboard from '../pages/dashboard/index';
+import EducationForm from '../components/forms/EducationForm'
+
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
