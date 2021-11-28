@@ -7,29 +7,32 @@ import ThirdPic from '../../components/img/businessMeeting.jpg'
 
 function LandingPage({ currentPage }) {
     return (
-        <section className="container">
+        <section className="container-fluid">
+            {/* Title */}
+            <h1 className="text-center m-1 p-3">RESUME GEOMANCY</h1>
+
             {/* This here is the carousel- It should contain a few illustrative pictures and little text blurbs */}
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img src= {FirstPic} className="d-block w-100" alt="Rodrigo Ascencio on Scopio"/>
                         <div className="carousel-caption d-none d-md-block bg-dark">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h5>Go Fromt This...</h5>
+                            <p>Resume writing can be frustrating!</p>
                         </div>                
                     </div>
                     <div className="carousel-item">
                         <img src= {SecondPic} className="d-block w-100" alt="Rodrigo Ascencio on Scopio" />
                         <div className="carousel-caption d-none d-md-block bg-dark">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                            <h5>... To this...</h5>
+                            <p>Let us help you create a resume that will land you the interview!</p>
                         </div>  
                     </div>
                     <div className="carousel-item">
                         <img src= {ThirdPic} className="d-block w-100" alt="Scopio" />
                         <div className="carousel-caption d-none d-md-block bg-dark">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <h5>...To this!</h5>
+                            <p>Then use that interview to land you the job of your dreams!</p>
                         </div>  
                     </div>
                 </div>
@@ -43,6 +46,9 @@ function LandingPage({ currentPage }) {
                 </button>
             </div>
             {/* After the carousel we might want to add some important text */}
+            <div>
+                <p className="text-center mt-4">Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout.</p>
+            </div>
         </section>
     );
 }
