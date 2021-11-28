@@ -1,9 +1,9 @@
 // Landing page needs some formatting
 // If we could get everything to fit on one screen with no vertical scrolling that'd be ideal.
 import React from 'react';
-import FirstPic from '../../components/img/frustratedWriter.jpg'
-import SecondPic from '../../components/img/happyWriter.jpg'
-import ThirdPic from '../../components/img/businessMeeting.jpg'
+import FirstPic from '../../components/img/frustratedWriter2.jpg'
+import SecondPic from '../../components/img/hiredWriter.jpg'
+import ThirdPic from '../../components/img/businessMeeting2.jpg'
 
 function LandingPage({ currentPage }) {
     return (
