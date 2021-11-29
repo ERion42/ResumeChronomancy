@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_Skill } from '../../utils/mutations';
+import { ADD_SKILL } from '../../utils/mutations';
 import decode from 'jwt-decode';
 
 import Auth from '../../utils/auth';
@@ -13,7 +13,7 @@ const SkillsForm = () => {
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addSkill, { error }] = useMutation(ADD_Skill);
+    const [addSkill, { error }] = useMutation(ADD_SKILL);
     
 
     useEffect(() => {
