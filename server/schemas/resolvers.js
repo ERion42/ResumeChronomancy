@@ -9,8 +9,8 @@ const resolvers = {
             return users;
         },
         profile: async (parent, { profileId }, context) => {
-            if (context.user) {
-                const profile = await Profile.findById(context.user._id).populate(
+            if (context) {
+                const profile = await Profile.findById(context._id).populate(
                     [
                         { path: 'skills', model: Skills }, 
                         { path: 'educations', model: Education }, 
@@ -23,8 +23,8 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in.')
         },
         me: async (parent, args, context) => {
-            if (context.user) {
-                return await Profile.findOne({ _id: context.user._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
+            if (context) {
+                return await Profile.findOne({ _id: context._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -86,8 +86,8 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addEducation: async (parent, { school, degree, major, gpa, graduationDate, certifications }, context) => {
-            if (context.user) {
+        addEducation: async (parent, { school, degree, major, gpa, graduationDate, certifications, owner }, context) => {
+            if (context) {
                 const education = await Education.create(
                     {
                         school,
@@ -95,12 +95,13 @@ const resolvers = {
                         major,
                         gpa,
                         graduationDate,
-                        certifications
+                        certifications,
+                        owner
                     }
                 );
-
-                await Profile.findOneAndUpdate(
-                    { _id: context.user._id },
+                console.log(education)
+                await Profile.findByIdAndUpdate(
+                    { _id: education._id },
                     { $addToSet: { educations: education._id } }
                 );
 

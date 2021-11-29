@@ -3,6 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { ADD_EDUCATION } from '../../utils/mutations';
+import decode from 'jwt-decode';
 
 import Auth from '../../utils/auth';
 
@@ -13,6 +14,7 @@ const EducationForm = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     const [addEducation, { error }] = useMutation(ADD_EDUCATION);
+    const [owner, setOwner] = useState({ owner: '' });
 
     useEffect(() => {
         if (error) {
@@ -38,16 +40,21 @@ const EducationForm = () => {
         }
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
+        const decoded = decode(token)
+        console.log(decoded)
         
+      
         if(!token) {
             return false;
         }
 
         try {
+            setOwner({ owner: decoded.data._id});
+            console.log(owner)
             const { data } = await addEducation({
-                variables: { ...userFormData },
+                variables: { ...userFormData, owner },
             });
-
+            console.log(data)
         } catch (e) {
             console.error(e);
         }
