@@ -70,14 +70,15 @@ export const ADD_EDUCATION = gql`
 // `;
 
 export const ADD_EXPERIENCE = gql`
-    mutation addExperience($organization: String!, $position: String!, $startDate: String!, $endDate: String!, $location: String!, $description: String!) {
-        addExperience(organization: $organization, position: $position, startDate: $startDate, endDate: $endDate, location: $location, description: $description) {
+    mutation addExperience($organization: String!, $position: String!, $startDate: String!, $endDate: String!, $location: String!, $description: String!, $owner: ID) {
+        addExperience(organization: $organization, position: $position, startDate: $startDate, endDate: $endDate, location: $location, description: $description, owner: $owner) {
             organization
             position
             startDate
             endDate
             location
             description
+            owner
         }
     }
 `;
