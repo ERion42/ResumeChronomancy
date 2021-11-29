@@ -1,5 +1,5 @@
 import React from 'react';
-// import SkillForm from '../../../components/forms/ExperiencesForm';
+import SkillsForm from '../../../components/forms/SkillsForm';
 
 
 
@@ -9,7 +9,7 @@ function DBSkills() {
             <div className="row justify-content-center">
                 <div className="col-md-5 bg-warning rounded m-1 pb-2">
                     <h2>Update Skills</h2>
-                    {/* <SkillForm /> */}
+                     <SkillsForm />
                 </div>
                 <div className="col-md-6 bg-info rounded m-1 pb-2">
                     <h2>My Skills</h2>

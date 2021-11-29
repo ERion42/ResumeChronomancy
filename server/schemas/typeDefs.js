@@ -18,6 +18,7 @@ const typeDefs = gql`
         language: [String]
         softSkills: [String]
         interests: [String]
+        owner: ID
     }
     
     type Experience {
