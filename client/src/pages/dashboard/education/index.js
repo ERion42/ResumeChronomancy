@@ -1,5 +1,5 @@
 import React from 'react';
-import EducationForm from '../../components/forms/EducationForm';
+import EducationForm from '../../../components/forms/EducationForm';
 
 
 

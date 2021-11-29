@@ -54,7 +54,7 @@ const resolvers = {
                 throw new AuthenticationError('No profile with this username found');
             }
 
-            const correctPassword = await profile.isCorrectPassword(password);
+            const correctPassword = await user.isCorrectPassword(password);
 
             if (!correctPassword) {
                 throw new AuthenticationError('Incorrect Password');
