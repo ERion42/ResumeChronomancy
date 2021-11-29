@@ -7,7 +7,7 @@ import decode from 'jwt-decode';
 
 import Auth from '../../utils/auth';
 
-const EducationForm = () => {
+const SkillsForm = () => {
     const [userFormData, setUserFormData] = useState({ technicalSkills: '', languages: '', softSkills: '', interests: '' });
     // const [owner, setOwner] = useState({});
     const [validated] = useState(false);
@@ -127,4 +127,4 @@ const EducationForm = () => {
     )
 }
 
-export default EducationForm;
+export default SkillsForm;
