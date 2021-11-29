@@ -11,7 +11,7 @@ function DBSkills() {
                     <h2>Update Skills</h2>
                     {/* <SkillForm /> */}
                 </div>
-                <div className="col-md-6 bg-info rounded m-1">
+                <div className="col-md-6 bg-info rounded m-1 pb-2">
                     <h2>My Skills</h2>
                     <ul className="list-group">
                         <li className="list-group-item mt-4 active">Item</li>

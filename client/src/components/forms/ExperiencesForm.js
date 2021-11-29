@@ -73,7 +73,7 @@ const ExperienceForm = () => {
                     variant="danger"
                 ></Alert>
                 <Form.Group>
-                    <Form.Label htmlFor="organization">organization</Form.Label>
+                    <Form.Label htmlFor="organization">Organization</Form.Label>
                     <Form.Control type="text" placeholder="Organization" name="organization" onChange={handleInputChange} value={userFormData.organization} required />
                     <Form.Control.Feedback type="invalid">
                         organization is required!
@@ -81,7 +81,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="position">position</Form.Label>
+                    <Form.Label className ="padding" htmlFor="position">Position</Form.Label>
                     <Form.Control type="text" placeholder="Position" name="position" onChange={handleInputChange} value={userFormData.position} required />
                     <Form.Control.Feedback type="invalid">
                         position is required!
@@ -89,7 +89,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="startDate">startDate</Form.Label>
+                    <Form.Label className ="padding" htmlFor="startDate">Start Date</Form.Label>
                     <Form.Control type="text" placeholder="Start Date" name="startDate" onChange={handleInputChange} value={userFormData.startDate} required />
                     <Form.Control.Feedback type="invalid">
                         startDate is required!
@@ -97,7 +97,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="endDate">endDate</Form.Label>
+                    <Form.Label className ="padding" htmlFor="endDate">End Date</Form.Label>
                     <Form.Control type="text" placeholder="End Date" name="endDate" onChange={handleInputChange} value={userFormData.endDate} required />
                     <Form.Control.Feedback type="invalid">
                         endDate is required!
@@ -105,7 +105,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="location">location</Form.Label>
+                    <Form.Label className ="padding" htmlFor="location">Location</Form.Label>
                     <Form.Control type="text" placeholder="Location" name="location" onChange={handleInputChange} value={userFormData.location} required />
                     <Form.Control.Feedback type="invalid">
                         location is required!
@@ -113,7 +113,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="description">description</Form.Label>
+                    <Form.Label className ="padding" htmlFor="description">Description</Form.Label>
                     <Form.Control type="text" placeholder="Description" name="description" onChange={handleInputChange} value={userFormData.description} required />
                     <Form.Control.Feedback type="invalid">
                         description is required!
@@ -121,6 +121,7 @@ const ExperienceForm = () => {
                 </Form.Group>
 
                 <Button 
+                    className='padding bg-dark'
                     disabled={!(userFormData.organization && userFormData.position && userFormData.startDate && userFormData.endDate && userFormData.location && userFormData.description)}
                     type="submit"
                     variant="success"
