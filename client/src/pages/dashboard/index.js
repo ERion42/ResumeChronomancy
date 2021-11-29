@@ -9,7 +9,7 @@ function Dashboard() {
     return (
         <div className="container ">
             <div class="row">
-                <div className="col-md-4 bg-info rounded m-1 pb-2">
+                <div className="col-md-4 bg-info rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
                     <ul className="list-group">
                         <li className="list-group-item">Item</li>
@@ -24,7 +24,7 @@ function Dashboard() {
                         <li className="list-group-item">Item</li>
                     </ul>
                 </div>
-                <div className="col-md bg-warning rounded m-1">
+                <div className="col-md bg-warning rounded m-1 mt-4">
                     <h2>Skills</h2>
                     <ul className="list-group">
                         <li className="list-group-item">Item</li>
@@ -39,7 +39,7 @@ function Dashboard() {
                         <li className="list-group-item">Item</li>
                     </ul>
                 </div>
-                <div className="col-md bg-primary rounded m-1">
+                <div className="col-md bg-primary rounded m-1 mt-4">
                     <h3>Experience</h3>
                     <ul className="list-group">
                         <li className="list-group-item">Item</li>
