@@ -1,7 +1,5 @@
 import React from 'react';
 import EducationForm from '../../components/forms/EducationForm';
-import ExperienceForm from '../../components/forms/ExperiencesForm';
-// import SkillForm from '../../components/forms/SkillsForm';
 
 
 
