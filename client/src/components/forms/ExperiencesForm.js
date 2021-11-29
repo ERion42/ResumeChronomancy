@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { ADD_EXPERIENCE } from '../../utils/mutations';
-
+import decode from 'jwt-decode'
 import Auth from '../../utils/auth';
 
 const ExperienceForm = () => {
@@ -36,14 +36,18 @@ const ExperienceForm = () => {
         }
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+        
         if (!token) {
             return false;
         }
+        
+        const decoded = decode(token)
+        const owner = decoded.data._id;
+        console.log(owner)
 
         try {
             const { data } = await addExperience({
-                variables: { ...userFormData },
+                variables: { ...userFormData, owner },
         });
 
             console.log(data);

@@ -111,21 +111,22 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        addExperience: async (parent, { organization, position, start_date, end_date, location, description }, context) => {
-            if (context.user) {
+        addExperience: async (parent, { organization, position, startDate, endDate, location, description, owner }, context) => {
+            if (context) {
                 const experience = await Experience.create(
                     {
                         organization,
                         position,
-                        start_date,
-                        end_date,
+                        startDate,
+                        endDate,
                         location,
-                        description
+                        description,
+                        owner
                     }
                 );
 
                 await Profile.findOneAndUpdate(
-                    { _id: context.user._id },
+                    { _id: experience.owner },
                     { $addToSet: { experiences: experience._id } }
                 );
 

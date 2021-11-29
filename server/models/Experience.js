@@ -9,12 +9,12 @@ const experienceSchema = new Schema({
         type: String,
         required: true,
     },
-    start_date: {
+    startDate: {
         type: Date,
         required: true,
         max: Date.now
     },
-    end_date: {
+    endDate: {
         type: Date,
         required: false,
         max: Date.now

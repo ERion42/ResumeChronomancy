@@ -28,6 +28,7 @@ const typeDefs = gql`
         endDate: String
         location: String
         description: String
+        owner: ID
     }
 
     type Education {
@@ -85,7 +86,7 @@ const typeDefs = gql`
         removeProfile(profileId: ID!): Profile
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
-        addExperience(organization: String!, position: String!, startDate: String!, endDate: String!, location: String!, description: String!): Experience
+        addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
         addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
         removeEducation(educationId: ID!): Education
