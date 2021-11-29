@@ -46,6 +46,7 @@ const typeDefs = gql`
     type UserInfo {
         firstName: String!
         lastName: String!
+        address: String!
         phoneNumber: String!
         email: String!
         owner: ID

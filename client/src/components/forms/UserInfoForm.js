@@ -75,39 +75,47 @@ const UserInfoForm = () => {
                     variant="danger"
                 ></Alert>
                 <Form.Group>
-                    <Form.Label htmlFor="firstName">firstName</Form.Label>
-                    <Form.Control type="text" placeholder="firstName" name="firstName" onChange={handleInputChange} value={userFormData.firstName} required />
+                    <Form.Label htmlFor="firstName">First Name</Form.Label>
+                    <Form.Control type="text" placeholder="First Name" name="firstName" onChange={handleInputChange} value={userFormData.firstName} required />
                     <Form.Control.Feedback type="invalid">
-                        firstName is required!
+                        First Name is required!
                     </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="lastName">lastName</Form.Label>
-                    <Form.Control type="text" placeholder="lastName" name="lastName" onChange={handleInputChange} value={userFormData.lastName} required />
+                    <Form.Label htmlFor="lastName">Last Name</Form.Label>
+                    <Form.Control type="text" placeholder="Last Name" name="lastName" onChange={handleInputChange} value={userFormData.lastName} required />
                     <Form.Control.Feedback type="invalid">
-                        lastName is required!
+                        Last Name is required!
                     </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="phoneNumber">phoneNumber</Form.Label>
+                    <Form.Label htmlFor="address">Address</Form.Label>
+                    <Form.Control type="text" placeholder="Address" name="address" onChange={handleInputChange} value={userFormData.address} required />
+                    <Form.Control.Feedback type="invalid">
+                        Address is required!
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label htmlFor="phoneNumber">Phone Number</Form.Label>
                     <Form.Control type="text" placeholder="Phone Number" name="phoneNumber" onChange={handleInputChange} value={userFormData.phoneNumber} required />
                     <Form.Control.Feedback type="invalid">
-                        phoneNumber is required!
+                        Phone Number is required!
                     </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label htmlFor="email">email</Form.Label>
+                    <Form.Label htmlFor="email">Email</Form.Label>
                     <Form.Control type="text" placeholder="Email" name="email" onChange={handleInputChange} value={userFormData.email} required />
                     <Form.Control.Feedback type="invalid">
-                        email is required!
+                        Email is required!
                     </Form.Control.Feedback>
                 </Form.Group>
 
                 <Button 
-                    disabled={!(userFormData.firstName && userFormData.lastName && userFormData.phoneNumber && userFormData.email)}
+                    disabled={!(userFormData.firstName && userFormData.lastName && userFormData.address && userFormData.phoneNumber && userFormData.email)}
                     type="submit"
                     variant="success"
                 >Submit</Button>
