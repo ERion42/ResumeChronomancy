@@ -28,13 +28,13 @@ export const ADD_SKILL = gql`
     mutation addSkill($technicalSkills: String!, $languages: String, $softSkills: String!, $interests: String, $owner: ID!) {
         addSkill(technicalSkills: $technicalSkills, languages: $languages, softSkills: $softSkills, interests: $interests, owner: $owner) {            
             technicalSkills
-            language
+            languages
             softSkills
             interests
             owner
         }
     }
-`
+`;
 
 export const ADD_EDUCATION = gql`
     mutation addEducation($school: String!, $degree: String!, $major: String!, $gpa: String!, $graduationDate: String!, $certifications: String, $owner: ID!) {
