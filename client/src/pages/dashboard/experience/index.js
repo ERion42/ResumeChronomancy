@@ -15,27 +15,53 @@ function DBExperience() {
                 <div className="col-md-6 bg-info rounded m-1">
                     <h2>My Experience</h2>
                     <ul className="list-group">
-                        <li className="list-group-item mt-4 active">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
-                        <li className="list-group-item">Item</li>
+                        {/* Template for Item List */}
+                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
                         
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
                     </ul>
                 </div>
                 
             </div>
 
-            <div className="row justify-content-center">
-                <div className="col-6 bg-success rounded m-1 text-center text-white">
-                    <h1>Generate Resume</h1>
-                </div>
-            </div>
+            
         </div>
         
     );
