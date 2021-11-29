@@ -64,4 +64,20 @@ export const ADD_EXPERIENCE = gql`
             description
         }
     }
-`
+`;
+
+export const REMOVE_EDUCATION = gql`
+    mutation removeEducation($educationId: ID!) {
+        removeEducation(educationId: $educationId) {
+            educationId
+        }
+    }
+`;
+
+export const REMOVE_EXPERIENCE = gql`
+    mutation removeExperience($experienceId: ID!) {
+        removeExperience(experienceId: $experienceId) {
+           experienceId 
+        }
+    }
+`;

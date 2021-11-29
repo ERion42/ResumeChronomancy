@@ -28,6 +28,25 @@ export const QUERY_ME = gql`
             _id
             username
             email
+            skills {
+
+            }
+            experiences {
+                organization
+                position
+                startDate
+                endDate
+                location
+                description
+            }
+            educations {
+                school
+                degree
+                major
+                gpa
+                graduationDate
+                certifications
+            }
         }
     }
 `;
