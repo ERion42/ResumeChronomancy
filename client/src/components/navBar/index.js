@@ -15,25 +15,25 @@ function NavBar({ currentPage, handlePageChange }) {
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li>
                             <a href="#dashboard" 
-                            onClick={() => handlePageChange('dashboard')}
+                            onClick={() => handlePageChange('Dashboard')}
                             className="nav-link px-2 text-white">
                                 Dashboard Home
                             </a></li>
                         <li>
                             <a href="#skills" 
-                            onClick={() => handlePageChange('skills')}
+                            onClick={() => handlePageChange('Skills')}
                             className="nav-link px-2 text-white">
                                 Skills
                             </a></li>
                         <li>
                             <a href="#education" 
-                            onClick={() => handlePageChange('education')}
+                            onClick={() => handlePageChange('Education')}
                             className="nav-link px-2 text-white">
                                 Education
                             </a></li>
                         <li>
                             <a href="#experience" 
-                            onClick={() => handlePageChange('experience')}
+                            onClick={() => handlePageChange('Experience')}
                             className="nav-link px-2 text-white">
                                 Experience
                             </a></li>
