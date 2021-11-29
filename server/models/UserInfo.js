@@ -11,6 +11,11 @@ const userInfoSchema = new Schema({
 		required: true,
 		trim: true,
 	},
+	address: {
+		type: String,
+		required: true,
+		trim: true
+	},
 	phoneNumber: { 
 		type: String,
 		required: true,

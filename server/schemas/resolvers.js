@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         profiles: async () => {
-            const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
+            const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }, { path: 'userInfos', model: UserInfo }]);
             return users;
         },
         profile: async (parent, { profileId }, context) => {
@@ -14,7 +14,8 @@ const resolvers = {
                     [
                         { path: 'skills', model: Skills }, 
                         { path: 'educations', model: Education }, 
-                        { path: 'experiences', model: Experience }
+                        { path: 'experiences', model: Experience },
+                        { path: 'userInfos', model: UserInfo }
                     ]
                 );
 
@@ -24,7 +25,7 @@ const resolvers = {
         },
         me: async (parent, args, context) => {
             if (context) {
-                return await Profile.findOne({ _id: context._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }]);
+                return await Profile.findOne({ _id: context._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }, { path: 'userInfos', model: UserInfo }]);
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -36,6 +37,9 @@ const resolvers = {
         },
         experiences: async () => {
             return await Experience.find();
+        },
+        userInfos: async () => {
+            return await UserInfo.find();
         }
     },
     
@@ -144,12 +148,13 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        addUserInfos: async (parent, { firstName, lastName, phoneNumber, email, owner }, context) => {
+        addUserInfos: async (parent, { firstName, lastName, address, phoneNumber, email, owner }, context) => {
             if (context) {
                 const userInfo = await UserInfo.create(
                     {
                         firstName, 
-                        lastName, 
+                        lastName,
+                        address, 
                         phoneNumber,
                         email,
                         owner

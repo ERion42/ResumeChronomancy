@@ -82,13 +82,13 @@ const SkillsForm = () => {
                         <Form.Label htmlFor="technicalSkills">Technical Skills</Form.Label>
                         <Form.Control type="text" placeholder="Your Technical Skills" name="technicalSkills" onChange={handleInputChange} value={userFormData.technicalSkills} required />
                         <Form.Control.Feedback type="invalid">
-                            technicalSkills is required!
+                            Technical Skills is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label className ="padding" htmlFor="languages">Languages</Form.Label>
-                        <Form.Control type="text" placeholder="Your Languages" name="languages" onChange={handleInputChange} value={userFormData.languages} />
+                        <Form.Control type="text" placeholder="Your Languages" name="languages" onChange={handleInputChange} value={userFormData.languages} required />
                         <Form.Control.Feedback type="invalid">
                             Languages is required!
                         </Form.Control.Feedback>
