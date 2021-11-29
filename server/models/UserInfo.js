@@ -31,6 +31,6 @@ const userInfoSchema = new Schema({
 	}
 });
 
-const userInfo = model("userInfo", userInfoSchema);
+const UserInfo = model("userInfo", userInfoSchema);
 
-module.exports = userInfo;
+module.exports = UserInfo;

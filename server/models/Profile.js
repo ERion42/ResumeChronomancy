@@ -27,7 +27,6 @@ const profileSchema = new Schema({
   experiences: [{ type: Schema.Types.ObjectId, ref: 'Experience' }],
   educations: [{ type: Schema.Types.ObjectId, ref: 'Education' }],
   userInfos: [{ type: Schema.Types.ObjectId, ref: 'UserInfo'}]
-
 });
 
 profileSchema.pre('save', async function (next) {

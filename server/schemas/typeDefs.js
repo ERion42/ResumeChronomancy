@@ -42,6 +42,14 @@ const typeDefs = gql`
         owner: ID
     }
 
+    type UserInfo {
+        firstName: String!
+        lastName: String!
+        phoneNumber: String!
+        email: String!
+        owner: ID
+    }
+
     type Auth {
         token: ID!
         profile: Profile
@@ -88,8 +96,9 @@ const typeDefs = gql`
         removeSkill(skillId: ID!): Skills
         addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
-        addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
+        addEducation(school: String, degree: String, major: String, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
         removeEducation(educationId: ID!): Education
+        addUserInfos(firstName: String!, lastName: String!, phoneNumber: String!, email: String!, owner: ID): UserInfo
     }
 `;
 
