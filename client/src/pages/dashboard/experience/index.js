@@ -3,7 +3,7 @@ import ExperienceForm from '../../../components/forms/ExperiencesForm';
 
 
 
-function DBEducation() {
+function DBExperience() {
     // nothing yet
     return (
         <div className="container">
@@ -41,4 +41,4 @@ function DBEducation() {
     );
 }
 
-export default DBEducation;
+export default DBExperience;

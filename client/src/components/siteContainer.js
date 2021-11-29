@@ -10,6 +10,7 @@ import FAQ from '../pages/FAQs/index';
 import Dashboard from '../pages/dashboard/index';
 import Education from '../pages/dashboard/education/index';
 import Experience from '../pages/dashboard/experience/index';
+import Skills from '../pages/dashboard/skills/index';
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
@@ -20,9 +21,9 @@ export default function SiteContainer() {
             // if (currentPage === 'Dashboard') {
             //     return <Dashboard />;
             // }
-            // if (currentPage === 'Skills') {
-            //     return <Skills/>;
-            // }
+            if (currentPage === 'Skills') {
+                return <Skills/>;
+            }
             if (currentPage === 'Education') {
                 return <Education/>;
             }
