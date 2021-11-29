@@ -1,5 +1,6 @@
 import React from 'react';
 import EducationForm from '../../components/forms/EducationForm';
+import ExperienceForm from '../../components/forms/ExperiencesForm';
 
 
 
@@ -18,7 +19,7 @@ function Dashboard() {
                 </div>
                 <div className="col-md bg-primary rounded m-1">
                     <h3>Experience</h3>
-                    <EducationForm />
+                    <ExperienceForm />
                 </div>
             </div>
             <div className="row justify-content-center">

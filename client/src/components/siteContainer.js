@@ -8,7 +8,8 @@ import SignUpForm from '../pages/signUp/index';
 import About from '../pages/about/index';
 import FAQ from '../pages/FAQs/index';
 import Dashboard from '../pages/dashboard/index';
-import Education from '../pages/dashboard/education/index'
+import Education from '../pages/dashboard/education/index';
+import Experience from '../pages/dashboard/experience/index';
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
@@ -25,9 +26,9 @@ export default function SiteContainer() {
             if (currentPage === 'Education') {
                 return <Education/>;
             }
-            // if (currentPage === 'Experience') {
-            //     return <Experience/>;
-            // }
+            if (currentPage === 'Experience') {
+                return <Experience/>;
+            }
             return <Dashboard />;
 
         } else {
