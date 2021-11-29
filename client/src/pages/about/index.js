@@ -8,7 +8,7 @@ function About() {
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
                 {/* Image - Right now it's a stock photo but we can easily replace it with something else... or nothing at all */}
                 <div className="col-10 col-sm-8 col-lg-6">
-                    <img src= {TeamPic} alt="by Pablo Nidam on Scopio" className="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy" />
+                    <img src= {TeamPic} alt="Maksim Chernyshev on Scopio" className="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy" />
                 </div>
                 {/* This section is about our team - most likely it'll be a one sentence blurb and a link to our GitHubs */}
                 <div className="col-lg-6">

@@ -15,21 +15,21 @@ function LandingPage({ currentPage }) {
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src= {FirstPic} className="d-block w-100" alt="Rodrigo Ascencio on Scopio"/>
+                        <img src= {FirstPic} className="d-block w-100" alt="Maksim Chernyshev on Scopio"/>
                         <div className="carousel-caption d-none d-md-block bg-dark">
                             <h5>Go From This...</h5>
                             <p>Resume writing can be frustrating!</p>
                         </div>                
                     </div>
                     <div className="carousel-item">
-                        <img src= {SecondPic} className="d-block w-100" alt="Rodrigo Ascencio on Scopio" />
+                        <img src= {SecondPic} className="d-block w-100" alt="Maksim Chernyshev on Scopio" />
                         <div className="carousel-caption d-none d-md-block bg-dark">
                             <h5>... To this...</h5>
                             <p>Let us help you create a resume that will land you the interview!</p>
                         </div>  
                     </div>
                     <div className="carousel-item">
-                        <img src= {ThirdPic} className="d-block w-100" alt="Scopio" />
+                        <img src= {ThirdPic} className="d-block w-100" alt="Maksim Chernyshev on Scopio" />
                         <div className="carousel-caption d-none d-md-block bg-dark">
                             <h5>...To this!</h5>
                             <p>Then use that interview to land you the job of your dreams!</p>
