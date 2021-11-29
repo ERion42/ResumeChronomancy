@@ -39,7 +39,7 @@ const educationSchema = new Schema({
 	
 	owner: {
         type: Schema.Types.ObjectId,
-        ref: "Profile"
+        ref: "Profile",
     }
 })
 

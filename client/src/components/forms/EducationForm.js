@@ -9,12 +9,12 @@ import Auth from '../../utils/auth';
 
 const EducationForm = () => {
     const [userFormData, setUserFormData] = useState({ school: '', degree: '', major: '', gpa: '', graduationDate: '', certifications: '' });
-
+    // const [owner, setOwner] = useState({});
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
     const [addEducation, { error }] = useMutation(ADD_EDUCATION);
-    const [owner, setOwner] = useState({ owner: '' });
+    
 
     useEffect(() => {
         if (error) {
@@ -42,15 +42,15 @@ const EducationForm = () => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         const decoded = decode(token)
         console.log(decoded)
-        
+        const owner = decoded.data._id
+        console.log(owner)
       
         if(!token) {
             return false;
         }
 
         try {
-            setOwner({ owner: decoded.data._id});
-            console.log(owner)
+            
             const { data } = await addEducation({
                 variables: { ...userFormData, owner },
             });

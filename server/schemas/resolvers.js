@@ -101,7 +101,7 @@ const resolvers = {
                 );
                 console.log(education)
                 await Profile.findByIdAndUpdate(
-                    { _id: education._id },
+                    { _id: education.owner },
                     { $addToSet: { educations: education._id } }
                 );
 

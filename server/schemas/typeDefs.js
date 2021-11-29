@@ -38,7 +38,7 @@ const typeDefs = gql`
         gpa: String
         graduationDate: String
         certifications: [String]
-        owner: String
+        owner: ID
     }
 
     type Auth {
@@ -87,7 +87,7 @@ const typeDefs = gql`
         removeSkill(skillId: ID!): Skills
         addExperience(organization: String!, position: String!, startDate: String!, endDate: String!, location: String!, description: String!): Experience
         removeExperience(experienceId: ID!): Experience
-        addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String, owner: String): Education
+        addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
         removeEducation(educationId: ID!): Education
     }
 `;
