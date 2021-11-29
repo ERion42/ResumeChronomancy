@@ -30,20 +30,21 @@ const EducationForm = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-        if(!token) {
-            return false;
-        }
+        
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
 
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        
+        if(!token) {
+            return false;
+        }
+
         try {
-            const data = await addEducation({
+            const { data } = await addEducation({
                 variables: { ...userFormData },
             });
 
