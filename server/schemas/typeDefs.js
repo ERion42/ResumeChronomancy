@@ -84,11 +84,10 @@ const typeDefs = gql`
         removeProfile(profileId: ID!): Profile
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
-        addExperience(organization: String!, position: String!, startDate: String!, endDate: String!, location: String!, Description: String!): Experience
+        addExperience(organization: String!, position: String!, startDate: String!, endDate: String!, location: String!, description: String!): Experience
         removeExperience(experienceId: ID!): Experience
         addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String): Education
         removeEducation(educationId: ID!): Education
-
     }
 `;
 
