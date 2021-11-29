@@ -111,14 +111,14 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        addExperience: async (parent, { organization, position, start_date, end_date, location, description, owner }, context) => {
+        addExperience: async (parent, { organization, position, startDate, endDate, location, description, owner }, context) => {
             if (context) {
                 const experience = await Experience.create(
                     {
                         organization,
                         position,
-                        start_date,
-                        end_date,
+                        startDate,
+                        endDate,
                         location,
                         description,
                         owner
