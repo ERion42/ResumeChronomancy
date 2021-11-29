@@ -25,17 +25,13 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_SKILL = gql`
-    mutation addSkill($skill: SkillInput!) {
-        addSkill(skill: $skill) {
-            _id
-            username
-            email
-            skills {
-                technicalSkills
-                language
-                softSkills
-                interests
-            }
+    mutation addSkill($technicalSkills: String!, $languages: String, $softSkills: String!, $interests: String, $owner: ID!) {
+        addSkill(technicalSkills: $technicalSkills, languages: $languages, softSkills: $softSkills, interests: $interests, owner: $owner) {            
+            technicalSkills
+            language
+            softSkills
+            interests
+            owner
         }
     }
 `

@@ -72,12 +72,21 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addSkill: async (parent, { skillData }, context) => {
-            if (context.user) {
+        addSkill: async (parent, { technicalSkills, languages, softSkills, interests, owner }, context) => {
+            if (context) {
                 const skill = await Skills.create(
                     {
-                        
+                       technicalSkills,
+                       languages,
+                       softSkills,
+                       interests,
+                       owner 
                     }
+                );
+                
+                await Profile.findByIdAndUpdate(
+                    { _id: skill.owner },
+                    { $addToSet: { skills: skill._id } }
                 );
 
                 return updatedProfile;

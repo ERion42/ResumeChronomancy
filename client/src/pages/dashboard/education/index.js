@@ -7,22 +7,59 @@ function DBEducation() {
     // nothing yet
     return (
         <div className="container">
-            <div class="row-4">
-                <div className="col-4 bg-info rounded m-1 pb-2">
+            <div className="row justify-content-center">
+                <div className="col-md-5 bg-warning rounded m-1 pb-2">
                     <h2>Update Education</h2>
                     <EducationForm />
                 </div>
-                <div className="col-md bg-warning rounded m-1">
+                <div className="col-md-6 bg-info rounded m-1">
                     <h2>My Education</h2>
-                    
+                    <ul className="list-group">
+                        {/* Template for Item List */}
+                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+                        
+                        <a href="#" className="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Item Heading</h5>
+                            </div>
+                            <p className="mb-1">Secondary Information</p>
+                            <small>Tertiary Information</small>
+                        </a>
+                    </ul>
                 </div>
                 
             </div>
-            <div className="row justify-content-center">
-                <div className="col-6 bg-success rounded m-1 text-center text-white">
-                    <h1>Generate Resume</h1>
-                </div>
-            </div>
+
         </div>
         
     );
