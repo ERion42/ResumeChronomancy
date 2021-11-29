@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Skills, Education, Experience } = require('../models');
+const { Profile, Skills, Education, Experience, UserInfo } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -142,6 +142,29 @@ const resolvers = {
                 return experience;
             }
             throw new AuthenticationError('You need to be logged in!')
+        },
+
+        addUserInfos: async (parent, { firstName, lastName, phoneNumber, email, owner }, context) => {
+            if (context) {
+                const userInfo = await UserInfo.create(
+                    {
+                        firstName, 
+                        lastName, 
+                        phoneNumber,
+                        email,
+                        owner
+                    }
+                )
+
+                await Profile.findByIdAndUpdate(
+                    { _id: userInfo.owner },
+                    { $addToSet: { userInfos: userInfo._id } }
+                )
+
+                return userInfo
+            }
+
+            throw new AuthenticationError('You must be logged in to do that!')
         },
 
         removeEducation: async (parent, { educationId }, context) => {

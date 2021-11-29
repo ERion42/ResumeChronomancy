@@ -37,7 +37,7 @@ export const ADD_SKILL = gql`
 `
 
 export const ADD_EDUCATION = gql`
-    mutation addEducation($school: String!, $degree: String!, $major: String!, $gpa: String!, $graduationDate: String!, $certifications: String, $owner: ID!) {
+    mutation addEducation($school: String!, $degree: String!, $major: String!, $gpa: String, $graduationDate: String!, $certifications: String, $owner: ID!) {
         addEducation(school: $school, degree: $degree, major: $major, gpa: $gpa, graduationDate: $graduationDate, certifications: $certifications, owner: $owner) {
             school
             degree
@@ -49,21 +49,6 @@ export const ADD_EDUCATION = gql`
         }
     }
 `;
-
-// export const ADD_EDUCATION = gql`
-//     mutation addEducation($educationData: EducationInput!) {
-//         addEducation(educationData: $educationData) {
-//             educations {
-//                 school
-//                 degree
-//                 major
-//                 gpa
-//                 graduationDate
-//                 certifications
-//             }
-//         }
-//     }
-// `;
 
 export const ADD_EXPERIENCE = gql`
     mutation addExperience($organization: String!, $position: String!, $startDate: String!, $endDate: String!, $location: String!, $description: String!, $owner: ID) {
@@ -78,6 +63,18 @@ export const ADD_EXPERIENCE = gql`
         }
     }
 `;
+
+export const ADD_USER_INFOS = gql`
+    addUserInfos($firstName: String!, $lastName: String!, $phoneNumber: String!, $email: String!, $owner: !String) {
+        addUserInfos(firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, email: $email, owner: $owner) {
+            firstName
+            lastName
+            phoneNumber
+            owner
+        }
+    }
+    
+`
 
 export const REMOVE_EDUCATION = gql`
     mutation removeEducation($educationId: ID!) {
