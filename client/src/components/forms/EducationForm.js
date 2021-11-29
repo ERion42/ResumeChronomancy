@@ -42,25 +42,11 @@ const EducationForm = () => {
             event.stopPropagation();
         }
 
-<<<<<<< HEAD
-=======
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-        
-        if(!token) {
-            return false;
-        }
-
->>>>>>> ecf664a (fixed token signing and reading)
         try {
             const data = await addEducation({
                 variables: { ...userFormData },
             });
 
-<<<<<<< HEAD
-            console.log(data);
-
-=======
->>>>>>> ecf664a (fixed token signing and reading)
         } catch (e) {
             console.error(e);
         }

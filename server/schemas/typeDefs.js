@@ -24,8 +24,8 @@ const typeDefs = gql`
         _id: ID!
         organization: String
         position: String
-        startDate: Float
-        endDate: Float
+        startDate: String
+        endDate: String
         location: String
         description: String
     }
@@ -35,7 +35,7 @@ const typeDefs = gql`
         school: String
         degree: String
         major: String
-        gpa: Float
+        gpa: String
         graduationDate: String
         certifications: [String]
     }
@@ -64,8 +64,8 @@ const typeDefs = gql`
     input ExperienceInput {
         organization: String
         position: String
-        startDate: Float
-        endDate: Float
+        startDate: String
+        endDate: String
         location: String
         description: String
     }
@@ -84,8 +84,11 @@ const typeDefs = gql`
         removeProfile(profileId: ID!): Profile
         addSkill(skillData: SkillsInput!): Skills
         removeSkill(skillId: ID!): Skills
-        addExperience(experienceData: ExperienceInput!): Experience
+        addExperience(organization: String!, position: String!, startDate: String!, endDate: String!, location: String!, Description: String!): Experience
+        removeExperience(experienceId: ID!): Experience
         addEducation(school: String!, degree: String!, major: String!, gpa: String, graduationDate: String, certifications: String): Education
+        removeEducation(educationId: ID!): Education
+
     }
 `;
 

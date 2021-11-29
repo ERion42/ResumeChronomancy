@@ -131,6 +131,40 @@ const resolvers = {
                 return experience;
             }
             throw new AuthenticationError('You need to be logged in!')
+        },
+
+        removeEducation: async (parent, { educationId }, context) => {
+            if (context.user) {
+                const education = await Education.findOneAndDelete({
+                    _id: context.user._id
+                });
+
+                await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { educations: education._id } }
+                );
+
+                return education
+            }
+
+            throw new AuthenticationError('You need to be logged in to do that!')
+        },
+
+        removeExperience: async (parent, { experienceId }, context) => {
+            if (context.user) {
+                const experience = await Experience.findOneAndDelete({
+                    _id: context.user._id
+                });
+
+                await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { experiences: experience._id } }
+                );
+
+                return experience
+            }
+
+            throw new AuthenticationError('You need to be logged in to do that!')
         }
     }
 };
