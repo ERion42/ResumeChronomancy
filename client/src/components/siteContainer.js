@@ -8,6 +8,7 @@ import SignUpForm from '../pages/signUp/index';
 import About from '../pages/about/index';
 import FAQ from '../pages/FAQs/index';
 import Dashboard from '../pages/dashboard/index';
+import Education from '../pages/dashboard/education/index'
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
@@ -15,7 +16,19 @@ export default function SiteContainer() {
     // Check to see the value of 'currentPage', then returns component to render
     const renderPage = () => {
         if (Auth.loggedIn()) {
-            return <Dashboard />
+            // if (currentPage === 'Dashboard') {
+            //     return <Dashboard />;
+            // }
+            // if (currentPage === 'Skills') {
+            //     return <Skills/>;
+            // }
+            if (currentPage === 'Education') {
+                return <Education/>;
+            }
+            // if (currentPage === 'Experience') {
+            //     return <Experience/>;
+            // }
+            return <Dashboard />;
 
         } else {
             if (currentPage === 'Login') {

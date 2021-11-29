@@ -6,11 +6,11 @@ import ExperienceForm from '../../components/forms/ExperiencesForm';
 
 
 function Dashboard() {
-    // nothing yet
+    // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
     return (
         <div className="container ">
             <div class="row">
-                <div className="col-4 bg-info rounded m-1 pb-2">
+                <div className="col-md-4 bg-info rounded m-1 pb-2">
                     <h2>Education</h2>
                     <EducationForm />
                 </div>
