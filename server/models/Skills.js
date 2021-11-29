@@ -6,7 +6,7 @@ const { interestsSchema } = require('./Interests');
 
 const skillsSchema = new Schema({
     technicalSkills: {
-        type: Schema.Types.ObjectId,
+        type: [ technicalSkillsSchema ]
     },
     languages: {
         type: [ languagesSchema ]

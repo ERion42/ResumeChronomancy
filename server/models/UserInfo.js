@@ -15,7 +15,7 @@ const userInfoSchema = new Schema({
 		type: String,
 		required: true,
 		trim: true,
-		match: [/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/gm, 'Must be a valid phone number.']
+		match: [/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm, 'Must be a valid phone number.']
 	},
 
 	email: {
