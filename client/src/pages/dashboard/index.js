@@ -1,6 +1,6 @@
 import React from 'react';
 import EducationForm from '../../components/forms/EducationForm';
-// import ExperienceForm from '../../components/forms/ExperiencesForm';
+import ExperienceForm from '../../components/forms/ExperiencesForm';
 // import SkillForm from '../../components/forms/SkillsForm';
 
 
@@ -19,6 +19,7 @@ function Dashboard() {
                 </div>
                 <div className="col-md bg-primary rounded m-1">
                     <h3>Experience</h3>
+                    <ExperienceForm />
                 </div>
             </div>
         </div>

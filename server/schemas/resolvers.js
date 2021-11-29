@@ -9,8 +9,8 @@ const resolvers = {
             return users;
         },
         profile: async (parent, { profileId }, context) => {
-            if (context.profile) {
-                const profile = await Profile.findById(context.profile._id).populate(
+            if (context.user) {
+                const profile = await Profile.findById(context.user._id).populate(
                     [
                         { path: 'skills', model: Skills }, 
                         { path: 'educations', model: Education }, 
@@ -41,16 +41,16 @@ const resolvers = {
     
     Mutation: {
         addProfile: async (parent, { username, email, password }) => {
-            const profile = await Profile.create({ username, email, password });
-            const token = signToken(profile);
+            const user = await Profile.create({ username, email, password });
+            const token = signToken(user);
 
-            return { token, profile };
+            return { token, user };
         }, 
 
         login: async (parent, { username, password }) => {
-            const profile = await Profile.findOne({ username });
+            const user = await Profile.findOne({ username });
 
-            if (!profile) {
+            if (!user) {
                 throw new AuthenticationError('No profile with this username found');
             }
 
@@ -60,8 +60,8 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect Password');
             }
 
-            const token = signToken(profile);
-            return { token, profile }
+            const token = signToken(user);
+            return { token, user }
         },
 
         removeProfile: async (parent, args, context) => {
@@ -73,7 +73,7 @@ const resolvers = {
         },
 
         addSkill: async (parent, { skillData }, context) => {
-            if (context.profile) {
+            if (context.user) {
                 const skill = await Skills.create(
                     {
                         
@@ -100,7 +100,7 @@ const resolvers = {
                 );
 
                 await Profile.findOneAndUpdate(
-                    { _id: context.profile._id },
+                    { _id: context.user._id },
                     { $addToSet: { educations: education._id } }
                 );
 
@@ -124,13 +124,47 @@ const resolvers = {
                 );
 
                 await Profile.findOneAndUpdate(
-                    { _id: context.profile._id },
+                    { _id: context.user._id },
                     { $addToSet: { experiences: experience._id } }
                 );
 
                 return experience;
             }
             throw new AuthenticationError('You need to be logged in!')
+        },
+
+        removeEducation: async (parent, { educationId }, context) => {
+            if (context.user) {
+                const education = await Education.findOneAndDelete({
+                    _id: context.user._id
+                });
+
+                await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { educations: education._id } }
+                );
+
+                return education
+            }
+
+            throw new AuthenticationError('You need to be logged in to do that!')
+        },
+
+        removeExperience: async (parent, { experienceId }, context) => {
+            if (context.user) {
+                const experience = await Experience.findOneAndDelete({
+                    _id: context.user._id
+                });
+
+                await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { experiences: experience._id } }
+                );
+
+                return experience
+            }
+
+            throw new AuthenticationError('You need to be logged in to do that!')
         }
     }
 };

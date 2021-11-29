@@ -54,17 +54,14 @@ export const ADD_EDUCATION = gql`
 `;
 
 export const ADD_EXPERIENCE = gql`
-    mutation addExperience($profileId: ID!) {
-        addExperience(profileId: $profileId) {
-            token
-            experiences {
-                organization
-                position
-                startDate
-                endDate
-                location
-                description
-            }
+    mutation addExperience($organization: String!, $position: String!, $startDate: String!, $endDate: String!, $location: String!, $description: String!) {
+        addExperience(organization: $organization, position: $position, startDate: $startDate, endDate: $endDate, location: $location, description: $description) {
+            organization
+            position
+            startDate
+            endDate
+            location
+            description
         }
     }
 `

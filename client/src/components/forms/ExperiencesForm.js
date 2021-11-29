@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_EXPERIENCE } from '../utils/mutations';
+import { ADD_EXPERIENCE } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 const ExperienceForm = () => {
     const [userFormData, setUserFormData] = useState({ organization: '', position: '', startDate: '', endDate: '', location: '', description: '' });
@@ -58,7 +58,7 @@ const ExperienceForm = () => {
     };
 
     return (
-                <>
+        <>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit} >
                 <Alert
                     dismissible
