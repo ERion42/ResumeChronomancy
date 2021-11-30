@@ -1,19 +1,19 @@
 const { Schema, model } = require("mongoose");
 
 const skillsSchema = new Schema({
-	technicalSkill: {
+	technicalSkills: {
         type: String,
 
     },
-    language: {
+    languages: {
         type: String,
 
     },
-    softSkill: {
+    softSkills: {
         type: String,
 
     },
-    interest: {
+    interests: {
         type: String,
 
     },
