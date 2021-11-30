@@ -14,7 +14,7 @@ function About() {
                 <div className="col-lg-6">
                     <h1 className="display-5 fw-bold lh-1 mb-3">The Team:</h1>
                     <h3>Eric : </h3>
-                    <Collapsible  className="lead">I'm baby leggings literally neutra four dollar toast, flannel kitsch shoreditch food truck hot chicken messenger bag umami meggings. Cliche dreamcatcher humblebrag pabst typewriter taxidermy scenester. Crucifix bitters glossier austin godard jianbing plaid scenester banh mi meditation knausgaard wayfarers truffaut pok pok. Church-key chia chicharrones man bun, fixie polaroid mustache.</Collapsible>
+                    <Collapsible  className="lead">I'm baby leggings literally neutra four dollar toast, flannel kitsch shoreditch food truck hot chicken messenger bag umami meggings.GitHub: https://github.com/ERion42</Collapsible>
 
                     <h3>Garrett:</h3>
                     <Collapsible className="lead">YOLO gluten-free offal banh mi seitan actually. Tacos poke hella schlitz chartreuse. Marfa heirloom franzen jianbing banh mi, pork belly green juice chartreuse drinking vinegar narwhal brooklyn four dollar toast bitters shaman. Vinyl hoodie trust fund sriracha venmo vaporware try-hard irony heirloom quinoa truffaut butcher live-edge dreamcatcher. Gochujang twee quinoa tote bag woke stumptown post-ironic yr. Master cleanse YOLO polaroid unicorn pork belly hot chicken bushwick, knausgaard gastropub post-ironic roof party.</Collapsible>
