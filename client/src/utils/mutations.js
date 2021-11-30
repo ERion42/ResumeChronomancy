@@ -24,13 +24,49 @@ export const LOGIN_USER = gql`
     }
 `;
 
-export const ADD_SKILL = gql`
-    mutation addSkill($technicalSkills: String!, $languages: String, $softSkills: String!, $interests: String, $owner: ID!) {
+export const ADD_SKILLS = gql`
+    mutation addSkill($technicalSkills: [String]!, $languages: [String], $softSkills: [String]!, $interests: [String], $owner: ID!) {
         addSkill(technicalSkills: $technicalSkills, languages: $languages, softSkills: $softSkills, interests: $interests, owner: $owner) {            
             technicalSkills
             languages
             softSkills
             interests
+            owner
+        }
+    }
+`;
+
+export const ADD_TECHNICAL_SKILL = gql`
+    mutation addTechnicalSkill($technicalSkill: String, $owner: ID!){
+        addTechnicalSkill(technicalSkill: $technicalSkill, owner: $owner){
+            technicalSkill
+            owner
+        }
+    }
+`;
+
+export const ADD_LANGUAGE = gql`
+    mutation addLanguage($language: String, $owner: ID!){
+        addLanguage(language: $language, owner: $owner){
+            language
+            owner
+        }
+    }
+`;
+
+export const ADD_SOFT_SKILL = gql`
+    mutation addSoftSkill($softSkill: String, $owner: ID!){
+        addSoftSkill(softSkill: $softSkill, owner: $owner){
+            softSkill
+            owner
+        }
+    }
+`;
+
+export const ADD_INTEREST = gql`
+    mutation addInterest($interest: String, $owner: ID!){
+        addInterest(interest: $interest, owner: $owner){
+            interest
             owner
         }
     }

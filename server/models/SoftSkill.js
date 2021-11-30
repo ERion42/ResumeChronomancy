@@ -11,5 +11,5 @@ const softSkillSchema = new Schema({
     }
 });
 
-const SoftSkills = model("SoftSkill", softSkillSchema);
+const SoftSkill = model("SoftSkill", softSkillSchema);
 module.exports = SoftSkill;

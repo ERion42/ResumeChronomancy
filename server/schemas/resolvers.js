@@ -1,9 +1,28 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Skills, Education, Experience, UserInfo } = require('../models');
-const SoftSkills = require('../models/SoftSkill');
+const { Profile, Skills, Education, Experience, UserInfo, TechnicalSkill, Language, SoftSkill, Interest } = require('../models');
+// const SoftSkills = require('../models/SoftSkill');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
+
+    Skills: {
+        technicalSkills: async (technicalSkill) => {
+            return (await technicalSkill.populate('technicalSkills').execPopulate()).technicalSkill
+        },
+
+        languages: async (language) => {
+            return (await language.populate('languages').execPopulate()).language
+        },
+
+        softSkills: async (softSkill) => {
+            return (await softSkill.populate('softSkills').execPopulate()).softSkill
+        },
+
+        interests: async (interest) => {
+            return (await interest.populate('interests').execPopulate()).interest
+        },
+    },
+
     Query: {
         profiles: async () => {
             const users = await Profile.find().populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }, { path: 'userInfos', model: UserInfo }]);
@@ -98,6 +117,82 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addTechnicalSkill: async (parent, { technicalSkill, owner }, context) => {
+            if(context) {
+                const technicalSkill = await TechnicalSkill.create(
+                    {
+                        technicalSkill,
+                        owner
+                    }
+                );
+
+                await Profile.findByIdAndUpdate(
+                    { _id: technicalSkill.owner },
+                    { $addToSet: { skills: skills._id } }
+                );
+
+                return updatedProfile;
+
+            }
+        },
+
+        addLanguage: async (parent, { language, owner }, context) => {
+            if(context) {
+                const language = await Language.create(
+                    {
+                        language,
+                        owner
+                    }
+                );
+
+                await Profile.findByIdAndUpdate(
+                    { _id: language.owner },
+                    { $addToSet: { skills: skills._id } }
+                );
+
+                return updatedProfile;
+
+            }
+        },
+
+        addSoftSkill: async (parent, { softSkill, owner }, context) => {
+            if(context) {
+                const softSkill = await SoftSkill.create(
+                    {
+                        softSkill,
+                        owner
+                    }
+                );
+
+                await Profile.findByIdAndUpdate(
+                    { _id: softSkill.owner },
+                    { $addToSet: { skills: skills._id } }
+                );
+
+                return updatedProfile;
+
+            }
+        },
+
+        addInterest: async (parent, { interest, owner }, context) => {
+            if(context) {
+                const interest = await Interest.create(
+                    {
+                        interest,
+                        owner
+                    }
+                );
+
+                await Profile.findByIdAndUpdate(
+                    { _id: interest.owner },
+                    { $addToSet: { skills: skills._id } }
+                );
+
+                return updatedProfile;
+
+            }
         },
 
         addEducation: async (parent, { school, degree, major, gpa, graduationDate, certifications, owner }, context) => {

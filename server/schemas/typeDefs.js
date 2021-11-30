@@ -23,18 +23,22 @@ const typeDefs = gql`
     }
 
     type TechnicalSkill {
+        _id: ID
         technicalSkills: String!
     }
 
     type Language {
+        _id: ID
         languages: String!
     }
 
     type SoftSkill {
+        _id: ID
         softSkills: String!
     }
 
     type Interest {
+        _id: ID
         interests: String!
     }
     
@@ -136,7 +140,7 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
-        addSkill(technicalSkills: String, languages: String, softSkills: String, interests: String, owner: ID): Skills
+        addSkill(technicalSkills: [String], languages: [String], softSkills: [String], interests: [String], owner: ID): Skills
         removeSkill(skillId: ID!): Skills
         addTechnicalSkill(technicalSkill: String): TechnicalSkill
         removeTechnicalSkill(technicalSkillId: ID!): TechnicalSkill
@@ -144,8 +148,8 @@ const typeDefs = gql`
         removeLanguage(languageId: ID!): Language
         addSoftSkill(softSkill: String): SoftSkill
         removeSoftSkill(softSkillId: ID!): SoftSkill
-        addInterest(interest: String): Language
-        removeLanguage(languageId: ID!): Language
+        addInterest(interest: String): Interest
+        removeInterest(interestId: ID!): Interest
         addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
         addEducation(school: String, degree: String, major: String, gpa: String, graduationDate: String, certifications: String, owner: ID): Education

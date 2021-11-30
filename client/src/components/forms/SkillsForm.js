@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_SKILL } from '../../utils/mutations';
+import { ADD_SKILLS, ADD_TECHNICAL_SKILL, ADD_LANGUAGE, ADD_SOFT_SKILL, ADD_INTEREST } from '../../utils/mutations';
 import decode from 'jwt-decode';
 
 import Auth from '../../utils/auth';
@@ -13,8 +13,9 @@ const SkillsForm = () => {
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addSkill, { error }] = useMutation(ADD_SKILL);
+    const [addSkill, { error }] = useMutation(ADD_TECHNICAL_SKILL, ADD_LANGUAGE, ADD_SOFT_SKILL, ADD_INTEREST);
     
+    const [addSkills, { error }] = useMutation(ADD_SKILLS);
 
     useEffect(() => {
         if (error) {
@@ -52,6 +53,9 @@ const SkillsForm = () => {
         try {
             
             const { data } = await addSkill({
+                variables: { ...userFormData, owner },
+            })
+            const { data } = await addSkills({
                 variables: { ...userFormData, owner },
             });
             console.log(data)
