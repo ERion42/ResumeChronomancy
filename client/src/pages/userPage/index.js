@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../../../utils/queries';
-import Auth from '../../../utils/auth';
+import { QUERY_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
 import decode from 'jwt-decode'
 
 // query and function works, roughly, revisiting things from graphQL side
@@ -28,13 +28,13 @@ function UserPage({faq, index, toggleFAQ}) {
             </div>
             <div className="row flex-lg-row">
                 <div className="col-lg bg-info rounded m-3 p-3 text-center">
-                    <p>Username: </p>
+                    <p>Username: {profile.username}</p>
                     <input className="form-control" type="text" disabled>
 
                     </input>
                 </div>
                 <div className="col-lg bg-info rounded m-3 p-3 text-center">
-                    <p>Email Address: </p>
+                    <p>Email Address: {profile.email}</p>
                     <input className="form-control" type="text" disabled>
 
                     </input>
