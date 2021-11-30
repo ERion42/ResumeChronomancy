@@ -7,11 +7,11 @@ function DBSkills() {
     return (
         <div className="container">
             <div className="row justify-content-center">
-                <div className="col-md-5 bg-warning rounded m-1 pb-2 mt-4">
+                <div className="col-md-5 bg-warning rounded pt-2 m-1 pb-2 mt-4">
                     <h2>Update Skills</h2>
                      <SkillsForm />
                 </div>
-                <div className="col-md-6 bg-info rounded m-1 pb-2 mt-4">
+                <div className="col-md-6 bg-info rounded m-1 pt-2 pb-2 mt-4">
                     <h2>My Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
