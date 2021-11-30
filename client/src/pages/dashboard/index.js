@@ -17,7 +17,7 @@ function Dashboard() {
         variables: { profileId: decoded.data._id }
     })
 
-    console.log(data)
+    console.log(data.me.userInfos[0].firstName)
 
     // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
 
@@ -84,6 +84,7 @@ function Dashboard() {
       };
     return (
         <div className="container ">
+            <h2>{data.me.userInfos[0].firstName}</h2>
             <div class="row">
                 <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
