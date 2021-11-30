@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const interestsSchema = new Schema({
-	interests: {
+const interestSchema = new Schema({
+	interest: {
 		type: String,
 		required: false
 	},
@@ -11,5 +11,5 @@ const interestsSchema = new Schema({
     }	
 });
 
-const Interests = model("Interests", interestsSchema);
-module.exports = Interests;
+const Interest = model("Interest", interestSchema);
+module.exports = Interest;

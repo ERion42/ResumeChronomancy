@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const languagesSchema = new Schema({
-	languages: {
+const languageSchema = new Schema({
+	language: {
 		type: String,
 		required: false
 	},
@@ -11,5 +11,5 @@ const languagesSchema = new Schema({
     }
 });
 
-const Languages = model("Languages", languagesSchema);
-module.exports = Languages;
+const Language = model("Language", languageSchema);
+module.exports = Language;

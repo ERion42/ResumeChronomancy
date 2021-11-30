@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const softSkillsSchema = new Schema({
-	softSkills: {
+const softSkillSchema = new Schema({
+	softSkill: {
 		type: String,
 		required: true
 	},
@@ -11,5 +11,5 @@ const softSkillsSchema = new Schema({
     }
 });
 
-const SoftSkills = model("SoftSkills", softSkillsSchema);
-module.exports = SoftSkills;
+const SoftSkills = model("SoftSkill", softSkillSchema);
+module.exports = SoftSkill;

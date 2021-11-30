@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Profile, Skills, Education, Experience, UserInfo } = require('../models');
+const SoftSkills = require('../models/SoftSkill');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -30,7 +31,7 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         skills: async () => {
-            return await Skills.find();
+            return await Skills.find()
         },
         educations: async () => {
             return await Education.find();

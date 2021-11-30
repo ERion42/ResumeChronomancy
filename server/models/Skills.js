@@ -1,23 +1,23 @@
 const { Schema, model } = require("mongoose");
-const { technicalSkillsSchema } = require('./TechnicalSkills');
-const { languagesSchema } = require('./Languages');
-const { softSkillsSchema } = require('./SoftSkills');
-const { interestsSchema } = require('./Interests');
+const { technicalSkillSchema } = require('./TechnicalSkill');
+const { languageSchema } = require('./Language');
+const { softSkillSchema } = require('./SoftSkill');
+const { interestSchema } = require('./Interest');
 
 const skillsSchema = new Schema({
     technicalSkills: {
-        type: [ technicalSkillsSchema ]
+        type: [ technicalSkillSchema ]
     },
     languages: {
-        type: [ languagesSchema ]
+        type: [ languageSchema ]
 
     },
     softSkills: {
-        type: [ softSkillsSchema ]
+        type: [ softSkillSchema ]
 
     },
     interests: {
-        type: [ interestsSchema ]
+        type: [ interestSchema ]
 
     },
     owner: {

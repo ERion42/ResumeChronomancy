@@ -21,6 +21,22 @@ const typeDefs = gql`
         interests: [String]
         owner: ID
     }
+
+    type TechnicalSkill {
+        technicalSkills: String!
+    }
+
+    type Language {
+        languages: String!
+    }
+
+    type SoftSkill {
+        softSkills: String!
+    }
+
+    type Interest {
+        interests: String!
+    }
     
     type Experience {
         _id: ID!
@@ -69,9 +85,25 @@ const typeDefs = gql`
     }
 
     input SkillsInput {
+        technicalSkills: [String]
+        language: [String]
+        softSkills: [String]
+        interests: [String]
+    }
+
+    input TechnicalSkillInput {
         technicalSkills: String
-        language: String
+    }
+
+    input LanguageInput {
+        languages: String
+    }
+
+    input SoftSkillInput {
         softSkills: String
+    }
+
+    input InterestInput {
         interests: String
     }
 
@@ -106,6 +138,14 @@ const typeDefs = gql`
         removeProfile(profileId: ID!): Profile
         addSkill(technicalSkills: String, languages: String, softSkills: String, interests: String, owner: ID): Skills
         removeSkill(skillId: ID!): Skills
+        addTechnicalSkill(technicalSkill: String): TechnicalSkill
+        removeTechnicalSkill(technicalSkillId: ID!): TechnicalSkill
+        addLanguage(language: String): Language
+        removeLanguage(languageId: ID!): Language
+        addSoftSkill(softSkill: String): SoftSkill
+        removeSoftSkill(softSkillId: ID!): SoftSkill
+        addInterest(interest: String): Language
+        removeLanguage(languageId: ID!): Language
         addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
         addEducation(school: String, degree: String, major: String, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
