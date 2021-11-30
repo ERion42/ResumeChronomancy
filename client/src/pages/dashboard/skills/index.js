@@ -17,7 +17,8 @@ function DBSkills() {
         variables: { profileId: decoded.data._id }
     })
 
-    console.log(data.me.userInfos[0].firstName)
+    const profile = data?.me || {}
+    console.log(profile);
 
     return (
         <div className="container">

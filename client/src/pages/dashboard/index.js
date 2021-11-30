@@ -17,7 +17,8 @@ function Dashboard() {
         variables: { profileId: decoded.data._id }
     })
 
-    console.log(data.me.userInfos[0].firstName)
+    const profile = data?.me || {}
+    console.log(profile);
 
     // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
 

@@ -17,7 +17,8 @@ function DBEducation() {
         variables: { profileId: decoded.data._id }
     })
 
-    console.log(data.me.userInfos[0].firstName)
+    const profile = data?.me || {}
+    console.log(profile);
     // nothing yet
     return (
         <div className="container">
