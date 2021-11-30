@@ -64,6 +64,7 @@ const typeDefs = gql`
         skills: [Skills]
         educations: [Education]
         experiences: [Experience]
+        userInfos: [UserInfo]
     }
 
     input SkillsInput {
