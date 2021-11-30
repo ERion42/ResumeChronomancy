@@ -1,9 +1,23 @@
 import React from 'react';
 import EducationForm from '../../../components/forms/EducationForm';
-
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
+import decode from 'jwt-decode'
 
 
 function DBEducation() {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(token)
+    const decoded = decode(token)
+    console.log(decoded)
+    const profileId = useParams();
+    const { data } = useQuery(QUERY_ME, {
+        variables: { profileId: decoded.data._id }
+    })
+
+    console.log(data.me.userInfos[0].firstName)
     // nothing yet
     return (
         <div className="container">
