@@ -65,6 +65,7 @@ export const ADD_EXPERIENCE = gql`
 `;
 
 export const ADD_USER_INFOS = gql`
+
     mutation addUserInfos($firstName: String!, $lastName: String!, $address: String!, $phoneNumber: String!, $email: String!, $owner: ID) {
         addUserInfos(firstName: $firstName, lastName: $lastName, address: $address, phoneNumber: $phoneNumber, email: $email, owner: $owner) {
             firstName
