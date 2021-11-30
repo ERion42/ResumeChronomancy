@@ -9,139 +9,139 @@ function Dashboard() {
     return (
         <div className="container ">
             <div class="row">
-                <div className="col-md-4 bg-info rounded m-1 pb-4 mt-4 ">
+                <div className="col-md-4 bg-warning rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
                     </ul>
                 </div>
                 <div className="col-md bg-warning rounded m-1 mt-4">
                     <h2>Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
                     </ul>
                 </div>
-                <div className="col-md bg-primary rounded m-1 mt-4">
+                <div className="col-md bg-warning rounded m-1 mt-4">
                     <h3>Experience</h3>
                     <ul className="list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
 
-                        <a href="#" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
+                        <div className="list-group-item list-group-item-action">
+                            <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
                             <p className="mb-1">Secondary Information</p>
                             <small>Tertiary Information</small>
-                        </a>
+                        </div>
                     </ul>
                 </div>
             </div>
