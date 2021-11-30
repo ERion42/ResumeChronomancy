@@ -124,12 +124,14 @@ const ExperienceForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <Button 
-                    className='padding bg-dark'
-                    disabled={!(userFormData.organization && userFormData.position && userFormData.startDate && userFormData.endDate && userFormData.location && userFormData.description)}
-                    type="submit"
-                    variant="success"
-                >Submit</Button>
+                <div class="container">
+                    <Button 
+                        className="padding mb-2 bg-dark btn-outline-light w-100 align-center text-white"
+                        disabled={!(userFormData.organization && userFormData.position && userFormData.startDate && userFormData.endDate && userFormData.location && userFormData.description)}
+                        type="submit"
+                        variant="success"
+                    >Submit</Button>
+                </div>
 
             </Form>
         </>
