@@ -6,9 +6,7 @@
   --Lime:  #14A76C;
 }
 
-body {
-  background-color: var(--Light);
-}
+
 
 .App {
   text-align: center;

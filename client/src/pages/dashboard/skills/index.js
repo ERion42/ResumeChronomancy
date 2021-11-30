@@ -22,6 +22,11 @@ function DBSkills() {
 
     return (
         <div className="container">
+            <div className="row flex-lg-row-reverse align-items-center">
+                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white">
+                    <h1>Skills Dashboard</h1>
+                </div>
+            </div>    
             <div className="row justify-content-center">
                 <div className="col-md-5 bg-warning rounded pt-2 m-1 pb-2 mt-4">
                     <h2>Update Skills</h2>
