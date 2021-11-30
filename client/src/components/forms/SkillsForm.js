@@ -13,7 +13,7 @@ const SkillsForm = () => {
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addSkill, { error }] = useMutation(ADD_SKILL);
+    const [addSkills, { error }] = useMutation(ADD_SKILL);
     
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const SkillsForm = () => {
 
         try {
             
-            const { data } = await addSkill({
+            const { data } = await addSkills({
                 variables: { ...userFormData, owner },
             });
             console.log(data)
