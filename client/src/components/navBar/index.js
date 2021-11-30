@@ -36,7 +36,15 @@ function NavBar({ currentPage, handlePageChange }) {
                             onClick={() => handlePageChange('Experience')}
                             className="nav-link px-2 text-white">
                                 Experience
-                            </a></li>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#user" 
+                            onClick={() => handlePageChange('UserPage')}
+                            className="nav-link px-2 text-white">
+                                My Account
+                            </a>
+                        </li>
                     </ul>
     
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

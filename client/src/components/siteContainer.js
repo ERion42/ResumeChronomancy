@@ -11,6 +11,7 @@ import Dashboard from '../pages/dashboard/index';
 import Education from '../pages/dashboard/education/index';
 import Experience from '../pages/dashboard/experience/index';
 import Skills from '../pages/dashboard/skills/index';
+import UserPage from '../pages/userPage/index';
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
@@ -29,6 +30,9 @@ export default function SiteContainer() {
             }
             if (currentPage === 'Experience') {
                 return <Experience/>;
+            }
+            if (currentPage === 'UserPage') {
+                return <UserPage />
             }
             return <Dashboard />;
 
