@@ -76,9 +76,9 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addSkill: async (parent, { technicalSkills, languages, softSkills, interests, owner }, context) => {
+        addSkills: async (parent, { technicalSkills, languages, softSkills, interests, owner }, context) => {
             if (context) {
-                const skill = await Skills.create(
+                const skills = await Skills.create(
                     {
                        technicalSkills,
                        languages,
@@ -89,11 +89,11 @@ const resolvers = {
                 );
                 
                 await Profile.findByIdAndUpdate(
-                    { _id: skill.owner },
-                    { $addToSet: { skills: skill._id } }
+                    { _id: skills.owner },
+                    { $addToSet: { skills: skills._id } }
                 );
 
-                return updatedProfile;
+                return skills;
             }
 
             throw new AuthenticationError('You need to be logged in!');
