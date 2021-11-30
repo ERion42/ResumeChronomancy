@@ -2,8 +2,8 @@ import React from 'react';
 import SkillsForm from '../../../components/forms/SkillsForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../../utils/queries';
-import Auth from '../../utils/auth';
+import { QUERY_ME } from '../../../utils/queries';
+import Auth from '../../../utils/auth';
 import decode from 'jwt-decode'
 
 
