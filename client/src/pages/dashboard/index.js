@@ -20,6 +20,7 @@ function Dashboard() {
     console.log(data)
 
     // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
+
     const [checked, setChecked]=React.useState(false);
       const [checkedOne, setCheckedOne] = React.useState(false);
       const [checkedTwo, setCheckedTwo] = React.useState(false);
@@ -88,25 +89,30 @@ function Dashboard() {
                     <h2>Education</h2>
                     <ul className="list-group checkbox-list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checked}
+                                            onChange={handleChange}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Item Heading</h5>
+                                        </div>
+                                        <p className="mb-1">Secondary Information</p>
+                                        <small>Tertiary Information</small>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checked}
-                                    onChange={handleChange}
-                                    />
-                                </label>
-                            </div>
-                            
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -123,7 +129,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -140,7 +146,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -157,7 +163,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -179,24 +185,30 @@ function Dashboard() {
                     <h2>Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedFive}
-                                    onChange={handleChangeFive}
-                                    />
-                                </label>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checked}
+                                            onChange={handleChangeFive}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Item Heading</h5>
+                                        </div>
+                                        <p className="mb-1">Secondary Information</p>
+                                        <small>Tertiary Information</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -213,7 +225,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -230,7 +242,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -247,7 +259,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -269,24 +281,30 @@ function Dashboard() {
                     <h3>Experience</h3>
                     <ul className="list-group">
                         {/* Template for Item List */}
-                        <a href="#" className="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedTen}
-                                    onChange={handleChangeTen}
-                                    />
-                                </label>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checked}
+                                            onChange={handleChangeTen}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Item Heading</h5>
+                                        </div>
+                                        <p className="mb-1">Secondary Information</p>
+                                        <small>Tertiary Information</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -303,7 +321,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -320,7 +338,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>
@@ -337,7 +355,7 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#" className="list-group-item list-group-item-action">
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Item Heading</h5>
                             </div>

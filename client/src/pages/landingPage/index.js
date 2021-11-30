@@ -47,7 +47,7 @@ function LandingPage({ currentPage }) {
             </div>
             {/* After the carousel we might want to add some important text */}
             <div>
-                <p className="text-center mt-4">Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout.</p>
+                <p className="text-center mt-4">Our easy-to-use software will help you more quickly and easily tailor your resume to the jobs you want to apply for! Simply create an account, input your education, experience, and skills, then select the criteria for your ideal resume! We'll build and format your resume using your data and specifications and give you a resume that targets the job you're applying for!</p>
             </div>
         </section>
     );
