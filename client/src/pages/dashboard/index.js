@@ -85,7 +85,6 @@ function Dashboard() {
       };
     return (
         <div className="container ">
-            <h2>{data.me.userInfos[0].firstName}</h2>
             <div class="row">
                 <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
