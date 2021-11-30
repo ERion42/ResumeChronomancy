@@ -110,12 +110,18 @@ const SkillsForm = () => {
                         </Form.Control.Feedback>
                     </Form.Group>
 
-                    <Button 
-                        className="padding bg-dark"
-                        disabled={!(userFormData.technicalSkills && userFormData.languages && userFormData.softSkills && userFormData.interests)}
-                        type="submit"
-                        variant="success"
-                    >Submit</Button>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <Button 
+                                    className="padding mb-2 bg-dark btn-outline-dark w-100 align-center text-white"
+                                    disabled={!(userFormData.technicalSkills && userFormData.languages && userFormData.softSkills && userFormData.interests)}
+                                    type="submit"
+                                    variant="success"
+                                >Submit</Button>
+                            </div>
+                        </div>
+                    </div>
 
                 </Form>
             ) : (

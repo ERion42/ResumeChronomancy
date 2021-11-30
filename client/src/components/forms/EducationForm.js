@@ -128,12 +128,19 @@ const EducationForm = () => {
                         </Form.Control.Feedback>
                     </Form.Group>
 
-                    <Button 
-                        className="padding bg-dark"
-                        disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
-                        type="submit"
-                        variant="success"
-                    >Submit</Button>
+                    <div class="container">
+                       <div class="row">
+                            <div class="col"> 
+                                <Button 
+                                    className="padding mb-2 bg-dark btn-outline-dark w-100 align-center text-white"
+                                    disabled={!(userFormData.school && userFormData.degree && userFormData.major && userFormData.graduationDate)}
+                                    type="submit"
+                                    variant="success"
+                                >Submit</Button>                            
+                            </div>
+                        </div>
+                    </div>
+
 
                 </Form>
             ) : (

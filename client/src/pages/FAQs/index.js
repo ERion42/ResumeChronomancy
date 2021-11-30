@@ -62,7 +62,7 @@ function FAQs() {
     }
     return (
         <div style= {{
-            position: 'absolute', top: '25%',  
+            position: 'absolute', top: '10%',  
         }}
             className="container">
             <h1 className="title">Frequently Asked Questions:</h1>
