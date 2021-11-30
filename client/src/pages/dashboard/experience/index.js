@@ -18,42 +18,42 @@ function DBExperience() {
                         {/* Template for Item List */}
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                                <h5 className="mb-1">Organization</h5>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
+                            <p className="mb-1">Title</p>
+                            <small>Years Active</small>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                                <h5 className="mb-1">Organization</h5>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
+                            <p className="mb-1">Title</p>
+                            <small>Years Active</small>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                                <h5 className="mb-1">Organization</h5>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
+                            <p className="mb-1">Title</p>
+                            <small>Years Active</small>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                                <h5 className="mb-1">Organization</h5>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
+                            <p className="mb-1">Title</p>
+                            <small>Years Active</small>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                                <h5 className="mb-1">Organization</h5>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
+                            <p className="mb-1">Title</p>
+                            <small>Years Active</small>
                         </div>
 
                     </ul>
