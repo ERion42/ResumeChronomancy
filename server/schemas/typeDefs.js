@@ -16,7 +16,7 @@ const typeDefs = gql`
     type Skills {
         _id: ID!
         technicalSkills: [String]
-        language: [String]
+        languages: [String]
         softSkills: [String]
         interests: [String]
         owner: ID
@@ -104,7 +104,7 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
-        addSkill(skillData: SkillsInput!): Skills
+        addSkill(technicalSkills: String, languages: String, softSkills: String, interests: String, owner: ID): Skills
         removeSkill(skillId: ID!): Skills
         addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
