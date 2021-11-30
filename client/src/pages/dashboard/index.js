@@ -1,6 +1,8 @@
 import React from 'react';
-import EducationForm from '../../components/forms/EducationForm';
-import ExperienceForm from '../../components/forms/ExperiencesForm';
+// Not currently used... can probably remove these, but I need to make sure
+// import EducationForm from '../../components/forms/EducationForm';
+// import ExperienceForm from '../../components/forms/ExperiencesForm';
+import style from '../loggedOut.css';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
@@ -20,9 +22,7 @@ function Dashboard() {
     const profile = data?.me || {}
     console.log(profile);
 
-    // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
-
-    const [checked, setChecked]=React.useState(false);
+      const [checked, setChecked]=React.useState(false);
       const [checkedOne, setCheckedOne] = React.useState(false);
       const [checkedTwo, setCheckedTwo] = React.useState(false);
       const [checkedThree, setCheckedThree] = React.useState(false);
@@ -85,13 +85,13 @@ function Dashboard() {
       };
     return (
         <div className="container ">
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div className="col bg-primary rounded m-1 p-5 text-center text-white">
+            <div className="row flex-lg-row-reverse align-items-center">
+                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white style.section">
                     <h1>User Dashboard</h1>
                 </div>
             </div>            
             <div class="row">
-                <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
+                <div className="col-lg-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
                     <ul className="list-group checkbox-list-group">
                         {/* Template for Item List */}
@@ -187,7 +187,7 @@ function Dashboard() {
                         </a>
                     </ul>
                 </div>
-                <div className="col-md bg-primary rounded m-1 mt-4">
+                <div className="col-lg bg-primary rounded m-1 mt-4">
                     <h2>Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
@@ -198,7 +198,7 @@ function Dashboard() {
                                         <label>
                                             <input
                                             type="checkbox"
-                                            checked={checked}
+                                            checked={checkedFive}
                                             onChange={handleChangeFive}
                                             />
                                         </label>
@@ -282,7 +282,7 @@ function Dashboard() {
                         </a>
                     </ul>
                 </div>
-                <div className="col-md bg-primary rounded m-1 mt-4">
+                <div className="col-lg bg-primary rounded m-1 mt-4">
                     <h3>Experience</h3>
                     <ul className="list-group">
                         {/* Template for Item List */}
@@ -293,7 +293,7 @@ function Dashboard() {
                                         <label>
                                             <input
                                             type="checkbox"
-                                            checked={checked}
+                                            checked={checkedTen}
                                             onChange={handleChangeTen}
                                             />
                                         </label>
