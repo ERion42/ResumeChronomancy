@@ -18,6 +18,11 @@ function FAQs() {
             answer: 'Yes. We have several ideas planned. When designing this app we designed it to be easy for us to add additional functionality to it. Stay tuned for more updates as we plan to implement and release them.',
             open: false,
         },
+        {
+            question: 'Is this a fully functioning app at the moment?',
+            answer: 'No.',
+            open: false,
+        },
         // {
         //     question: '',
         //     answer: '',
@@ -59,9 +64,9 @@ function FAQs() {
         <div style= {{
             position: 'absolute', top: '25%',  
         }}
-            class="container">
-            <h1 class="title">Frequently Asked Questions:</h1>
-            <div class='faqs'>
+            className="container">
+            <h1 className="title">Frequently Asked Questions:</h1>
+            <div className='faqs'>
                 {faqs.map((faq, i)=> (
                     <FAQ faq={faq} index={i} toggleFAQ={toggleFAQ}/>
                 ))}
