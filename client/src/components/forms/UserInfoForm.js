@@ -7,7 +7,7 @@ import decode from 'jwt-decode'
 import Auth from '../../utils/auth';
 
 const UserInfoForm = () => {
-    const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', phoneNumber: '', email: '' });
+    const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', address: '', phoneNumber: '', email: '' });
     
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
@@ -59,7 +59,8 @@ const UserInfoForm = () => {
         // clear form values
         setUserFormData({
             firstName: '', 
-            lastName: '', 
+            lastName: '',
+            address: '', 
             phoneNumber: '', 
             email: '' 
         });

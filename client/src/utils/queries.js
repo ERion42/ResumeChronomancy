@@ -50,6 +50,13 @@ export const QUERY_ME = gql`
                 graduationDate
                 certifications
             }
+            userInfos {
+               firstName
+               lastName
+               address
+               phoneNumber
+               email 
+            }
         }
     }
 `;
