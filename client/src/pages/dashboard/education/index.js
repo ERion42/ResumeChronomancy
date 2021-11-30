@@ -8,11 +8,11 @@ function DBEducation() {
     return (
         <div className="container">
             <div className="row justify-content-center">
-                <div className="col-md-5 bg-warning rounded m-1 pb-2">
+                <div className="col-md-5 bg-warning rounded m-1 pb-2 mt-4">
                     <h2>Update Education</h2>
                     <EducationForm />
                 </div>
-                <div className="col-md-6 bg-info rounded m-1">
+                <div className="col-md-6 bg-info rounded m-1 mt-4">
                     <h2>My Education</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
