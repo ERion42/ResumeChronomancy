@@ -1,6 +1,26 @@
 import React from 'react';
+import EducationForm from '../../components/forms/EducationForm';
+import ExperienceForm from '../../components/forms/ExperiencesForm';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
+import decode from 'jwt-decode'
 
 function Dashboard() {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(token)
+    const decoded = decode(token)
+    console.log(decoded)
+    const profileId = useParams();
+    const { data } = useQuery(QUERY_ME, {
+        variables: { profileId: decoded.data._id }
+    })
+
+    console.log(data)
+
+    // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
+
     const [checked, setChecked]=React.useState(false);
       const [checkedOne, setCheckedOne] = React.useState(false);
       const [checkedTwo, setCheckedTwo] = React.useState(false);
