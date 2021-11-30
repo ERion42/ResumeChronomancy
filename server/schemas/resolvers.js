@@ -23,9 +23,9 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in.')
         },
-        me: async (parent, args, context) => {
+        me: async (parent, { profileId }, context) => {
             if (context) {
-                return await Profile.findOne({ _id: context._id }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }, { path: 'userInfos', model: UserInfo }]);
+                return await Profile.findOne({ _id: profileId }).populate([{ path: 'skills', model: Skills }, { path: 'educations', model: Education }, { path: 'experiences', model: Experience }, { path: 'userInfos', model: UserInfo }]);
             }
             throw new AuthenticationError('You need to be logged in!');
         },
