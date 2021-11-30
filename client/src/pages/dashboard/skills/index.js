@@ -17,37 +17,37 @@ function DBSkills() {
                         {/* Template for Item List */}
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Skill Type</h5>
+                                <h5 className="mb-1">Skill Name</h5>
                             </div>
-                            <p className="mb-1">Skill Name</p>
+                            <p className="mb-1">Skill Type</p>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Skill Type</h5>
+                                <h5 className="mb-1">Skill Name</h5>
                             </div>
-                            <p className="mb-1">Skill Name</p>
+                            <p className="mb-1">Skill Type</p>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Skill Type</h5>
+                                <h5 className="mb-1">Skill Name</h5>
                             </div>
-                            <p className="mb-1">Skill Name</p>
+                            <p className="mb-1">Skill Type</p>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Skill Type</h5>
+                                <h5 className="mb-1">Skill Name</h5>
                             </div>
-                            <p className="mb-1">Skill Name</p>
+                            <p className="mb-1">Skill Type</p>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
                             <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Skill Type</h5>
+                                <h5 className="mb-1">Skill Name</h5>
                             </div>
-                            <p className="mb-1">Skill Name</p>
+                            <p className="mb-1">Skill Type</p>
                         </div>
                     </ul>
                 </div>

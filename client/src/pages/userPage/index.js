@@ -30,14 +30,16 @@ function UserPage({faq, index, toggleFAQ}) {
                     </input>
                 </div>
             </div>
-            <div className="row flex-lg-row">
+            
+            {/* Temporarily disabled, future feature */}
+            {/* <div className="row flex-lg-row">
                 <div className="col-lg bg-info rounded m-3 p-3">
                     <p>Most Recent Job</p>
                     <input className="form-control" type="text" disabled>
 
                     </input>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

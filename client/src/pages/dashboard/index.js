@@ -65,7 +65,7 @@ function Dashboard() {
     return (
         <div className="container ">
             <div class="row">
-                <div className="col-md-4 bg-info rounded m-1 pb-4 mt-4 ">
+                <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
                     <ul className="list-group checkbox-list-group">
                         {/* Template for Item List */}
@@ -83,10 +83,10 @@ function Dashboard() {
                                     </div>
                                     <div className="col">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Item Heading</h5>
+                                            <h5 className="mb-1">School</h5>
                                         </div>
-                                        <p className="mb-1">Secondary Information</p>
-                                        <small>Tertiary Information</small>
+                                        <p className="mb-1">Degree and Major</p>
+                                        <small>Year of Graduation</small>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +161,7 @@ function Dashboard() {
                         </a>
                     </ul>
                 </div>
-                <div className="col-md bg-warning rounded m-1 mt-4">
+                <div className="col-md bg-primary rounded m-1 mt-4">
                     <h2>Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
@@ -179,10 +179,9 @@ function Dashboard() {
                                     </div>
                                     <div className="col">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Item Heading</h5>
+                                            <h5 className="mb-1">Skill Name</h5>
                                         </div>
-                                        <p className="mb-1">Secondary Information</p>
-                                        <small>Tertiary Information</small>
+                                        <p className="mb-1">Skill Type</p>
                                     </div>
                                 </div>
                             </div>
@@ -275,10 +274,10 @@ function Dashboard() {
                                     </div>
                                     <div className="col">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Item Heading</h5>
+                                            <h5 className="mb-1">Organization</h5>
                                         </div>
-                                        <p className="mb-1">Secondary Information</p>
-                                        <small>Tertiary Information</small>
+                                        <p className="mb-1">Title</p>
+                                        <small>Years Active</small>
                                     </div>
                                 </div>
                             </div>
