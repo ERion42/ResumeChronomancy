@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../../utils/queries.js';
+// import ReactDOM from 'react-dom';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_ME } from '../../utils/queries.js';
 
 
 function UserPage({faq, index, toggleFAQ}) {
