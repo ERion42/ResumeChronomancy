@@ -85,6 +85,11 @@ function Dashboard() {
       };
     return (
         <div className="container ">
+            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div className="col bg-primary rounded m-1 p-5 text-center text-white">
+                    <h1>User Dashboard</h1>
+                </div>
+            </div>            
             <div class="row">
                 <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>

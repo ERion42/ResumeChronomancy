@@ -55,23 +55,23 @@ function UserPage() {
 
             <div className="row flex-lg-row">
                 <div className="col-lg-6 ">
-                    <div className="bg-info rounded m-0 p-3">
+                    <div className="bg-info rounded m-0 p-3 h-100">
                         <UserInfoForm />
                     </div>
                 </div>
                 <div className="col-lg-6">
                     <div className="bg-info rounded m-0 p-3 h-100">
-                        <h2>Name:</h2>
-                        <p>{profile.userInfos.firstName} {profile.userInfos.lastName}</p>
+                        <h3>Name:</h3>
+                        <p>{profile.userInfos[0].firstName} {profile.userInfos[0].lastName}</p>
                         <br />
-                        <h2>Address: </h2>
-                        <p>{profile.userInfos.address}</p>
+                        <h3>Address: </h3>
+                        <p>{profile.userInfos[0].address}</p>
                         <br />
-                        <h2>Phone: </h2>
-                        <p>{profile.userInfos.phoneNumber}</p>
+                        <h3>Phone: </h3>
+                        <p>{profile.userInfos[0].phoneNumber}</p>
                         <br />
-                        <h2>Email: </h2>
-                        <p>{profile.userInfos.email}</p>
+                        <h3>Email: </h3>
+                        <p>{profile.userInfos[0].email}</p>
                         <br />
                     </div>
                 </div>
