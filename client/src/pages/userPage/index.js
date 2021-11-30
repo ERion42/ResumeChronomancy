@@ -1,10 +1,13 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 // import { useQuery } from '@apollo/client';
-// import { QUERY_ME } from '../../utils/queries.js';
+// import { QUERY_SINGLE_PROFILE } from '../../utils/queries';
 
-
+// query and function works, roughly, revisiting things from graphQL side
 function UserPage({faq, index, toggleFAQ}) {
+    // const { loading, data } = useQuery(QUERY_SINGLE_PROFILE);
+    // const profiles = data?.profiles || [];
+    // console.log(profiles);
 
     return (
         <section className="container"> 

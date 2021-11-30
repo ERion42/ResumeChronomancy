@@ -10,9 +10,11 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// taken out temporarily- doesn't look like we need Route or Switch at the moment
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 // Front End
-import NavBar from './components/navBar/index';
+// import NavBar from './components/navBar/index';
 import SiteContainer from './components/siteContainer';
 
 

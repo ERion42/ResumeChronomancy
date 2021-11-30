@@ -10,7 +10,7 @@ const resolvers = {
         },
         profile: async (parent, { profileId }, context) => {
             if (context) {
-                const profile = await Profile.findById(context._id).populate(
+                const profile = await Profile.findById(context.profileId).populate(
                     [
                         { path: 'skills', model: Skills }, 
                         { path: 'educations', model: Education }, 
