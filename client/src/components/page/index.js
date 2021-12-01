@@ -1,6 +1,4 @@
 import React from 'react';
-import BGPic from '../img/geometricBackground.jpg';
-
 
 function Page({ currentPage }) {
     return (

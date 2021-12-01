@@ -19,7 +19,6 @@ function DBExperience() {
 
     const profile = data?.me || {}
     console.log(profile);
-    // nothing yet
     return (
         <div className="container">
             <div className="row flex-lg-row-reverse align-items-center">

@@ -19,7 +19,6 @@ function DBEducation() {
 
     const profile = data?.me || {}
     console.log(profile);
-    // nothing yet
     return (
         <div className="container">
             <div className="row flex-lg-row-reverse align-items-center">
@@ -28,7 +27,7 @@ function DBEducation() {
                 </div>
             </div>    
             <div className="row justify-content-center">
-                <div className="col-md-5 bg-secondary rounded m-1 pt-2 pb-2 mt-4">
+                <div className="col-md-5 bg-warning rounded m-1 pt-2 pb-2 mt-4">
                     <h2>Update Education</h2>
                     <EducationForm />
                 </div>
