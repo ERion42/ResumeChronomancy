@@ -43,6 +43,10 @@ Once there, all you need to do is click the login button (if you're a returning 
 
 Once signed in, you'll be taken to your dashboard. You shouldn't have any information at first, so you'll want to add that in. By clicking each of the tabs at the top, you'll navigate to different pages where you can input your user information. This will include skills, education, experience, and personal information. 
 
+Deployed Link:
+
+https://safe-caverns-44787.herokuapp.com/
+
   
 ## Contributing
 
