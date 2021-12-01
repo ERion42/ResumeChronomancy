@@ -62,16 +62,16 @@ function UserPage() {
                 <div className="col-lg-6">
                     <div className="bg-info rounded m-0 p-3 h-100">
                         <h3>Name:</h3>
-                        <p>{profile.userInfos[0].firstName} {profile.userInfos[0].lastName}</p>
+                        <p>{/*profile.userInfos[0].firstName*/} {/*profile.userInfos[0].lastName*/}</p>
                         <br />
                         <h3>Address: </h3>
-                        <p>{profile.userInfos[0].address}</p>
+                        <p>{/*profile.userInfos[0].address*/}</p>
                         <br />
                         <h3>Phone: </h3>
-                        <p>{profile.userInfos[0].phoneNumber}</p>
+                        <p>{/*profile.userInfos[0].phoneNumber*/}</p>
                         <br />
                         <h3>Email: </h3>
-                        <p>{profile.userInfos[0].email}</p>
+                        <p>{/*profile.userInfos[0].email*/}</p>
                         <br />
                     </div>
                 </div>
