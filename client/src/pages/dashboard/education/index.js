@@ -37,10 +37,10 @@ function DBEducation() {
                         {/* Template for Item List */}
                         <div className="list-group-item list-group-item-action">
                         <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{profile.educations[0].school}</h5>
+                            <h5 className="mb-1">{/*profile.educations[0].school*/}</h5>
                             </div>
-                            <p className="mb-1">{profile.educations[0].degree} {profile.educations[0].major}</p>
-                            <small>{profile.educations[0].graduationDate}</small>
+                            <p className="mb-1">{/*profile.educations[0].degree*/} {/*profile.educations[0].major*/}</p>
+                            <small>{/*profile.educations[0].graduationDate*/}</small>
                         </div>
 
                         <div className="list-group-item list-group-item-action">
