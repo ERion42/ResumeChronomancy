@@ -23,6 +23,7 @@ function FAQs() {
             answer: 'No. But we are close.',
             open: false,
         },
+        // // Template for later Use
         // {
         //     question: '',
         //     answer: '',

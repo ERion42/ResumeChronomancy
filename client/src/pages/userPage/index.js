@@ -23,7 +23,7 @@ function UserPage() {
     return (
         <section className="container"> 
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div className="col bg-info rounded m-1 p-5 text-center">
+                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white">
                     <h1>User Account</h1>
                 </div>
             </div>
@@ -55,7 +55,7 @@ function UserPage() {
 
             <div className="row flex-lg-row">
                 <div className="col-lg-6 ">
-                    <div className="bg-info rounded m-0 p-3 h-100">
+                    <div className="bg-warning rounded m-0 p-3 h-100">
                         <UserInfoForm />
                     </div>
                 </div>

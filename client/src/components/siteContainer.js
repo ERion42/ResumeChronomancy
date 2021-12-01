@@ -19,9 +19,6 @@ export default function SiteContainer() {
     // Check to see the value of 'currentPage', then returns component to render
     const renderPage = () => {
         if (Auth.loggedIn()) {
-            // if (currentPage === 'Dashboard') {
-            //     return <Dashboard />;
-            // }
             if (currentPage === 'Skills') {
                 return <Skills/>;
             }

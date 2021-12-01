@@ -1,6 +1,5 @@
 import React from 'react';
 import TeamPic from '../../components/img/ourTeam.jpg';
-// import Collapsible from 'react-collapsible-paragraph';
 
 function About() {
     return (

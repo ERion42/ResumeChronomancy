@@ -1,8 +1,4 @@
 import React from 'react';
-// Not currently used... can probably remove these, but I need to make sure
-// import EducationForm from '../../components/forms/EducationForm';
-// import ExperienceForm from '../../components/forms/ExperiencesForm';
-import style from '../loggedOut.css';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
@@ -86,12 +82,12 @@ function Dashboard() {
     return (
         <div className="container ">
             <div className="row flex-lg-row-reverse align-items-center">
-                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white style.section">
+                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white">
                     <h1>User Dashboard</h1>
                 </div>
             </div>            
             <div class="row">
-                <div className="col-lg-4 bg-primary rounded m-1 pb-4 mt-4 ">
+                <div className="col-lg-4 bg-primary rounded m-1 pb-4 mt-4 text-white">
                     <h2>Education</h2>
                     <ul className="list-group checkbox-list-group">
                         {/* Template for Item List */}
@@ -118,76 +114,100 @@ function Dashboard() {
                             </div>
                         </a>
 
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedOne}
-                                    onChange={handleChangeOne}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedTwo}
-                                    onChange={handleChangeTwo}
-                                    />
-                                </label>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedOne}
+                                            onChange={handleChangeOne}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">School</h5>
+                                        </div>
+                                        <p className="mb-1">Degree and Major</p>
+                                        <small>Year of Graduation</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedThree}
-                                    onChange={handleChangeThree}
-                                    />
-                                </label>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedTwo}
+                                            onChange={handleChangeTwo}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">School</h5>
+                                        </div>
+                                        <p className="mb-1">Degree and Major</p>
+                                        <small>Year of Graduation</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
+                        <a href="#dashboard" className="list-group-item list-group-item-action" >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedThree}
+                                            onChange={handleChangeThree}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">School</h5>
+                                        </div>
+                                        <p className="mb-1">Degree and Major</p>
+                                        <small>Year of Graduation</small>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedFour}
-                                    onChange={handleChangeFour}
-                                    />
-                                </label>
+                        </a>
+
+                        <a href="#dashboard" className="list-group-item list-group-item-action" >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedFour}
+                                            onChange={handleChangeFour}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">School</h5>
+                                        </div>
+                                        <p className="mb-1">Degree and Major</p>
+                                        <small>Year of Graduation</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </ul>
                 </div>
-                <div className="col-lg bg-primary rounded m-1 mt-4">
+                <div className="col-lg bg-primary rounded m-1 mt-4 pb-2 text-white">
                     <h2>Skills</h2>
                     <ul className="list-group">
                         {/* Template for Item List */}
@@ -214,75 +234,136 @@ function Dashboard() {
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedSix}
-                                    onChange={handleChangeSix}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedSeven}
-                                    onChange={handleChangeSeven}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedSix}
+                                            onChange={handleChangeSix}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedEight}
-                                    onChange={handleChangeEight}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedSeven}
+                                            onChange={handleChangeSeven}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedNine}
-                                    onChange={handleChangeNine}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedEight}
+                                            onChange={handleChangeEight}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
                             </div>
                         </a>
+
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedNine}
+                                            onChange={handleChangeNine}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Skill Name</h5>
+                                        </div>
+                                        <p className="mb-1">Skill Type</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
                     </ul>
                 </div>
-                <div className="col-lg bg-primary rounded m-1 mt-4">
+                <div className="col-lg bg-primary rounded m-1 mt-4 pb-2 text-white">
                     <h3>Experience</h3>
                     <ul className="list-group">
                         {/* Template for Item List */}
@@ -310,72 +391,97 @@ function Dashboard() {
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedEleven}
-                                    onChange={handleChangeEleven}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedTwelve}
-                                    onChange={handleChangeTwelve}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedEleven}
+                                            onChange={handleChangeEleven}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Organization</h5>
+                                        </div>
+                                        <p className="mb-1">Title</p>
+                                        <small>Years Active</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedThirteen}
-                                    onChange={handleChangeThirteen}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedTwelve}
+                                            onChange={handleChangeTwelve}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Organization</h5>
+                                        </div>
+                                        <p className="mb-1">Title</p>
+                                        <small>Years Active</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
 
                         <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedFourteen}
-                                    onChange={handleChangeFourteen}
-                                    />
-                                </label>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedThirteen}
+                                            onChange={handleChangeThirteen}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Organization</h5>
+                                        </div>
+                                        <p className="mb-1">Title</p>
+                                        <small>Years Active</small>
+                                    </div>
+                                </div>
                             </div>
                         </a>
+
+                        <a href="#dashboard" className="list-group-item list-group-item-action">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-1 p-0">   
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            checked={checkedFourteen}
+                                            onChange={handleChangeFourteen}
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">Organization</h5>
+                                        </div>
+                                        <p className="mb-1">Title</p>
+                                        <small>Years Active</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
                     </ul>
                 </div>
             </div>
