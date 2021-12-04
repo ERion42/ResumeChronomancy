@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import EducationForm from '../../components/forms/EducationForm';
 import ExperienceForm from '../../components/forms/ExperiencesForm';
 import { useParams } from 'react-router-dom';
@@ -6,371 +6,243 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import decode from 'jwt-decode'
+import { saveEducations, saveExperiences, saveTechnicalSkill, saveLanguage, saveSoftSkill, saveInterest } from '../../utils/localstorage';
+
+const educationArray = [];
+const experienceArray = [];
+const technicalSkillArray = [];
+const languageArray = [];
+const softSkillsArray = [];
+const interestsArray = [];
 
 function Dashboard() {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log(token)
+   
     const decoded = decode(token)
-    console.log(decoded)
+  
     const profileId = useParams();
     const { data } = useQuery(QUERY_ME, {
         variables: { profileId: decoded.data._id }
     })
+    console.log(data)
 
     const profile = data?.me || {}
-    console.log(profile);
+ 
+    const educations = profile.educations;
+    console.log(educations)
+    const experiences = profile.experiences;
+    const technicalSkills = profile.technicalSkills;
+    const languages = profile.languages;
+    const softSkills = profile.softSkills;
+    const interests = profile.interests;
 
+    const technicalSkillsArrayLength = technicalSkills?.length
+    const languagesArrayLength = languages?.length
+    const softSkillsArrayLength = softSkills?.length;
+    const interestsArrayLength = interests?.length;
+
+    const handleSaveEducation = async (education) => {
+        educationArray.push(education)
+        console.log(educationArray)
+        saveEducations(educationArray)
+        console.log(education)
+    }
+
+    const handleSaveExperience = async (experience) => {
+        experienceArray.push(experience)
+        console.log(experienceArray)
+        saveExperiences(experienceArray)
+        console.log(experience)
+    }
+
+    const handleSaveTechnicalSkill = async (technicalSkill) => {
+        technicalSkillArray.push(technicalSkill);
+        saveTechnicalSkill(technicalSkillArray)
+    }
+
+    const handleSaveLanguage = async (language) => {
+        languageArray.push(language)
+        saveLanguage(languageArray)
+    }
+
+    const handleSaveSoftSkill = async (softSkill) => {
+        softSkillsArray.push(softSkill)
+        saveSoftSkill(softSkillsArray)
+    }
+
+    const handleSaveInterest = async (interest) => {
+        interestsArray.push(interest)
+        saveInterest(interestsArray)
+    }
+
+    const TechnicalSkillItems = technicalSkills?.map((technicalSkill) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={technicalSkill}>
+                <div className="row">
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h5 className="mb-1" key={technicalSkill.id}>{technicalSkill}</h5>
+                            <button type="submit" onClick={() => handleSaveTechnicalSkill(technicalSkill)}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const LanguageItems = languages?.map((language) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={language}>
+                <div className="row">
+            
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h5 className="mb-1">{language}</h5>
+                            <button type="submit" onClick={() => handleSaveLanguage(language)}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const SoftSkillItems = softSkills?.map((softSkill) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={softSkill}>
+                <div className="row">
+                
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h5 className="mb-1">{softSkill}</h5>
+                            <button type="submit" onClick={() => handleSaveSoftSkill(softSkill)}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const InterestItems = interests?.map((interest) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={interest}>
+                <div className="row">
+            
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h5 className="mb-1">{interest}</h5>
+                            <button type="submit" onClick={() => handleSaveInterest(interest)}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+    
     // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
 
-    const [checked, setChecked]=React.useState(false);
-      const [checkedOne, setCheckedOne] = React.useState(false);
-      const [checkedTwo, setCheckedTwo] = React.useState(false);
-      const [checkedThree, setCheckedThree] = React.useState(false);
-      const [checkedFour, setCheckedFour] = React.useState(false);
-      const [checkedFive, setCheckedFive] = React.useState(false);
-      const [checkedSix, setCheckedSix] = React.useState(false);
-      const [checkedSeven, setCheckedSeven] = React.useState(false);
-      const [checkedEight, setCheckedEight] = React.useState(false);
-      const [checkedNine, setCheckedNine] = React.useState(false);
-      const [checkedTen, setCheckedTen] = React.useState(false);
-      const [checkedEleven, setCheckedEleven] = React.useState(false);
-      const [checkedTwelve, setCheckedTwelve] = React.useState(false);
-      const [checkedThirteen, setCheckedThirteen] = React.useState(false);
-      const [checkedFourteen, setCheckedFourteen] = React.useState(false);
     
-      const handleChange = () => {
-          setChecked(!checked)
-      }
-      const handleChangeOne = () => {
-        setCheckedOne(!checkedOne);
-      };
-      const handleChangeTwo = () => {
-        setCheckedTwo(!checkedTwo);
-      };
-      const handleChangeThree = () => {
-        setCheckedThree(!checkedThree);
-      };
-      const handleChangeFour = () => {
-        setCheckedFour(!checkedFour);
-      };
-      const handleChangeFive = () => {
-        setCheckedFive(!checkedFive);
-      };
-      const handleChangeSix = () => {
-        setCheckedSix(!checkedSix);
-      };
-      const handleChangeSeven = () => {
-        setCheckedSeven(!checkedSeven);
-      };
-      const handleChangeEight = () => {
-        setCheckedEight(!checkedEight);
-      };
-      const handleChangeNine = () => {
-        setCheckedNine(!checkedNine);
-      };
-      const handleChangeTen = () => {
-        setCheckedTen(!checkedTen);
-      };
-      const handleChangeEleven = () => {
-        setCheckedEleven(!checkedEleven);
-      };
-      const handleChangeTwelve = () => {
-        setCheckedTwelve(!checkedTwelve);
-      };
-      const handleChangeThirteen = () => {
-        setCheckedThirteen(!checkedThirteen);
-      };
-      const handleChangeFourteen = () => {
-        setCheckedFourteen(!checkedFourteen);
-      };
     return (
         <div className="container ">
-            <div class="row">
+
+            <div className="row">
+                
+                
                 <div className="col-md-4 bg-primary rounded m-1 pb-4 mt-4 ">
                     <h2>Education</h2>
+                    
                     <ul className="list-group checkbox-list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checked}
-                                            onChange={handleChange}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
+                        {(educations?.length > 0) ? (educations.map((education) => {
+                            return (
+                                <div className="container card mt-2 mb-2">
+                                    <div className="row">
+                                        <div className="col" data-bs-toggle="tooltip" data-bs-placement="top" title={education.graduationDate}>
+                                            <div className="d-flex w-100 justify-content-between">
+                                                <h5 className="mb-1">{education.school}</h5>
+                                            </div>
+                                            <p className="mb-1">{education.degree} in {education.major}</p>
+                                            <button className="mb-2 offset-md-5" type="submit" onClick={() => handleSaveEducation(education)}>Save</button>
                                         </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedOne}
-                                    onChange={handleChangeOne}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedTwo}
-                                    onChange={handleChangeTwo}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedThree}
-                                    onChange={handleChangeThree}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedFour}
-                                    onChange={handleChangeFour}
-                                    />
-                                </label>
-                            </div>
-                        </a>
+                            )
+                        })
+                            
+                        ) : (
+                            <h5>You have not entered any education information!</h5>
+                        )}
                     </ul>
                 </div>
                 <div className="col-md bg-primary rounded m-1 mt-4">
                     <h2>Skills</h2>
                     <ul className="list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checked}
-                                            onChange={handleChangeFive}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedSix}
-                                    onChange={handleChangeSix}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedSeven}
-                                    onChange={handleChangeSeven}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedEight}
-                                    onChange={handleChangeEight}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedNine}
-                                    onChange={handleChangeNine}
-                                    />
-                                </label>
-                            </div>
-                        </a>
+                        <div className="card mt-2">
+                            <h5 className="card-header text-center">Technical Skills</h5>
+                            {technicalSkillsArrayLength ? (
+                                <ul className="list-group card-body">
+                                    {TechnicalSkillItems}
+                                </ul>
+                            ) : (
+                                <h4>No Technical Skills</h4>
+                            )}
+                        </div>
+                        
+                        <div className="card mt-3">
+                            <h5 className="card-header text-center">Languages</h5>
+                            {languagesArrayLength ? (
+                                <ul className="list-group">
+                                    {LanguageItems}
+                                </ul>
+                            ) : (
+                                <h4>No Languages</h4>
+                            )}
+                        </div>
+                        
+                        <div className="card mt-3">
+                            <h5 className="card-header text-center">Soft Skills</h5>
+                            {softSkillsArrayLength ? (
+                                <ul className="list-group">
+                                    {SoftSkillItems}
+                                </ul>
+                            ) : (
+                                <h4>You have no soft skills entered.</h4>
+                            )}
+                        </div>
+                        
+                        <div className="card mt-3 mb-3">
+                            <h5 className="card-header">Interests</h5>
+                            {interestsArrayLength ? (
+                                <ul className="list-group">
+                                    {InterestItems}
+                                </ul>
+                            ) : (
+                                <h4>You have no interests entered.</h4>
+                            )}
+                        </div>
+                        
                     </ul>
                 </div>
                 <div className="col-md bg-primary rounded m-1 mt-4">
                     <h3>Experience</h3>
                     <ul className="list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checked}
-                                            onChange={handleChangeTen}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
+                        {(experiences?.length > 0) ? (experiences.map((experience, idx) => {
+                            return (
+                                <div className="container card mt-2 mb-2">
+                                    <div className="row">
+                                        <div className="col" data-bs-toggle="tooltip" data-bs-placement="top" title={experience.description} key={idx}>
+                                            <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                                                <h5 className="mb-1">{experience.position} at {experience.organization}</h5>
+                                            </div>
+                                            <p className="mb-1">{experience.location}</p>
+                                            <button className="mb-2 offset-md-5" type="submit" onClick={() => handleSaveExperience(experience)}>Save</button>
                                         </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedEleven}
-                                    onChange={handleChangeEleven}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedTwelve}
-                                    onChange={handleChangeTwelve}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedThirteen}
-                                    onChange={handleChangeThirteen}
-                                    />
-                                </label>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Item Heading</h5>
-                            </div>
-                            <p className="mb-1">Secondary Information</p>
-                            <small>Tertiary Information</small>
-                            <div>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    checked={checkedFourteen}
-                                    onChange={handleChangeFourteen}
-                                    />
-                                </label>
-                            </div>
-                        </a>
+                            )
+                            })
+                            
+                        ) : (
+                            <h5>You have not entered any experience information!</h5>
+                        )}
                     </ul>
                 </div>
             </div>

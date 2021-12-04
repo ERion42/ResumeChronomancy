@@ -12,6 +12,8 @@ import Education from '../pages/dashboard/education/index';
 import Experience from '../pages/dashboard/experience/index';
 import Skills from '../pages/dashboard/skills/index';
 import UserPage from '../pages/userPage/index';
+import MyDocument from '../pages/dashboard/Resume/pdfCreate'
+import { PDFViewer } from '@react-pdf/renderer'
 
 export default function SiteContainer() {
     const [currentPage, setCurrentPage] = useState('LandingPage');
@@ -33,6 +35,13 @@ export default function SiteContainer() {
             }
             if (currentPage === 'UserPage') {
                 return <UserPage />
+            }
+            if (currentPage === 'MyDocument') {
+                return (
+                    <PDFViewer>
+                        <MyDocument />
+                    </PDFViewer>
+                )
             }
             return <Dashboard />;
 

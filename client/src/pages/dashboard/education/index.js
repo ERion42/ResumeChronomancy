@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import EducationForm from '../../../components/forms/EducationForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -8,17 +8,43 @@ import decode from 'jwt-decode'
 
 
 function DBEducation() {
+    const [checked, setChecked] = useState(false);
+    const handleChange = (event) => {
+        event.preventDefault()
+        setChecked(!checked);
+    };
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log(token)
+    
     const decoded = decode(token)
-    console.log(decoded)
+   
     const profileId = useParams();
     const { data } = useQuery(QUERY_ME, {
         variables: { profileId: decoded.data._id }
     })
 
     const profile = data?.me || {}
-    console.log(profile);
+    
+    const educations = profile.educations;
+    
+    const educationsArrayLength = educations?.length;
+
+    const items = educations?.map((education) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={education.certifications}>
+                <div className="row">
+                    
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between">
+                            <h5 className="mb-1">{education.degree} in {education.major}</h5>
+                        </div>
+                        <p className="mb-1">{education.school}</p>
+                        <small>{education.graduationDate}</small>
+                    </div>
+                </div>
+                <br />
+            </div>
+        )
+    })
     // nothing yet
     return (
         <div className="container">
@@ -29,48 +55,13 @@ function DBEducation() {
                 </div>
                 <div className="col-md-6 bg-info rounded m-1 mt-4 pt-2">
                     <h2>My Education</h2>
-                    <ul className="list-group">
-                        {/* Template for Item List */}
-                        <div className="list-group-item list-group-item-action">
-                        <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{profile.educations[0].school}</h5>
-                            </div>
-                            <p className="mb-1">{profile.educations[0].degree} {profile.educations[0].major}</p>
-                            <small>{profile.educations[0].graduationDate}</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">School</h5>
-                            </div>
-                            <p className="mb-1">Degree and Major</p>
-                            <small>Year of Graduation</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">School</h5>
-                            </div>
-                            <p className="mb-1">Degree and Major</p>
-                            <small>Year of Graduation</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">School</h5>
-                            </div>
-                            <p className="mb-1">Degree and Major</p>
-                            <small>Year of Graduation</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">School</h5>
-                            </div>
-                            <p className="mb-1">Degree and Major</p>
-                            <small>Year of Graduation</small>
-                        </div>
-                    </ul>
+                        {educationsArrayLength ? (
+                            <ul className="list-group">
+                                {items}
+                            </ul>
+                        ) : (
+                            <h3>You haven't added any education yet!</h3>
+                        )}
                 </div>
             </div>
         </div>

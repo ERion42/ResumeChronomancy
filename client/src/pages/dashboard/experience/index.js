@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExperienceForm from '../../../components/forms/ExperiencesForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -7,18 +7,45 @@ import Auth from '../../../utils/auth';
 import decode from 'jwt-decode'
 
 
+
 function DBExperience() {
+    const { profileId } = useParams();
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     console.log(token)
     const decoded = decode(token)
-    console.log(decoded)
-    const profileId = useParams();
+    
     const { data } = useQuery(QUERY_ME, {
         variables: { profileId: decoded.data._id }
     })
+    console.log(data)
+    const profile = data?.me || {};
+    console.log(profile)
+    const experiences = profile.experiences;
+    const experiencesArrayLength = experiences.length;
 
-    const profile = data?.me || {}
-    console.log(profile);
+    const [checked, setChecked] = useState(false);
+    const handleChange = (event) => {
+        event.preventDefault()
+        setChecked(!checked);
+    };
+
+
+    const items = experiences.map((experience, idx) => {
+        return (
+            <div className="container mt-1 mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title={experience.description}>
+                <div className="row">
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between">
+                            <h5 className="mb-1">{experience.position} at {experience.organization}</h5>
+                        </div>
+                        <p className="mb-1">Start: {experience.startDate} - End: {experience.endDate}</p>
+                        <small>{experience.location}</small>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+    
     // nothing yet
     return (
         <div className="container">
@@ -29,49 +56,13 @@ function DBExperience() {
                 </div>
                 <div className="col-md-6 bg-info rounded m-1 pt-2 mt-4">
                     <h2>My Experience</h2>
-                    <ul className="list-group">
-                        {/* Template for Item List */}
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                    </ul>
+                        {experiencesArrayLength ? (
+                            <ul className="list-group">
+                                {items}
+                            </ul>
+                        ) : (
+                            <h3>You haven't added any experiences yet!</h3>
+                        )}
                 </div>
                 
             </div>

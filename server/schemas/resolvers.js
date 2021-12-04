@@ -29,9 +29,6 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        skills: async () => {
-            return await Skills.find();
-        },
         educations: async () => {
             return await Education.find();
         },
@@ -76,27 +73,56 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addSkill: async (parent, { technicalSkills, languages, softSkills, interests, owner }, context) => {
-            if (context) {
-                const skill = await Skills.create(
-                    {
-                       technicalSkills,
-                       languages,
-                       softSkills,
-                       interests,
-                       owner 
-                    }
-                );
-                
-                await Profile.findByIdAndUpdate(
-                    { _id: skill.owner },
-                    { $addToSet: { skills: skill._id } }
-                );
+        addTechnicalSkill: async (parent, { profileId, technicalSkill }) => {
+            return Profile.findOneAndUpdate(
+                { _id: profileId },
+                {
+                    $addToSet: { technicalSkills: technicalSkill }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            );
+        },
 
-                return updatedProfile;
-            }
+        addLanguage: async (parent, { profileId, language }) => {
+            return Profile.findOneAndUpdate(
+                { _id: profileId },
+                {
+                    $addToSet: { languages: language }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            )
+        },
 
-            throw new AuthenticationError('You need to be logged in!');
+        addSoftSkill: async (parent, { profileId, softSkill }) => {
+            return Profile.findOneAndUpdate(
+                { _id: profileId },
+                {
+                    $addToSet: { softSkills: softSkill }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            )
+        },
+
+        addInterest: async (parent, { profileId, interest }) => {
+            return Profile.findOneAndUpdate(
+                { _id: profileId },
+                {
+                    $addToSet: { interests: interest }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            )
         },
 
         addEducation: async (parent, { school, degree, major, gpa, graduationDate, certifications, owner }, context) => {
@@ -161,7 +187,7 @@ const resolvers = {
                     }
                 )
 
-                await Profile.findByIdAndUpdate(
+                await Profile.findOneAndUpdate(
                     { _id: userInfo.owner },
                     { $addToSet: { userInfos: userInfo._id } }
                 )

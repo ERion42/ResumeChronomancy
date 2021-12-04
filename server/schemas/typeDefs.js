@@ -7,19 +7,13 @@ const typeDefs = gql`
         username: String 
         email: String
         password: String
-        skills: [Skills]
-        educations: [Education]
-        experiences: [Experience]
-        userInfos: [UserInfo]
-    }
-
-    type Skills {
-        _id: ID!
         technicalSkills: [String]
         languages: [String]
         softSkills: [String]
         interests: [String]
-        owner: ID
+        educations: [Education]
+        experiences: [Experience]
+        userInfos: [UserInfo]
     }
     
     type Experience {
@@ -62,17 +56,9 @@ const typeDefs = gql`
         profiles: [Profile]!
         profile(profileId: ID!): Profile
         me(profileId: ID!): Profile
-        skills: [Skills]
         educations: [Education]
         experiences: [Experience]
         userInfos: [UserInfo]
-    }
-
-    input SkillsInput {
-        technicalSkills: String
-        language: String
-        softSkills: String
-        interests: String
     }
 
     input ExperienceInput {
@@ -104,8 +90,14 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addProfile(username: String!, email: String!, password: String!): Auth
         removeProfile(profileId: ID!): Profile
-        addSkill(technicalSkills: String, languages: String, softSkills: String, interests: String, owner: ID): Skills
-        removeSkill(skillId: ID!): Skills
+        addTechnicalSkill(profileId: ID!, technicalSkill: String): Profile
+        removeTechnicalSkill(profileId: ID!, technicalSkill: String): Profile
+        addLanguage(profileId: ID!, language: String): Profile
+        removeLanguage(profileId: ID!, language: String): Profile
+        addSoftSkill(profileId: ID!, softSkill: String): Profile
+        removeSoftSkill(profileId: ID!, softSkill: String): Profile
+        addInterest(profileId: ID!, interest: String): Profile
+        removeInterest(profileId: ID!, interest: String): Profile
         addExperience(organization: String, position: String, startDate: String, endDate: String, location: String, description: String, owner: ID): Experience
         removeExperience(experienceId: ID!): Experience
         addEducation(school: String, degree: String, major: String, gpa: String, graduationDate: String, certifications: String, owner: ID): Education
