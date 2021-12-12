@@ -23,30 +23,7 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-// app.use(morgan('dev'));
-// app.use(cors())
-// app.options('*', cors());
 
-// const writeFilePromise = promisify(fs.writeFile);
-
-// WriteTextToFileAsync = async (contentToWrite) => {
-//     try {
-//         const path = 'trial.txt';
-//         await writeFilePromise(contentToWrite, path);
-//     } catch (error) {
-//         throw new Error(`${error}`)
-//     }
-// }
-
-// app.use('/write', async (req, res, next) => {
-//     try {
-//         const fileContent = req.body;
-//         await WriteTextToFileAsync(fileContent);
-//         return res.status(200).send( { message: 'File written successfully' })
-//     } catch (error) {
-//         throw new Error(`${error}`)
-//     }
-// })
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));

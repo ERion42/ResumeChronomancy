@@ -116,7 +116,7 @@ function DBSkills() {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-5 bg-warning rounded pt-2 m-1 pb-2 mt-4">
-                    <h2 className="offset-md-1">Update Your Skills</h2>
+                    <h2 className="text-center">Add Skills:</h2>
                     <div className="col-md-9 offset-md-1">
                         <TechnicalSkillsForm />
                         <LanguagesForm />
@@ -125,40 +125,41 @@ function DBSkills() {
                     </div>
                 </div>
                 <div className="col-md-5 bg-info rounded m-1 pt-2 pb-2 mt-4">
-                    <h2>My Skills</h2>
+                    <h2 className="text-center text-white">My Skills:</h2>
+                    <br />
                     <ul className="list-group">
-                        <h5>Technical Skills</h5>
+                        <h5 className="text-center text-white">Technical Skills:</h5>
                         {technicalSkillsArrayLength ? (
                             <ul className="list-group">
                                 {TechnicalSkillItems}
                             </ul>
                         ) : (
-                            <h4>No Technical Skills</h4>
+                            <h6 className="mt-2 text-center">No Technical Skills Added</h6>
                         )}
                         {/* Template for Item List */}
-                        <h5>Languages</h5>
+                        <h5 className="text-center text-white">Languages</h5>
                         {languagesArrayLength ? (
                             <ul className="list-group">
                                 {LanguageItems}
                             </ul>
                         ) : (
-                            <h4>No Languages</h4>
+                            <h6 className="mt-2 text-center">No Languages Added</h6>
                         )}
-                        <h5>Soft Skills</h5>
+                        <h5 className="text-center text-white">Soft Skills</h5>
                         {softSkillsArrayLength ? (
                             <ul className="list-group">
                                 {SoftSkillItems}
                             </ul>
                         ) : (
-                            <h4>You have no soft skills entered.</h4>
+                            <h6 className="mt-2 text-center">You have no soft skills entered.</h6>
                         )}
-                        <h5>Interests</h5>
+                        <h5 className="text-center text-white">Interests</h5>
                         {interestsArrayLength ? (
                             <ul className="list-group">
                                 {InterestItems}
                             </ul>
                         ) : (
-                            <h4>You have no interests entered.</h4>
+                            <h6 className="mt-2 text-center">You have no interests entered.</h6>
                         )}
                     </ul>
                 </div>

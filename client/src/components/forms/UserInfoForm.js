@@ -115,10 +115,13 @@ const UserInfoForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
+                <br />
+
                 <Button 
                     disabled={!(userFormData.firstName && userFormData.lastName && userFormData.address && userFormData.phoneNumber && userFormData.email)}
                     type="submit"
                     variant="success"
+                    className='offset-md-5'
                 >Submit</Button>
 
             </Form>

@@ -30,7 +30,8 @@ function NavBar({ currentPage, handlePageChange }) {
                             onClick={() => handlePageChange('Education')}
                             className="nav-link px-2 text-white">
                                 Education
-                            </a></li>
+                            </a>
+                        </li>
                         <li>
                             <a href="#experience" 
                             onClick={() => handlePageChange('Experience')}

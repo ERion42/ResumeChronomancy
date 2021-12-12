@@ -67,7 +67,7 @@ export default function SiteContainer() {
     return (
         <main>
             <NavBar currentPage={currentPage} handlePageChange={handlePageChange} />
-            <div className="container">
+            <div className="fluid-container m-3">
                 {renderPage()}
             </div>
         </main>
