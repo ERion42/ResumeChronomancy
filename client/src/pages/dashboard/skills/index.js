@@ -6,15 +6,17 @@ import SoftSkillsForm from '../../../components/forms/SoftSkillsForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../../utils/queries';
+import { saveTechnicalSkill, saveLanguage, saveSoftSkill, saveInterest } from '../../../utils/localstorage';
 import Auth from '../../../utils/auth';
 import decode from 'jwt-decode'
 
+const technicalSkillArray = [];
+const languageArray = [];
+const softSkillsArray = [];
+const interestsArray = [];
 
 function DBSkills() {
-    const [checked, setChecked] = useState(false);
-    const handleChange = (event) => {
-        setChecked(!checked)
-    }
+    
     const token = Auth.loggedIn() ? Auth.getToken() : null;
    
     const decoded = decode(token)
@@ -36,18 +38,34 @@ function DBSkills() {
     const softSkillsArrayLength = softSkills?.length;
     const interestsArrayLength = interests?.length;
 
-    const TechnicalSkillItems = technicalSkills.map((technicalSkill, idx) => {
+    const handleSaveTechnicalSkill = async (technicalSkill) => {
+        technicalSkillArray.push(technicalSkill);
+        saveTechnicalSkill(technicalSkillArray)
+    }
+
+    const handleSaveLanguage = async (language) => {
+        languageArray.push(language)
+        saveLanguage(languageArray)
+    }
+
+    const handleSaveSoftSkill = async (softSkill) => {
+        softSkillsArray.push(softSkill)
+        saveSoftSkill(softSkillsArray)
+    }
+
+    const handleSaveInterest = async (interest) => {
+        interestsArray.push(interest)
+        saveInterest(interestsArray)
+    }
+
+    const TechnicalSkillItems = technicalSkills?.map((technicalSkill) => {
         return (
             <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={technicalSkill}>
                 <div className="row">
-                    <div className="col-1 p-0">
-                        <label>
-                            <input type="checkbox" checked={checked} onChange={handleChange} />
-                        </label>
-                    </div>
                     <div className="col">
-                        <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{technicalSkill}</h5>
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1" key={technicalSkill.id}>{technicalSkill}</h6>
+                            <button type="submit" onClick={() => handleSaveTechnicalSkill(technicalSkill)}>Save</button>
                         </div>
                     </div>
                 </div>
@@ -55,18 +73,15 @@ function DBSkills() {
         )
     })
 
-    const LanguageItems = languages.map((language, idx) => {
+    const LanguageItems = languages?.map((language) => {
         return (
             <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={language}>
                 <div className="row">
-                    <div className="col-1 p-0">
-                        <label>
-                            <input type="checkbox" checked={checked} onChange={handleChange} />
-                        </label>
-                    </div>
+            
                     <div className="col">
-                        <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{language}</h5>
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{language}</h6>
+                            <button type="submit" onClick={() => handleSaveLanguage(language)}>Save</button>
                         </div>
                     </div>
                 </div>
@@ -74,18 +89,15 @@ function DBSkills() {
         )
     })
 
-    const SoftSkillItems = softSkills.map((softSkill, idx) => {
+    const SoftSkillItems = softSkills?.map((softSkill) => {
         return (
             <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={softSkill}>
                 <div className="row">
-                    <div className="col-1 p-0">
-                        <label>
-                            <input type="checkbox" checked={checked} onChange={handleChange} />
-                        </label>
-                    </div>
+                
                     <div className="col">
-                        <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{softSkill}</h5>
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{softSkill}</h6>
+                            <button type="submit" onClick={() => handleSaveSoftSkill(softSkill)}>Save</button>
                         </div>
                     </div>
                 </div>
@@ -93,18 +105,15 @@ function DBSkills() {
         )
     })
 
-    const InterestItems = interests.map((interest, idx) => {
+    const InterestItems = interests?.map((interest) => {
         return (
             <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={interest}>
                 <div className="row">
-                    <div className="col-1 p-0">
-                        <label>
-                            <input type="checkbox" checked={checked} onChange={handleChange} />
-                        </label>
-                    </div>
+            
                     <div className="col">
-                        <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{interest}</h5>
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{interest}</h6>
+                            <button type="submit" onClick={() => handleSaveInterest(interest)}>Save</button>
                         </div>
                     </div>
                 </div>

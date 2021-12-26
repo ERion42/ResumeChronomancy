@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import EducationForm from '../../../components/forms/EducationForm';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../../utils/queries';
+import { REMOVE_EDUCATION } from '../../../utils/mutations';
 import Auth from '../../../utils/auth';
 import DeleteButton from '../../../components/buttons/DeleteButton'
 import { saveEducations } from '../../../utils/localstorage';
@@ -11,11 +12,7 @@ import decode from 'jwt-decode'
 const educationArray = [];
 
 function DBEducation() {
-    const [checked, setChecked] = useState(false);
-    const handleChange = (event) => {
-        event.preventDefault()
-        setChecked(!checked);
-    };
+    
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     
     const decoded = decode(token)
@@ -28,6 +25,7 @@ function DBEducation() {
     const profile = data?.me || {}
     
     const educations = profile.educations;
+
     
     const educationsArrayLength = educations?.length;
 
@@ -36,7 +34,21 @@ function DBEducation() {
         saveEducations(educationArray)
     }
 
+    // const [removeEducation, { error }] = useMutation(REMOVE_EDUCATION);
+    // const handleRemoveEducation = async (education) => {
+    //     console.log(education)
+    //     console.log('removing education')
+    //     try {
+    //         const educationData = education
+    //         await removeEducation(educationData)
+    //         console.log(`${education} successfully removed`)
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+    // }
+
     const items = educations?.map((education) => {
+        
         return (
             <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={education.certifications}>
                 <div className="row">
@@ -51,9 +63,9 @@ function DBEducation() {
                     <div className='col-2'>
                         <button type="submit" onClick={() => handleSaveEducation(education)}>Save</button>
                     </div>
-                    <div className='col-1'>
-                        <DeleteButton />
-                    </div>
+                    {/* <div className='col-1'>
+                        <button type='submit' onClick={() => handleRemoveEducation(education)}>✗</button>
+                    </div> */}
                 </div>
                 <br />
             </div>
