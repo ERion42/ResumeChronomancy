@@ -14,7 +14,6 @@ import { setContext } from '@apollo/client/link/context';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 // Front End
-// import NavBar from './components/navBar/index';
 import SiteContainer from './components/siteContainer';
 
 
@@ -23,7 +22,6 @@ const httpLink = createHttpLink({
   uri: '/graphql'
 });
  
-// Not sure what this is
 const authLink = setContext ((_, { headers }) => {
   const token = localStorage.getItem('id-token');
   return {
@@ -34,7 +32,7 @@ const authLink = setContext ((_, { headers }) => {
   };
 });
 
-// Initialize Apollo?
+// Initialize Apollo
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),

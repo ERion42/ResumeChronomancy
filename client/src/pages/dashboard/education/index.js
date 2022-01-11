@@ -74,6 +74,11 @@ function DBEducation() {
     // nothing yet
     return (
         <div className="container">
+            <div className="row flex-lg-row-reverse align-items-center">
+                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white">
+                    <h1>Education Dashboard</h1>
+                </div>
+            </div>    
             <div className="row justify-content-center">
                 <div className="col-md-4 bg-warning rounded m-1 pt-2 pb-2 mt-4">
                     <h2 className="text-center">Add Education:</h2>

@@ -1,3 +1,13 @@
+:root {
+  --Dark: #272727;
+  --Light:  #747474;
+  --Orange:  #FF652F;
+  --Lemon:  #FFE400;
+  --Lime:  #14A76C;
+}
+
+
+
 .App {
   text-align: center;
 }

@@ -20,9 +20,10 @@ function FAQs() {
         },
         {
             question: 'Is this a fully functioning app at the moment?',
-            answer: 'No.',
+            answer: 'No. But we are close.',
             open: false,
         },
+        // // Template for later Use
         // {
         //     question: '',
         //     answer: '',

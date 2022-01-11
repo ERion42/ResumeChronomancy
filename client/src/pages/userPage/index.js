@@ -9,8 +9,8 @@ import { saveUserInfo } from '../../utils/localstorage';
 
 
 
-// query and function works, roughly, revisiting things from graphQL side
-function UserPage({faq, index, toggleFAQ}) {
+
+function UserPage() {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     
     const decoded = decode(token)

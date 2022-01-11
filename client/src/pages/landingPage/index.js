@@ -1,5 +1,3 @@
-// Landing page needs some formatting
-// If we could get everything to fit on one screen with no vertical scrolling that'd be ideal.
 import React from 'react';
 import FirstPic from '../../components/img/frustratedWriter2.jpg'
 import SecondPic from '../../components/img/hiredWriter.jpg'
@@ -45,7 +43,6 @@ function LandingPage({ currentPage }) {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            {/* After the carousel we might want to add some important text */}
             <div>
                 <p className="text-center mt-4">Our easy-to-use software will help you more quickly and easily tailor your resume to the jobs you want to apply for! Simply create an account, input your education, experience, and skills, then select the criteria for your ideal resume! We'll build and format your resume using your data and specifications and give you a resume that targets the job you're applying for!</p>
             </div>
