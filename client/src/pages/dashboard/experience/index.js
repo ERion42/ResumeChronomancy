@@ -1,24 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExperienceForm from '../../../components/forms/ExperiencesForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../../utils/queries';
+import { saveExperiences } from '../../../utils/localstorage';
+import DeleteButton from '../../../components/buttons/DeleteButton';
 import Auth from '../../../utils/auth';
 import decode from 'jwt-decode'
 
+const experienceArray = [];
 
 function DBExperience() {
+    const { profileId } = useParams();
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     console.log(token)
     const decoded = decode(token)
-    console.log(decoded)
-    const profileId = useParams();
+    
     const { data } = useQuery(QUERY_ME, {
         variables: { profileId: decoded.data._id }
     })
+    console.log(data)
+    const profile = data?.me || {};
+    console.log(profile)
+    const experiences = profile.experiences;
+    const experiencesArrayLength = experiences.length;
 
-    const profile = data?.me || {}
-    console.log(profile);
+    const [checked, setChecked] = useState(false);
+    const handleChange = (event) => {
+        event.preventDefault()
+        setChecked(!checked);
+    };
+
+    const handleSaveExperience = async (experience) => {
+        experienceArray.push(experience)
+        saveExperiences(experienceArray)
+    }
+
+
+    const items = experiences.map((experience, idx) => {
+        return (
+            <div className="container mt-1 mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title={experience.description}>
+                <div className="row">
+                    <div className="col-8">
+                        <div className="d-flex w-100 justify-content-between">
+                            <h6 className="mb-1">{experience.position}</h6>
+                            <br />
+                            
+                        </div>
+                        <h6 className="mb-1">{experience.organization}</h6>
+                        <p className="mb-1">Start: {experience.startDate} - End: {experience.endDate}</p>
+                        <small>{experience.location}</small>
+                    </div>
+                    <div className="col-2">
+                        <button type="submit" onClick={() => handleSaveExperience(experience)}>Save</button>
+                    </div>
+                    <div className='col-1'>
+                        <DeleteButton />
+                    </div>
+                </div>
+            </div>
+        )
+    })
+    
+    // nothing yet
     return (
         <div className="container">
             <div className="row flex-lg-row-reverse align-items-center">
@@ -27,55 +71,19 @@ function DBExperience() {
                 </div>
             </div>                
             <div className="row justify-content-center">
-                <div className="col-md-5 bg-warning rounded m-1 pt-2 pb-2 mt-4">
-                    <h2>Update Experience</h2>
+                <div className="col-md-4 bg-warning rounded m-1 pt-2 pb-2 mt-4">
+                    <h2 className="text-center">Add Experience:</h2>
                     <ExperienceForm />
                 </div>
-                <div className="col-md-6 bg-info rounded m-1 pt-2 mt-4">
-                    <h2>My Experience</h2>
-                    <ul className="list-group">
-                        {/* Template for Item List */}
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                        <div className="list-group-item list-group-item-action">
-                            <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Organization</h5>
-                            </div>
-                            <p className="mb-1">Title</p>
-                            <small>Years Active</small>
-                        </div>
-
-                    </ul>
+                <div className="col-md-7 bg-info rounded m-1 pt-2 mt-4">
+                    <h2 className="text-center text-white">My Experience:</h2>
+                        {experiencesArrayLength ? (
+                            <ul className="list-group">
+                                {items}
+                            </ul>
+                        ) : (
+                            <h3>You haven't added any experiences yet!</h3>
+                        )}
                 </div>
                 
             </div>

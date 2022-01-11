@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_SKILL } from '../../utils/mutations';
+import { ADD_TECHNICAL_SKILL } from '../../utils/mutations';
 import decode from 'jwt-decode';
 
 import Auth from '../../utils/auth';
 
-const SkillsForm = () => {
-    const [userFormData, setUserFormData] = useState({ technicalSkills: '', languages: '', softSkills: '', interests: '' });
+const TechnicalSkillsForm = () => {
+    const [userFormData, setUserFormData] = useState({ technicalSkill: '' });
     // const [owner, setOwner] = useState({});
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addSkills, { error }] = useMutation(ADD_SKILL);
+    const [addTechnicalSkill, { error }] = useMutation(ADD_TECHNICAL_SKILL);
     
 
     useEffect(() => {
@@ -43,7 +43,7 @@ const SkillsForm = () => {
         const decoded = decode(token)
         console.log(decoded)
         const owner = decoded.data._id
-        console.log(owner)
+        console.log('this is the owner' ,owner)
       
         if(!token) {
             return false;
@@ -51,8 +51,8 @@ const SkillsForm = () => {
 
         try {
             
-            const { data } = await addSkills({
-                variables: { ...userFormData, owner },
+            const data = await addTechnicalSkill({
+                variables: { profileId: owner, ...userFormData },
             });
             console.log(data)
         } catch (e) {
@@ -61,10 +61,7 @@ const SkillsForm = () => {
 
         // clear form values
         setUserFormData({
-            technicalSkills: '', 
-            languages: '', 
-            softSkills: '',
-            interests: '', 
+            technicalSkill: '',  
         });
     };
 
@@ -79,14 +76,14 @@ const SkillsForm = () => {
                         variant="danger"
                     ></Alert>
                     <Form.Group>
-                        <Form.Label htmlFor="technicalSkills">Technical Skills</Form.Label>
-                        <Form.Control type="text" placeholder="Your Technical Skills" name="technicalSkills" onChange={handleInputChange} value={userFormData.technicalSkills} required />
+                        <Form.Label htmlFor="technicalSkill">Technical Skills</Form.Label>
+                        <Form.Control type="text" placeholder="Your Technical Skills" name="technicalSkill" onChange={handleInputChange} value={userFormData.technicalSkill} required />
                         <Form.Control.Feedback type="invalid">
                             Technical Skills is required!
                         </Form.Control.Feedback>
                     </Form.Group>
 
-                    <Form.Group>
+                    {/* <Form.Group>
                         <Form.Label className ="padding" htmlFor="languages">Languages</Form.Label>
                         <Form.Control type="text" placeholder="Your Languages" name="languages" onChange={handleInputChange} value={userFormData.languages} required />
                         <Form.Control.Feedback type="invalid">
@@ -108,14 +105,14 @@ const SkillsForm = () => {
                         <Form.Control.Feedback type="invalid">
                             Interests is required!
                         </Form.Control.Feedback>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <div class="container">
                         <div class="row">
                             <div class="col">
                                 <Button 
                                     className="padding mb-2 bg-dark btn-outline-dark w-100 align-center text-white"
-                                    disabled={!(userFormData.technicalSkills && userFormData.languages && userFormData.softSkills && userFormData.interests)}
+                                    disabled={!(userFormData.technicalSkill)}
                                     type="submit"
                                     variant="success"
                                 >Submit</Button>
@@ -133,4 +130,4 @@ const SkillsForm = () => {
     )
 }
 
-export default SkillsForm;
+export default TechnicalSkillsForm;

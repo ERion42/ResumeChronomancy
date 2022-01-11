@@ -28,12 +28,10 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            skills {
-                technicalSkills
-                languages
-                softSkills
-                interests
-            }
+            technicalSkills
+            languages
+            softSkills
+            interests
             experiences {
                 organization
                 position

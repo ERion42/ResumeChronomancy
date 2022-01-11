@@ -1,9 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const { Skills } = require('./Skills');
-const { Education } = require('./Education');
-const { Experience } = require('./Experience');
-const {UserInfo} = require('./UserInfo');
 
 const profileSchema = new Schema({
   username: {
@@ -23,7 +19,30 @@ const profileSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
+  technicalSkills: [
+    { 
+      type: String, 
+      trim: true 
+    }
+  ],
+  languages: [
+    {
+      type: String,
+      trim: true
+    }
+  ],
+  softSkills: [
+    {
+      type: String,
+      trim: true
+    }
+  ],
+  interests: [
+    {
+      type: String,
+      trim: true
+    }
+  ],
   experiences: [{ type: Schema.Types.ObjectId, ref: 'Experience' }],
   educations: [{ type: Schema.Types.ObjectId, ref: 'Education' }],
   userInfos: [{ type: Schema.Types.ObjectId, ref: 'UserInfo'}]

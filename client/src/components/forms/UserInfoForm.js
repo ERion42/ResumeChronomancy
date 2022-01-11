@@ -115,21 +115,14 @@ const UserInfoForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
+                <br />
 
-                <div class="container">
-                        <div class="row">
-                            <div class="col">
-                            <Button 
-                                className="padding mb-2 bg-dark btn-outline-dark w-100 align-center text-white"
-                                disabled={!(userFormData.firstName && userFormData.lastName && userFormData.address && userFormData.phoneNumber && userFormData.email)}
-                                type="submit"
-                                variant="success"
-                            >Submit</Button>
-
-                            </div>
-                        </div>
-                    </div>                                
-
+                <Button 
+                    disabled={!(userFormData.firstName && userFormData.lastName && userFormData.address && userFormData.phoneNumber && userFormData.email)}
+                    type="submit"
+                    variant="success"
+                    className='offset-md-5'
+                >Submit</Button>
 
             </Form>
         </>

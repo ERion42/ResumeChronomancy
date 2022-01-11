@@ -30,7 +30,8 @@ function NavBar({ currentPage, handlePageChange }) {
                             onClick={() => handlePageChange('Education')}
                             className="nav-link px-2 text-white">
                                 Education
-                            </a></li>
+                            </a>
+                        </li>
                         <li>
                             <a href="#experience" 
                             onClick={() => handlePageChange('Experience')}
@@ -43,6 +44,13 @@ function NavBar({ currentPage, handlePageChange }) {
                             onClick={() => handlePageChange('UserPage')}
                             className="nav-link px-2 text-white">
                                 My Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#user" 
+                            onClick={() => handlePageChange('MyDocument')}
+                            className="nav-link px-2 text-white">
+                                Resume
                             </a>
                         </li>
                     </ul>

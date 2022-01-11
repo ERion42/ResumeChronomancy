@@ -1,492 +1,279 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import EducationForm from '../../components/forms/EducationForm';
+import ExperienceForm from '../../components/forms/ExperiencesForm';
+import { useParams, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
+import SiteContainer from '../../components/siteContainer';
+import MyDocument from './Resume/pdfCreate';
 import Auth from '../../utils/auth';
 import decode from 'jwt-decode'
+import { saveEducations, saveExperiences, saveTechnicalSkill, saveLanguage, saveSoftSkill, saveInterest, getSavedEducations, getSavedExperiences, getSavedTechnicalSkills, getSavedLanguage, getSavedSoftSkill, getSavedInterest, getSavedUserInfo } from '../../utils/localstorage';
+
+const educationArray = [];
+const experienceArray = [];
+const technicalSkillArray = [];
+const languageArray = [];
+const softSkillsArray = [];
+const interestsArray = [];
 
 function Dashboard() {
+    
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log(token)
+   
     const decoded = decode(token)
-    console.log(decoded)
+  
     const profileId = useParams();
     const { data } = useQuery(QUERY_ME, {
         variables: { profileId: decoded.data._id }
     })
+    
 
     const profile = data?.me || {}
-    console.log(profile);
+    console.log(profile)
+    const educations = profile.educations;
 
-      const [checked, setChecked]=React.useState(false);
-      const [checkedOne, setCheckedOne] = React.useState(false);
-      const [checkedTwo, setCheckedTwo] = React.useState(false);
-      const [checkedThree, setCheckedThree] = React.useState(false);
-      const [checkedFour, setCheckedFour] = React.useState(false);
-      const [checkedFive, setCheckedFive] = React.useState(false);
-      const [checkedSix, setCheckedSix] = React.useState(false);
-      const [checkedSeven, setCheckedSeven] = React.useState(false);
-      const [checkedEight, setCheckedEight] = React.useState(false);
-      const [checkedNine, setCheckedNine] = React.useState(false);
-      const [checkedTen, setCheckedTen] = React.useState(false);
-      const [checkedEleven, setCheckedEleven] = React.useState(false);
-      const [checkedTwelve, setCheckedTwelve] = React.useState(false);
-      const [checkedThirteen, setCheckedThirteen] = React.useState(false);
-      const [checkedFourteen, setCheckedFourteen] = React.useState(false);
+    const experiences = profile.experiences;
+    const technicalSkills = profile.technicalSkills;
+    const languages = profile.languages;
+    const softSkills = profile.softSkills;
+    const interests = profile.interests;
+    const userInfos = profile.userInfos;
+    console.log(educations);
+
+    const savedEducations = getSavedEducations();
+    const savedExperiences = getSavedExperiences();
+    const savedTechnicalSkills = getSavedTechnicalSkills();
+    const savedLanguages = getSavedLanguage();
+    const savedSoftSkills = getSavedSoftSkill();
+    const savedInterests = getSavedInterest();
     
-      const handleChange = () => {
-          setChecked(!checked)
-      }
-      const handleChangeOne = () => {
-        setCheckedOne(!checkedOne);
-      };
-      const handleChangeTwo = () => {
-        setCheckedTwo(!checkedTwo);
-      };
-      const handleChangeThree = () => {
-        setCheckedThree(!checkedThree);
-      };
-      const handleChangeFour = () => {
-        setCheckedFour(!checkedFour);
-      };
-      const handleChangeFive = () => {
-        setCheckedFive(!checkedFive);
-      };
-      const handleChangeSix = () => {
-        setCheckedSix(!checkedSix);
-      };
-      const handleChangeSeven = () => {
-        setCheckedSeven(!checkedSeven);
-      };
-      const handleChangeEight = () => {
-        setCheckedEight(!checkedEight);
-      };
-      const handleChangeNine = () => {
-        setCheckedNine(!checkedNine);
-      };
-      const handleChangeTen = () => {
-        setCheckedTen(!checkedTen);
-      };
-      const handleChangeEleven = () => {
-        setCheckedEleven(!checkedEleven);
-      };
-      const handleChangeTwelve = () => {
-        setCheckedTwelve(!checkedTwelve);
-      };
-      const handleChangeThirteen = () => {
-        setCheckedThirteen(!checkedThirteen);
-      };
-      const handleChangeFourteen = () => {
-        setCheckedFourteen(!checkedFourteen);
-      };
+
+    const handleSaveEducation = async (education) => {
+        educationArray.push(education)
+        saveEducations(educationArray)
+    }
+
+    const handleSaveExperience = async (experience) => {
+        experienceArray.push(experience)
+        saveExperiences(experienceArray)
+    }
+
+    const handleSaveTechnicalSkill = async (technicalSkill) => {
+        technicalSkillArray.push(technicalSkill);
+        saveTechnicalSkill(technicalSkillArray)
+    }
+
+    const handleSaveLanguage = async (language) => {
+        languageArray.push(language)
+        saveLanguage(languageArray)
+    }
+
+    const handleSaveSoftSkill = async (softSkill) => {
+        softSkillsArray.push(softSkill)
+        saveSoftSkill(softSkillsArray)
+    }
+
+    const handleSaveInterest = async (interest) => {
+        interestsArray.push(interest)
+        saveInterest(interestsArray)
+    }
+
+    const TechnicalSkillItems = savedTechnicalSkills?.map((technicalSkill) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={technicalSkill}>
+                <div className="row">
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1" key={technicalSkill.id}>{technicalSkill}</h6>
+                            {/* <button type="submit" onClick={() => handleSaveTechnicalSkill(technicalSkill)}>Save</button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const LanguageItems = savedLanguages?.map((language) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={language}>
+                <div className="row">
+            
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{language}</h6>
+                            {/* <button type="submit" onClick={() => handleSaveLanguage(language)}>Save</button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const SoftSkillItems = savedSoftSkills?.map((softSkill) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={softSkill}>
+                <div className="row">
+                
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{softSkill}</h6>
+                            {/* <button type="submit" onClick={() => handleSaveSoftSkill(softSkill)}>Save</button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    const InterestItems = savedInterests?.map((interest) => {
+        return (
+            <div className="container" data-bs-toggle="tooltip" data-bs-placement="top" title={interest}>
+                <div className="row">
+            
+                    <div className="col">
+                        <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                            <h6 className="mb-1">{interest}</h6>
+                            {/* <button type="submit" onClick={() => handleSaveInterest(interest)}>Save</button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+    
+    // Waiting for forms for Skills and Experience... odds are we're going to have to re-do this one. I feel like we probably need 
+
+    
     return (
-        <div className="container ">
-            <div className="row flex-lg-row-reverse align-items-center">
-                <div className="col bg-primary rounded m-1 mt-3 p-3 text-center text-white">
-                    <h1>User Dashboard</h1>
-                </div>
-            </div>            
-            <div class="row">
-                <div className="col-lg-4 bg-primary rounded m-1 pb-4 mt-4 text-white">
-                    <h2>Education</h2>
-                    <ul className="list-group checkbox-list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checked}
-                                            onChange={handleChange}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
-                                        </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+        <div className="fluid-container">
 
-                        <a href="#dashboard" className="list-group-item list-group-item-action" >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedOne}
-                                            onChange={handleChangeOne}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
-                                        </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+            <div className="row">
+                {userInfos?.length ? (userInfos.map(userInfo => {
+                    return (
+                        <div>
+                            <h2 className='text-center'>Welcome back, </h2>
+                            <h2 className='text-center'>{userInfo.firstName} {userInfo.lastName}</h2>
+                        </div>
 
-                        <a href="#dashboard" className="list-group-item list-group-item-action" >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedTwo}
-                                            onChange={handleChangeTwo}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
-                                        </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action" >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedThree}
-                                            onChange={handleChangeThree}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
-                                        </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action" >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedFour}
-                                            onChange={handleChangeFour}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">School</h5>
-                                        </div>
-                                        <p className="mb-1">Degree and Major</p>
-                                        <small>Year of Graduation</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </ul>
-                </div>
-                <div className="col-lg bg-primary rounded m-1 mt-4 pb-2 text-white">
-                    <h2>Skills</h2>
-                    <ul className="list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedFive}
-                                            onChange={handleChangeFive}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedSix}
-                                            onChange={handleChangeSix}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedSeven}
-                                            onChange={handleChangeSeven}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedEight}
-                                            onChange={handleChangeEight}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedNine}
-                                            onChange={handleChangeNine}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
                         
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
+                    )
+                })
+                ) : (
+                    <h2>Welcome, {profile.username}</h2>
+                )}
+            </div>
+            <div className="row justify-content-center">
+                <div className="col-md-3 bg-primary rounded m-1 pb-4 m-2">
+                    <h2 className="text-center text-white">Educations:</h2>
+                    
+                    <ul className="list-group checkbox-list-group">
+                        {(savedEducations?.length > 0) ? (savedEducations.map((education) => {
+                            return (
+                                <div className="container card mt-2 mb-2">
+                                    <div className="row">
+                                        <div className="col" data-bs-toggle="tooltip" data-bs-placement="top" title={education.graduationDate}>
+                                            <div className="d-flex w-100 justify-content-between">
+                                                <h5 className="mb-1">{education.degree}</h5>
+                                            </div>
+                                            <h5 className="mb-1">{education.major}</h5>
+                                            <p className="mb-1">{education.school}</p>
+                                            <small>Graduation Date: {education.graduationDate}</small>
+                                            {/* <button className="mb-2 offset-md-5" type="submit" onClick={() => handleSaveEducation(education)}>Save</button> */}
                                         </div>
-                                        <p className="mb-1">Skill Type</p>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Skill Name</h5>
-                                        </div>
-                                        <p className="mb-1">Skill Type</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
+                            )
+                        })
+                            
+                        ) : (
+                            <h5>You have not entered any education information!</h5>
+                        )}
                     </ul>
                 </div>
-                <div className="col-lg bg-primary rounded m-1 mt-4 pb-2 text-white">
-                    <h3>Experience</h3>
+                <div className="col-md-5 bg-primary rounded m-1 mt-2">
+                    <h2 className="text-center text-white">Skills:</h2>
                     <ul className="list-group">
-                        {/* Template for Item List */}
-                        <a href="#dashboard" className="list-group-item list-group-item-action" aria-current="true"  >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedTen}
-                                            onChange={handleChangeTen}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
+                        <div className="row justify-content-between">
+                            <div className="card mt-2 m-4 col-5">
+                                <h5 className="card-header border-dark border-3 text-center">Technical Skills:</h5>
+                                {savedTechnicalSkills?.length ? (
+                                    <ul className="list-group card-body">
+                                        {TechnicalSkillItems}
+                                    </ul>
+                                ) : (
+                                    <h4>No Technical Skills Added</h4>
+                                )}
+                            </div>
+                        
+                            <div className="card mt-2 m-4 col-5">
+                                <h5 className="card-header border-dark border-3 text-center">Languages:</h5>
+                                {savedLanguages?.length ? (
+                                    <ul className="list-group">
+                                        {LanguageItems}
+                                    </ul>
+                                ) : (
+                                    <h4>No Languages Added</h4>
+                                )}
+                            </div>
+
+                        </div>
+                        
+                        <div className="row justify-content-between">
+                        
+                            <div className="card mt-3 mb-3 m-4 col-5">
+                                <h5 className="card-header border-dark border-3 text-center">Soft Skills:</h5>
+                                {savedSoftSkills?.length ? (
+                                    <ul className="list-group">
+                                        {SoftSkillItems}
+                                    </ul>
+                                ) : (
+                                    <h4>You have no soft skills entered.</h4>
+                                )}
+                            </div>
+                            
+                            <div className="card mt-3 mb-3 m-4 col-5">
+                                <h5 className="card-header border-dark border-3 text-center">Interests:</h5>
+                                {savedInterests?.length ? (
+                                    <ul className="list-group">
+                                        {InterestItems}
+                                    </ul>
+                                ) : (
+                                    <h4>You have no interests entered.</h4>
+                                )}
+                            </div>
+                        </div>
+                        
+                    </ul>
+                </div>
+                <div className="col-md-3 bg-primary rounded m-1 mt-2">
+                    <h2 className="text-center text-white">Experiences:</h2>
+                    <ul className="list-group">
+                        {(savedExperiences?.length > 0) ? (savedExperiences.map((experience, idx) => {
+                            return (
+                                <div className="container card mt-2 mb-2">
+                                    <div className="row">
+                                        <div className="col" data-bs-toggle="tooltip" data-bs-placement="top" title={experience.description} key={experience._id}>
+                                            <div className="d-flex w-100 justify-content-between mt-1 mb-1">
+                                                <h5 className="mb-1">{experience.position}</h5>
+                                            </div>
+                                            <h5 className="mb-1">{experience.organization}</h5>
+                                            <p className="mb-1">{experience.location}</p>
+                                            {/* <button className="mb-2 offset-md-5" type="submit" onClick={() => handleSaveExperience(experience)}>Save</button> */}
                                         </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedEleven}
-                                            onChange={handleChangeEleven}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
-                                        </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedTwelve}
-                                            onChange={handleChangeTwelve}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
-                                        </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedThirteen}
-                                            onChange={handleChangeThirteen}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
-                                        </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#dashboard" className="list-group-item list-group-item-action">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-1 p-0">   
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            checked={checkedFourteen}
-                                            onChange={handleChangeFourteen}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">Organization</h5>
-                                        </div>
-                                        <p className="mb-1">Title</p>
-                                        <small>Years Active</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
+                            )
+                            })
+                            
+                        ) : (
+                            <h5>You have not entered any experience information!</h5>
+                        )}
                     </ul>
                 </div>
             </div>
             <div className="row justify-content-center">
-                <button className="col-6 bg-success rounded m-1 text-center text-white">
+                <button className="col-6 bg-success rounded m-1 text-center text-white" type='button'>
                     <h1>Generate Resume</h1>
                 </button>
             </div>
