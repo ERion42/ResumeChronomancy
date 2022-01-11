@@ -7,7 +7,7 @@ function LandingPage({ currentPage }) {
     return (
         <section className="container-fluid">
             {/* Title */}
-            <h1 className="text-center m-1 p-3">RESUME GEOMANCY</h1>
+            <h1 className="text-center m-1 p-3">RESUME CHRONOMANCY</h1>
 
             {/* This here is the carousel- It should contain a few illustrative pictures and little text blurbs */}
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
